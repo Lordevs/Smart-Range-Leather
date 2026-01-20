@@ -36,7 +36,7 @@ export function TextWithImageSection({
 }: TextWithImageSectionProps) {
     return (
         <section
-            className={cn("w-full py-20 px-6 lg:py-32", className)}
+            className={cn("w-full py-20 px-6 lg:py-32 bg-[#faf7f0]", className)}
             style={{ backgroundColor }}
         >
             <div className="mx-auto max-w-7xl">
