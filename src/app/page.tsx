@@ -8,6 +8,7 @@ import { ManufacturingProcess } from "@/components/common/manufacturing-process"
 import { HomeClientsSection } from "@/components/home-clients-section";
 import { HomeSustainabilitySection } from "@/components/home-sustainability-section";
 import { HomeCertificationsSection } from "@/components/home-certifications-section";
+import { HomeContactSection } from "@/components/home-contact-section";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <HomeCertificationsSection />
       <HomeSustainabilitySection />
       <HomeClientsSection />
+      <HomeContactSection />
     </main>
   );
 }
