@@ -6,7 +6,6 @@ import { HomeWhyChooseUs } from "@/components/home-why-choose-us";
 import { HomeManufacturingProcess } from "@/components/home-manufacturing-process";
 import { HomeCapabilitiesSection } from "@/components/home-capabilities-section";
 import { HomeCertificationsSection } from "@/components/home-certifications-section";
-import { HomeCatalogueCTA } from "@/components/home-catalogue-cta";
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <HomeHeroSection />
       <StatsSection />
       <AboutSection />
-      <HomeCatalogueCTA />
       <OurProductsSection />
       <HomeWhyChooseUs />
       <HomeCapabilitiesSection />
