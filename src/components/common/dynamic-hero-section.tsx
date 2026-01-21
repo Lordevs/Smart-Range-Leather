@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 interface DynamicHeroSectionProps {
     imageSrc?: string;
@@ -23,6 +24,20 @@ interface DynamicHeroSectionProps {
     contentClassName?: string;
     buttonContainerClassName?: string;
 }
+
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+};
+
+const staggerContainer = {
+    animate: {
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
 
 export function DynamicHeroSection({
     imageSrc,
@@ -48,13 +63,20 @@ export function DynamicHeroSection({
             {/* Background Media */}
             <div className="absolute inset-0">
                 {imageSrc && (
-                    <Image
-                        src={imageSrc}
-                        alt={imageAlt}
-                        fill
-                        className="object-cover"
-                        priority
-                    />
+                    <motion.div
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className="relative h-full w-full"
+                    >
+                        <Image
+                            src={imageSrc}
+                            alt={imageAlt}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </motion.div>
                 )}
                 {videoSrc && (
                     <video
@@ -78,33 +100,50 @@ export function DynamicHeroSection({
 
             {/* Content */}
             <div className={cn("container relative z-20 mx-auto flex h-full flex-col justify-center px-6 lg:px-12", contentClassName)}>
-                <div className="max-w-[1300px] space-y-12">
+                <motion.div
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                    className="max-w-[1300px] space-y-12"
+                >
                     {/* Heading */}
                     <div className="space-y-6">
-                        <h1 className="text-5xl text-white md:text-6xl leading-[1.05] font-bold tracking-tight font-serif">
+                        <motion.h1
+                            variants={fadeInUp}
+                            className="text-5xl text-white md:text-6xl lg:text-7xl leading-[1.05] font-bold tracking-tight font-serif"
+                        >
                             {title}
-                        </h1>
+                        </motion.h1>
 
                         {/* Subtext */}
-                        <p className="max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide">
+                        <motion.p
+                            variants={fadeInUp}
+                            className="max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide"
+                        >
                             {subtext}
-                        </p>
+                        </motion.p>
                     </div>
 
                     {/* List/Features */}
                     {features.length > 0 && (
-                        <div className="flex flex-wrap items-center gap-x-12 gap-y-4 text-base font-normal text-white/80 italic">
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex flex-wrap items-center gap-x-12 gap-y-4 text-base font-normal text-white/80 italic"
+                        >
                             {features.map((feature, idx) => (
                                 <div key={idx} className="flex items-center gap-3">
                                     <div className="h-1.5 w-1.5 rounded-full bg-primary" />
                                     <span>{feature}</span>
                                 </div>
                             ))}
-                        </div>
+                        </motion.div>
                     )}
 
                     {/* Buttons */}
-                    <div className={cn("flex flex-col sm:flex-row items-center gap-5 pt-4", buttonContainerClassName)}>
+                    <motion.div
+                        variants={fadeInUp}
+                        className={cn("flex flex-col sm:flex-row items-center gap-5 pt-4", buttonContainerClassName)}
+                    >
                         {primaryButtonLabel && (
                             <Button
                                 size="lg"
@@ -123,15 +162,20 @@ export function DynamicHeroSection({
                                 {secondaryButtonLabel}
                             </Button>
                         )}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 1 }}
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2"
+                >
                     <div className="w-[28px] h-[46px] border-2 border-white/40 rounded-full flex justify-center items-start pt-2">
                         <div className="w-1.5 h-2.5 bg-white/60 rounded-full animate-bounce" />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
