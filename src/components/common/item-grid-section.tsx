@@ -13,6 +13,7 @@ interface GridItem {
   description?: string;
   image: string;
   link?: string;
+  gridClassName?: string;
 }
 
 interface ItemGridSectionProps {
@@ -23,6 +24,7 @@ interface ItemGridSectionProps {
   buttonLabel?: string;
   onButtonClick?: () => void;
   className?: string;
+  gridClassName?: string;
 }
 
 export function ItemGridSection({
@@ -33,6 +35,7 @@ export function ItemGridSection({
   buttonLabel,
   onButtonClick,
   className,
+  gridClassName,
 }: ItemGridSectionProps) {
   return (
     <section className={cn("w-full bg-white py-20 px-6", className)}>
@@ -57,7 +60,11 @@ export function ItemGridSection({
         </div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className={cn(
+            "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3",
+            gridClassName,
+          )}>
           {items.map((item, index) => (
             <motion.div
               key={index}
