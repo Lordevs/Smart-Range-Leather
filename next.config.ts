@@ -22,12 +22,6 @@ const nextConfig: NextConfig = {
 	// Production optimizations
 	productionBrowserSourceMaps: false,
 
-	// Turbopack configuration for faster builds
-	turbopack: {
-		// Configure Turbopack root directory
-		root: process.cwd(),
-	},
-
 	// Experimental features for optimization
 	experimental: {
 		serverActions: {
