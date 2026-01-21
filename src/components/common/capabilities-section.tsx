@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, LucideIcon } from "lucide-react";
@@ -33,7 +33,12 @@ export function CapabilitiesSection({
   onButtonClick,
   className,
 }: CapabilitiesSectionProps) {
+  const [mounted, setMounted] = useState(false);
   const [activeItem, setActiveItem] = useState<CapabilityItem>(items[0]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section
@@ -87,7 +92,7 @@ export function CapabilitiesSection({
                   </span>
 
                   {/* Subtle underline for active item */}
-                  {activeItem.id === item.id && (
+                  {mounted && activeItem.id === item.id && (
                     <motion.div
                       layoutId="active-border"
                       className="absolute bottom-0 left-0 h-[3px] w-full bg-primary"
