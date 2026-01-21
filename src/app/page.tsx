@@ -5,6 +5,7 @@ import { OurProductsSection } from "@/components/our-products-section";
 import { WhyChooseUs } from "@/components/common/why-choose-us";
 import { HomeCapabilitiesSection } from "@/components/home-capabilities-section";
 import { ManufacturingProcess } from "@/components/common/manufacturing-process";
+import { HomeClientsSection } from "@/components/home-clients-section";
 import { HomeSustainabilitySection } from "@/components/home-sustainability-section";
 import { HomeCertificationsSection } from "@/components/home-certifications-section";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <ManufacturingProcess />
       <HomeCertificationsSection />
       <HomeSustainabilitySection />
+      <HomeClientsSection />
     </main>
   );
 }
