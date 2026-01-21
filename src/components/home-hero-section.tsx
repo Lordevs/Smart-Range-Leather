@@ -1,5 +1,3 @@
-"use client";
-
 import { DynamicHeroSection } from "./common/dynamic-hero-section";
 
 export default function HeroSection() {
