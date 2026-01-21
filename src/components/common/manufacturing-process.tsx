@@ -76,27 +76,27 @@ export function ManufacturingProcess({
     <section className={cn("w-full py-24", className)}>
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-24">
-          <p className="border-b-accent-foreground inline-block border-b px-4 pb-2 text-sm font-bold uppercase tracking-[0.25em] text-[#B8641A]/50 mb-8">
+          <p className="inline-block border-b border-b-[#B8641A]/50 px-4 text-sm font-bold uppercase tracking-[0.25em] text-[#B8641A]/40 mb-8">
             {badge}
           </p>
-          <h2 className="font-serif text-5xl leading-[1.1] text-foreground md:text-6xl lg:text-7xl mx-auto max-w-5xl">
+          <h2 className="font-serif text-5xl leading-[1.1] text-foreground md:text-6xl lg:text-6xl mx-auto max-w-5xl">
             {title}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-20">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-20">
           {steps.map((step, index) => (
             <Card
               key={index}
-              className="bg-transparent border-none shadow-none p-0">
-              <span className="text-6xl md:text-7xl font-serif text-primary/30 block mb-8 font-light">
+              className="bg-transparent border-none shadow-none p-0 max-w-xs">
+              <span className="text-6xl md:text-6xl font-serif text-[#B8641A]/40 block font-light">
                 {step.number}
               </span>
               <CardContent className="p-0 space-y-4">
-                <h3 className="text-xl font-bold text-foreground leading-snug tracking-tight">
+                <h3 className="text-xl max-w-50 font-medium text-foreground leading-snug tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-[14px] leading-relaxed font-medium opacity-80 max-w-[260px]">
+                <p className="text-muted-foreground text-[14px] leading-relaxed font-medium opacity-80 max-w-">
                   {step.description}
                 </p>
               </CardContent>
