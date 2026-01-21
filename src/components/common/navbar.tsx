@@ -55,10 +55,12 @@ export default function Navbar() {
 
         {/* CTA Button & Mobile Menu */}
         <div className="flex items-center gap-4">
-          <Button className="hidden sm:flex h-9 cursor-pointer rounded-full bg-primary px-7! text-md text-primary-foreground hover:bg-[#FFC46B] shadow-sm transition-all hover:gap-3 gap-2">
-            Request a Quote
-            <ArrowRight className="h-5 w-5 stroke-[2.5px]" />
-          </Button>
+          <Link href={ROUTES.CONTACT}>
+            <Button className="hidden sm:flex h-9 cursor-pointer rounded-full bg-primary px-7! text-md text-primary-foreground hover:bg-[#FFC46B] shadow-sm transition-all hover:gap-3 gap-2">
+              Request a Quote
+              <ArrowRight className="h-5 w-5 stroke-[2.5px]" />
+            </Button>
+          </Link>
 
           {/* Mobile Menu */}
           <Sheet>
@@ -88,10 +90,12 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="mt-4 pt-6 border-t px-4 border-secondary">
-                  <Button className="w-full h-12 rounded-full cursor-pointer bg-primary text-primary-foreground hover:bg-primary/80 gap-2">
-                    Request a Quote
-                    <ArrowRight className="h-5 w-5" />
-                  </Button>
+                  <Link href={ROUTES.CONTACT}>
+                    <Button className="w-full h-12 rounded-full cursor-pointer bg-primary text-primary-foreground hover:bg-primary/80 gap-2">
+                      Request a Quote
+                      <ArrowRight className="h-5 w-5" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
