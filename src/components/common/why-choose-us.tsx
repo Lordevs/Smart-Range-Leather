@@ -34,9 +34,11 @@ export function WhyChooseUs({
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20">
           {badge && (
-            <p className="border-b-accent-foreground inline-block border-b px-4 pb-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground mb-6">
-              {badge}
-            </p>
+            <div className="inline-block border-b border-[#6C3403] pb-1 mb-6">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403]">
+                {badge}
+              </span>
+            </div>
           )}
           <h2 className="font-serif text-xl leading-[1.1] text-foreground md:text-5xl lg:text-7xl mx-auto max-w-5xl">
             {title}

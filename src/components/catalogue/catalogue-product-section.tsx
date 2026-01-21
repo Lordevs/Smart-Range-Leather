@@ -16,22 +16,16 @@ const products = [
     image: "/images/products/shearling-and-aviatorjackets.png",
   },
   {
+    title: "Custom Leather Products",
+    description:
+      "Bespoke manufacturing solutions tailored to your brand's unique specifications and design vision.",
+    image: "/images/sections/approach-section.png",
+  },
+  {
     title: "Leather Bags and Small Goods",
     description:
       "Exquisite leather bags and daily essentials, showcasing impeccable craftsmanship and functional luxury.",
     image: "/images/products/leather-bags-and-small-goods.png",
-  },
-  {
-    title: "Leather Accessories",
-    description:
-      "Sophisticated belts, gloves, and small leather items designed to complement a premium lifestyle.",
-    image: "/images/products/leather-accessories.png",
-  },
-  {
-    title: "Custom and Private Label Collections",
-    description:
-      "Bespoke manufacturing solutions tailored to your brand's unique specifications and design vision.",
-    image: "/images/products/custom-and-private-cabel-collections.png",
   },
 ];
 
