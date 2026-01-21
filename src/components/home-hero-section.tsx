@@ -27,7 +27,7 @@ export default function HeroSection() {
       ]}
       primaryButtonLabel="Request a Quote"
       secondaryButtonLabel="Explore Our Capabilities"
-      overlayGradient="linear-gradient(to right, rgba(71, 53, 24, 0.82) 0%, rgba(71, 53, 24, 0.82) 50%, rgba(71, 53, 24, 0.5) 100%)"
+      overlayGradient="linear-gradient(to right, rgba(10, 5, 0, 0.89) 0%, rgba(10, 5, 0, 0.89) 50%, rgba(6, 6, 6, 0.74) 100%)"
     />
   );
 }

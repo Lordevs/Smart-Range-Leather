@@ -19,12 +19,10 @@ export default function Home() {
       <StatsSection />
       <AboutSection />
       <OurProductsSection />
-      <OurServicesSection />
       <HomeWhyChooseUs />
       <HomeCapabilitiesSection />
       <HomeManufacturingProcess />
       <HomeCertificationsSection />
-      <HomeCatalogueCTA />
       <HomeSustainabilitySection />
       <HomeClientsSection />
       <HomeContactSection />

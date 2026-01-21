@@ -178,7 +178,7 @@ export function ContactSection({
                 <Textarea
                   id="message"
                   placeholder="Write your message.."
-                  className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-4 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all min-h-0 h-auto field-sizing-content bg-transparent resize-none"
+                  className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all min-h-0 h-auto field-sizing-content bg-transparent resize-none"
                 />
               </div>
               <div className="md:col-span-2 flex justify-end pt-12 items-end">
