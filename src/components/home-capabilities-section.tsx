@@ -56,7 +56,7 @@ const capabilities: CapabilityItem[] = [
     id: "inspection",
     title: "Quality inspection and packing",
     icon: ClipboardCheck,
-    image: "/images/about-us.png",
+    image: "/images/sections/about-section.png",
   },
   {
     id: "logistics",

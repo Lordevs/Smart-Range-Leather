@@ -16,7 +16,7 @@ export function AboutSection() {
         "From sourcing top-grade hides to final finishing, every stage of production is handled with precision, consistency, and craftsmanship.",
         "We don't just manufacture products. We help brands bring leather collections to market with confidence.",
       ]}
-      imageSrc="/images/about-us.png"
+      imageSrc="/images/sections/about-section.png"
       imageAlt="Leather Workshop"
       accentColor="#6C3403"
       circleColor="#ffcc80"
