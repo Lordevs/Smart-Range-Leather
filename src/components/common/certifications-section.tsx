@@ -6,82 +6,88 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 interface CertificationItem {
-    title: string;
-    subtitle: string;
-    link?: string;
+  title: string;
+  subtitle: string;
+  link?: string;
 }
 
 interface CertificationsSectionProps {
-    tag?: string;
-    title: ReactNode;
-    description?: string;
-    items: CertificationItem[];
-    className?: string;
+  tag?: string;
+  title: ReactNode;
+  description?: string;
+  items: CertificationItem[];
+  className?: string;
 }
 
 export function CertificationsSection({
-    tag = "CERTIFICATIONS",
-    title,
-    description,
-    items,
-    className,
+  tag = "CERTIFICATIONS",
+  title,
+  description,
+  items,
+  className,
 }: CertificationsSectionProps) {
-    return (
-        <section className={cn("w-full bg-secondary py-24 px-6 md:px-12", className)}>
-            <div className="mx-auto max-w-7xl">
-                {/* Header Section */}
-                <div className="mb-20 flex flex-col items-center text-center space-y-6">
-                    {tag && (
-                        <div className="inline-block border-b border-[#B8641A]">
-                            <span className="text-xs uppercase tracking-[0.2em] text-[#B8641A]">
-                                {tag}
-                            </span>
-                        </div>
-                    )}
-                    <h2 className="max-w-3xl text-5xl font-normal leading-tight text-[#1a1a1a] md:text-6xl font-serif">
-                        {title}
-                    </h2>
-                    {description && (
-                        <p className="max-w-2xl text-lg text-[#6B6B6B] leading-relaxed">
-                            {description}
-                        </p>
-                    )}
-                </div>
-
-                {/* Certification Cards Grid */}
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {items.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="group flex flex-col bg-white p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all hover:shadow-[0_10px_40px_rgba(0,0,0,0.06)] h-full"
-                        >
-                            <div className="mb-8">
-                                <Award className="h-10 w-10 text-[#B8641A]" strokeWidth={1.5} />
-                            </div>
-
-                            <div className="grow space-y-2">
-                                <h3 className="text-2xl font-normal text-[#1a1a1a] font-serif">
-                                    {item.title}
-                                </h3>
-                                <p className="text-xs font-bold uppercase tracking-wider text-[#B8641A]">
-                                    {item.subtitle}
-                                </p>
-                            </div>
-
-                            <div className="mt-12">
-                                <button className="group/btn flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#1a1a1a] transition-colors hover:text-primary">
-                                    <span>LEARN MORE</span>
-                                    <ArrowRight className="h-3 w-3 transition-transform group-hover/btn:translate-x-1" />
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+  return (
+    <section
+      className={cn("w-full bg-secondary py-28 px-6 md:px-12", className)}>
+      <div className="mx-auto max-w-7xl">
+        {/* Header Section */}
+        <div className="mb-20 flex flex-col items-center text-center space-y-6">
+          {tag && (
+            <div className="inline-block border-b border-[#6C3403] pb-1">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403]">
+                {tag}
+              </span>
             </div>
-        </section>
-    );
+          )}
+          <h2 className="max-w-4xl text-5xl font-normal leading-[1.1] text-foreground md:text-6xl lg:text-7xl font-serif">
+            {title}
+          </h2>
+          {description && (
+            <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
+              {description}
+            </p>
+          )}
+        </div>
+
+        {/* Certification Cards Grid */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className="group flex flex-col bg-white p-12 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all hover:shadow-[0_20px_60px_rgb(0,0,0,0.05)] h-full rounded-2xl">
+              <div className="mb-10">
+                <div className="h-16 w-16 bg-[#6C3403]/5 rounded-xl flex items-center justify-center transition-colors group-hover:bg-[#6C3403]/10">
+                  <Award className="h-8 w-8 text-[#6C3403]" strokeWidth={1.2} />
+                </div>
+              </div>
+
+              <div className="grow space-y-3">
+                <h3 className="text-2xl md:text-3xl font-normal text-foreground font-serif leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C3403]/60">
+                  {item.subtitle}
+                </p>
+              </div>
+
+              <div className="mt-14 pt-8 border-t border-black/5">
+                <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403] transition-all hover:gap-4">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

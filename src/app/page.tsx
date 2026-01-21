@@ -7,10 +7,11 @@ import { HomeWhyChooseUs } from "@/components/home-why-choose-us";
 import { HomeManufacturingProcess } from "@/components/home-manufacturing-process";
 import { HomeCapabilitiesSection } from "@/components/home-capabilities-section";
 import { HomeCertificationsSection } from "@/components/home-certifications-section";
+import { HomeCatalogueCTA } from "@/components/home-catalogue-cta";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       <HomeHeroSection />
       <StatsSection />
       <AboutSection />
@@ -20,6 +21,7 @@ export default function Home() {
       <HomeCapabilitiesSection />
       <HomeManufacturingProcess />
       <HomeCertificationsSection />
+      <HomeCatalogueCTA />
     </main>
   );
 }
