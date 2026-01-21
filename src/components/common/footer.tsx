@@ -21,21 +21,21 @@ const socialLinks = [
   { icon: Linkedin, href: "#", name: "LinkedIn" },
 ];
 
-const quickLinks = NAV_ITEMS
+const quickLinks = NAV_ITEMS;
 
-const productLinks = [
-  { name: "Leather Jackets", href: "/products/leather-jackets" },
-  { name: "Shearling Jackets", href: "/products/shearling-jackets" },
-  { name: "Leather Bags", href: "/products/leather-bags" },
-  { name: "Accessories", href: "/products/accessories" },
-  { name: "Custom Collections", href: "/products/custom-collections" },
-];
+// const productLinks = [
+//   { name: "Leather Jackets", href: "/products/leather-jackets" },
+//   { name: "Shearling Jackets", href: "/products/shearling-jackets" },
+//   { name: "Leather Bags", href: "/products/leather-bags" },
+//   { name: "Accessories", href: "/products/accessories" },
+//   { name: "Custom Collections", href: "/products/custom-collections" },
+// ];
 
 export function Footer() {
   return (
     <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
           {/* Brand Column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -72,7 +72,11 @@ export function Footer() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="space-y-8">
             <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
               Quick Links
@@ -91,7 +95,7 @@ export function Footer() {
           </motion.div>
 
           {/* Products Column */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -111,7 +115,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           {/* Contact Column */}
           <motion.div
@@ -130,11 +134,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Phone className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
-                <span>+92 XXX XXXXXXX</span>
-              </li>
-              <li className="flex items-start gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
-                <MapPin className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
-                <span>Pakistan</span>
+                <span>+44 123 456 7890</span>
               </li>
             </ul>
           </motion.div>
