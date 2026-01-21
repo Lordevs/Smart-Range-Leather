@@ -1,12 +1,4 @@
-import {
-  ShoppingBag,
-  BookOpen,
-  Clock,
-  Palette,
-  Factory,
-  CircleCheck,
-  LucideIcon,
-} from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -16,70 +8,28 @@ export interface Feature {
   description: string;
 }
 
-export const DEFAULT_FEATURES: Feature[] = [
-  {
-    icon: ShoppingBag,
-    title: "Low Minimum Order Quantities",
-    description:
-      "Flexible production runs designed to support startups, growing brands, and test collections.",
-  },
-  {
-    icon: BookOpen,
-    title: "Extensive Design Library",
-    description:
-      "Hundreds of ready-to-produce patterns and styles to accelerate development.",
-  },
-  {
-    icon: Clock,
-    title: "Fast & Reliable Lead Times",
-    description:
-      "Streamlined manufacturing processes that deliver faster turnaround times.",
-  },
-  {
-    icon: Palette,
-    title: "Full Material Customisation",
-    description:
-      "Source, process, or custom finish any leather type, lining, hardware, or trim.",
-  },
-  {
-    icon: Factory,
-    title: "Vertically Integrated",
-    description:
-      "Greater quality control, cost efficiency, and production transparency.",
-  },
-  {
-    icon: CircleCheck,
-    title: "Quality Assurance",
-    description:
-      "Rigorous inspection processes ensuring the highest standards of craftsmanship.",
-  },
-];
-
 interface WhyChooseUsProps {
   badge?: string;
-  title?: React.ReactNode;
-  features?: Feature[];
+  title: React.ReactNode;
+  features: Feature[];
   className?: string;
 }
 
 export function WhyChooseUs({
-  badge = "WHY CHOOSE US",
-  title = (
-    <>
-      Why Brands Choose <br />
-      <span className="text-accent-foreground">Smart Range Leather</span>
-    </>
-  ),
-  features = DEFAULT_FEATURES,
+  badge,
+  title,
+  features = [],
   className,
 }: WhyChooseUsProps) {
   return (
     <section className={cn("w-full py-24 bg-card", className)}>
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-20">
-          <p className="border-b-accent-foreground inline-block border-b px-4 pb-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground mb-6">
-            {badge}
-          </p>
+          {badge && (
+            <p className="border-b-accent-foreground inline-block border-b px-4 pb-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground mb-6">
+              {badge}
+            </p>
+          )}
           <h2 className="font-serif text-xl leading-[1.1] text-foreground md:text-5xl lg:text-7xl mx-auto max-w-5xl">
             {title}
           </h2>
