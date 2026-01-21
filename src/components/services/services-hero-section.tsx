@@ -1,6 +1,6 @@
 "use client";
 
-import { DynamicHeroSection } from "./common/dynamic-hero-section";
+import { DynamicHeroSection } from "../common/dynamic-hero-section";
 
 export default function ServicesHeroSection() {
   return (
