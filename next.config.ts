@@ -1,8 +1,87 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+	/* config options here */
+	reactCompiler: true,
+
+	// Standalone output for optimized AWS Amplify deployment
+	output: "standalone",
+
+	images: {
+		// Unoptimized images to reduce build size and processing time
+		// unoptimized: true,
+		formats: ["image/avif", "image/webp"],
+		qualities: [75, 90],
+		minimumCacheTTL: 60,
+	},
+
+	// Optimize output
+	poweredByHeader: false,
+	compress: true,
+
+	// Production optimizations
+	productionBrowserSourceMaps: false,
+
+	// Turbopack configuration for faster builds
+	turbopack: {
+		// Configure Turbopack root directory
+		root: process.cwd(),
+	},
+
+	// Experimental features for optimization
+	experimental: {
+		serverActions: {
+			bodySizeLimit: "2mb",
+		},
+	},
+
+	async headers() {
+		return [
+			// Hashed Next.js build assets (immutable)
+			{
+				source: "/_next/static/:path*",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=31536000, immutable",
+					},
+				],
+			},
+
+			// Next.js image optimizer endpoint
+			{
+				source: "/_next/image",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=86400",
+					},
+				],
+			},
+
+			// Public images
+			{
+				source: "/images/:path*",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=31536000, immutable",
+					},
+				],
+			},
+
+			// SVGs anywhere
+			{
+				source: "/:path*.svg",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=31536000, immutable",
+					},
+				],
+			},
+		];
+	},
 };
 
 export default nextConfig;
