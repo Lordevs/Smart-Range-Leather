@@ -9,14 +9,21 @@ export default function HeroSection() {
       title={
         <>
           High Quality Leather Manufacturing <br className="hidden md:block" />
-          for <span className="text-primary">Global Brands</span> and <span className="text-primary">Retailers</span>
+          for{" "}
+          <span className="text-primary border-b-3 border-primary">
+            Global Brands
+          </span>{" "}
+          and{" "}
+          <span className="text-primary border-b-3 border-primary">
+            Retailers
+          </span>
         </>
       }
       subtext="Premium leather garments, shearling, bags, and accessories, manufactured with precision, flexibility, and uncompromising quality."
       features={[
         "Over 20 years of manufacturing excellence",
         "Low MOQs",
-        "On-time global delivery"
+        "On-time global delivery",
       ]}
       primaryButtonLabel="Request a Quote"
       secondaryButtonLabel="Explore Our Capabilities"
