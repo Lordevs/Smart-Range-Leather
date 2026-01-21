@@ -93,8 +93,8 @@ export function ItemGridSection({
                   hover: { y: 100, opacity: 0 },
                 }}
                 transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                className="absolute bottom-0 left-0 right-0 bg-[#FFCC80] py-6 px-4 text-center z-10">
-                <h3 className="text-xl font-bold text-[#6C3403] font-serif uppercase tracking-tight">
+                className="absolute bottom-0 left-0 right-0 bg-[#FFCC80] flex items-center justify-center px-4 text-center z-10 h-24">
+                <h3 className="text-xl font-bold text-[#6C3403] font-serif uppercase tracking-tight leading-tight">
                   {item.title}
                 </h3>
               </motion.div>
@@ -129,7 +129,7 @@ export function ItemGridSection({
           <div className="mt-16 flex justify-center">
             <Button
               onClick={onButtonClick}
-              className="group flex items-center space-x-3 rounded-full bg-[#6C3403] px-12 py-7 text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
+              className="group flex items-center space-x-3  rounded-full bg-[#6C3403] px-12! py-7! text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
               <span>{buttonLabel}</span>
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Button>

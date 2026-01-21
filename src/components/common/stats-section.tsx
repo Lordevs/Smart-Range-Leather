@@ -107,7 +107,7 @@ export function StatsSection() {
                 <h3 className="text-5xl font-serif font-normal tracking-tight text-white md:text-6xl">
                   <Counter value={stat.value} />
                 </h3>
-                <p className="text-sm font-medium text-white/70 leading-relaxed mx-auto uppercase tracking-widest max-w-[200px]">
+                <p className="text-sm font-medium text-white/90 leading-relaxed mx-auto uppercase tracking-widest max-w-[200px]">
                   {stat.label}
                 </p>
               </div>

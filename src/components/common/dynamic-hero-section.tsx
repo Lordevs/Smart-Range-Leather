@@ -161,7 +161,7 @@ export function DynamicHeroSection({
               <Button
                 size="lg"
                 onClick={onPrimaryButtonClick}
-                className="h-14 rounded-full bg-primary w-52 text-base text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
                 {primaryButtonLabel}
                 <ArrowRight className="h-4 w-4 stroke-[3px]" />
               </Button>
@@ -169,9 +169,8 @@ export function DynamicHeroSection({
             {secondaryButtonLabel && (
               <Button
                 size="lg"
-                variant="outline"
                 onClick={onSecondaryButtonClick}
-                className="h-14 rounded-full border-white/60 bg-[#2b2015] px-10 text-base text-white hover:bg-white/10 transition-all flex items-center justify-center">
+                className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center">
                 {secondaryButtonLabel}
               </Button>
             )}
