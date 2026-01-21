@@ -185,7 +185,15 @@ export function DynamicHeroSection({
           onClick={scrollToNext}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer group/scroll">
           <div className="w-[28px] h-[46px] border-2 border-white/40 rounded-full flex justify-center items-start pt-2 transition-colors group-hover/scroll:border-white/60">
-            <div className="w-1.5 h-2.5 bg-white/60 rounded-full animate-bounce group-hover/scroll:bg-white/80" />
+            <motion.div
+              animate={{ y: [0, 16, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-1.5 h-2.5 bg-white/60 rounded-full group-hover:bg-white/80"
+            />
           </div>
         </motion.div>
       </div>

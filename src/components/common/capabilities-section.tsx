@@ -42,11 +42,19 @@ export function CapabilitiesSection({
 
   return (
     <section
-      className={cn("w-full bg-[#121212] py-20 px-6 lg:py-32", className)}>
+      className={cn(
+        "w-full bg-[#121212] py-20 px-6 lg:py-32 overflow-hidden",
+        className,
+      )}>
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-start">
           {/* Left Content */}
-          <div className="order-2 md:order-1 flex flex-col space-y-10">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="order-2 md:order-1 flex flex-col space-y-10">
             <div className="space-y-6">
               {tag && (
                 <div className="inline-block rounded-full bg-primary/20 px-4 py-1.5 backdrop-blur-sm border border-white/10">
@@ -110,15 +118,20 @@ export function CapabilitiesSection({
             <div>
               <Button
                 onClick={onButtonClick}
-                className="group flex items-center space-x-3 rounded-full bg-primary px-4! py-7 text-lg tracking-wider text-accent-foreground transition-all hover:bg-primary/90 hover:scale-[1.02]">
+                className="group flex items-center space-x-3 rounded-full bg-primary px-4! py-7 text-lg tracking-wider text-accent-foreground transition-all hover:bg-primary/90 hover:scale-[1.02] cursor-pointer">
                 <span>{buttonLabel}</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Content - Animated Image */}
-          <div className="order-1 md:order-2 md:sticky md:top-32">
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 md:order-2 md:sticky md:top-32">
             <div className="relative aspect-square w-full">
               {/* Decorative accent block from reference image */}
               <div className="absolute -top-8 md:-top-10 -left-4 md:-left-8 h-40 w-40 rounded-xl bg-[#FE9A00]/20" />
@@ -152,7 +165,7 @@ export function CapabilitiesSection({
                 </AnimatePresence>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
