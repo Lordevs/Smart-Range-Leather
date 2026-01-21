@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -9,6 +11,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { motion } from "motion/react";
 
 const socialLinks = [
   { icon: Facebook, href: "#", name: "Facebook" },
@@ -34,11 +37,16 @@ const productLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10">
+    <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {/* Brand Column */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8">
             <Link href="/" className="block">
               <Image
                 src="/logo.svg"
@@ -61,10 +69,15 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links Column */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8">
             <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
               Quick Links
             </h3>
@@ -79,10 +92,15 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Products Column */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8">
             <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
               Products
             </h3>
@@ -97,10 +115,15 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Column */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8">
             <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
               Contact
             </h3>
@@ -118,33 +141,39 @@ export function Footer() {
                 <span>Pakistan</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <Separator className="bg-white/10 mb-8" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5 }}>
+          <Separator className="bg-white/10 mb-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-secondary/40 text-[13px]">
-            © 2026 Smart Range Leather. All rights reserved.
-          </p>
-          <div className="flex gap-8">
-            <Link
-              href="/privacy-policy"
-              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
-              Terms
-            </Link>
-            <Link
-              href="/sitemap"
-              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
-              Sitemap
-            </Link>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-secondary/40 text-[13px]">
+              © 2026 Smart Range Leather. All rights reserved.
+            </p>
+            <div className="flex gap-8">
+              <Link
+                href="/privacy-policy"
+                className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
+                Terms
+              </Link>
+              <Link
+                href="/sitemap"
+                className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
+                Sitemap
+              </Link>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

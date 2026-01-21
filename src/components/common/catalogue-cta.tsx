@@ -35,7 +35,10 @@ export function CatalogueCTA({
 }: CatalogueCTAProps) {
   return (
     <section
-      className={cn("w-full bg-foreground py-20 px-6 text-center overflow-hidden", className)}>
+      className={cn(
+        "w-full bg-foreground py-20 px-6 text-center overflow-hidden",
+        className,
+      )}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,8 +66,7 @@ export function CatalogueCTA({
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        >
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}>
           <Dialog>
             <DialogTrigger asChild>
               <Button className="h-14 px-10! py-7!  rounded-full bg-primary text-xs font-bold tracking-[0.15em] text-primary-foreground hover:bg-primary/90 transition-all gap-3 shadow-lg group cursor-pointer">
@@ -149,7 +151,5 @@ export function CatalogueCTA({
         </motion.div>
       </motion.div>
     </section>
-  );
-}
   );
 }
