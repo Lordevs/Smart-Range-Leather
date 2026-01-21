@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, LucideIcon } from "lucide-react";
@@ -16,9 +17,11 @@ interface DynamicHeroSectionProps {
   features?: string[];
   primaryButtonLabel?: string;
   onPrimaryButtonClick?: () => void;
+  primaryButtonHref?: string;
   primaryButtonIcon?: LucideIcon | null;
   secondaryButtonLabel?: string;
   onSecondaryButtonClick?: () => void;
+  secondaryButtonHref?: string;
   secondaryButtonIcon?: LucideIcon | null;
   bottomText?: ReactNode;
   overlayGradient?: string; // e.g. 'linear-gradient(to right, ...)'
@@ -51,9 +54,11 @@ export function DynamicHeroSection({
   features = [],
   primaryButtonLabel,
   onPrimaryButtonClick,
+  primaryButtonHref,
   primaryButtonIcon: PrimaryIcon = ArrowRight,
   secondaryButtonLabel,
   onSecondaryButtonClick,
+  secondaryButtonHref,
   secondaryButtonIcon: SecondaryIcon,
   bottomText,
   overlayGradient = "linear-gradient(to right, rgba(71, 53, 24, 0.82) 0%, rgba(71, 53, 24, 0.82) 50%, rgba(71, 53, 24, 0.5) 100%)",
@@ -163,28 +168,52 @@ export function DynamicHeroSection({
                 "flex flex-col sm:flex-row items-center gap-5 pt-4",
                 buttonContainerClassName,
               )}>
-              {primaryButtonLabel && (
-                <Button
-                  size="lg"
-                  onClick={onPrimaryButtonClick}
-                  className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
-                  {primaryButtonLabel}
-                  {PrimaryIcon && (
-                    <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
-                  )}
-                </Button>
-              )}
-              {secondaryButtonLabel && (
-                <Button
-                  size="lg"
-                  onClick={onSecondaryButtonClick}
-                  className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
-                  {secondaryButtonLabel}
-                  {SecondaryIcon && (
-                    <SecondaryIcon className="h-4 w-4 stroke-[3px]" />
-                  )}
-                </Button>
-              )}
+              {primaryButtonLabel &&
+                (primaryButtonHref ? (
+                  <Link href={primaryButtonHref}>
+                    <Button
+                      size="lg"
+                      className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                      {primaryButtonLabel}
+                      {PrimaryIcon && (
+                        <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
+                      )}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    size="lg"
+                    onClick={onPrimaryButtonClick}
+                    className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                    {primaryButtonLabel}
+                    {PrimaryIcon && (
+                      <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
+                    )}
+                  </Button>
+                ))}
+              {secondaryButtonLabel &&
+                (secondaryButtonHref ? (
+                  <Link href={secondaryButtonHref}>
+                    <Button
+                      size="lg"
+                      className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
+                      {secondaryButtonLabel}
+                      {SecondaryIcon && (
+                        <SecondaryIcon className="h-4 w-4 stroke-[3px]" />
+                      )}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    size="lg"
+                    onClick={onSecondaryButtonClick}
+                    className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
+                    {secondaryButtonLabel}
+                    {SecondaryIcon && (
+                      <SecondaryIcon className="h-4 w-4 stroke-[3px]" />
+                    )}
+                  </Button>
+                ))}
             </div>
 
             {/* Bottom Text */}

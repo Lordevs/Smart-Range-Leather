@@ -1,3 +1,4 @@
+import { ROUTES } from "@/constants/route";
 import { DynamicHeroSection } from "./common/dynamic-hero-section";
 
 export default function HeroSection() {
@@ -26,7 +27,9 @@ export default function HeroSection() {
         "On-time global delivery",
       ]}
       primaryButtonLabel="Request a Quote"
+      primaryButtonHref={ROUTES.CONTACT}
       secondaryButtonLabel="Explore Our Capabilities"
+      secondaryButtonHref={ROUTES.ABOUT}
       overlayGradient="linear-gradient(to right, rgba(10, 5, 0, 0.89) 0%, rgba(10, 5, 0, 0.89) 50%, rgba(6, 6, 6, 0.74) 100%)"
     />
   );

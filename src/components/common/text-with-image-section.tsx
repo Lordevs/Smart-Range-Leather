@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
@@ -14,6 +16,7 @@ interface TextWithImageSectionProps {
   imageAlt: string;
   buttonText?: string;
   onButtonClick?: () => void;
+  buttonHref?: string;
   reverse?: boolean;
   className?: string;
   backgroundColor?: string;
@@ -29,6 +32,7 @@ export function TextWithImageSection({
   imageAlt,
   buttonText = "LEARN MORE",
   onButtonClick,
+  buttonHref,
   reverse = false,
   className,
   backgroundColor = "#fdfbf8",
@@ -98,24 +102,45 @@ export function TextWithImageSection({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.7 }}>
-                <button
-                  onClick={onButtonClick}
-                  className="group flex items-center space-x-3 rounded-full border-2 px-6 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
-                  style={{
-                    borderColor: accentColor,
-                    color: accentColor,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = accentColor;
-                    e.currentTarget.style.color = backgroundColor;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.color = accentColor;
-                  }}>
-                  <span>{buttonText}</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                {buttonHref ? (
+                  <Link
+                    href={buttonHref}
+                    className="group flex w-fit items-center space-x-3 rounded-full border-2 px-6 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
+                    style={{
+                      borderColor: accentColor,
+                      color: accentColor,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = accentColor;
+                      e.currentTarget.style.color = backgroundColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = accentColor;
+                    }}>
+                    <span>{buttonText}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                ) : (
+                  <button
+                    onClick={onButtonClick}
+                    className="group flex items-center space-x-3 rounded-full border-2 px-6 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
+                    style={{
+                      borderColor: accentColor,
+                      color: accentColor,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = accentColor;
+                      e.currentTarget.style.color = backgroundColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = accentColor;
+                    }}>
+                    <span>{buttonText}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                )}
               </motion.div>
             )}
           </motion.div>

@@ -10,6 +10,7 @@ import {
   ClipboardCheck,
   Truck,
 } from "lucide-react";
+import { ROUTES } from "@/constants/route";
 import {
   CapabilitiesSection,
   CapabilityItem,
@@ -73,6 +74,7 @@ export function HomeCapabilitiesSection() {
       title="End-to-End Leather Manufacturing Capabilities"
       description="From raw material to finished product, we provide comprehensive manufacturing services that ensure quality at every stage."
       items={capabilities}
+      buttonHref={ROUTES.ABOUT}
     />
   );
 }

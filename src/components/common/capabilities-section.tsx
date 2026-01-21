@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -21,6 +22,7 @@ interface CapabilitiesSectionProps {
   items: CapabilityItem[];
   buttonLabel?: string;
   onButtonClick?: () => void;
+  buttonHref?: string;
   className?: string;
 }
 
@@ -31,6 +33,7 @@ export function CapabilitiesSection({
   items,
   buttonLabel = "View Full Capabilities",
   onButtonClick,
+  buttonHref,
   className,
 }: CapabilitiesSectionProps) {
   const [mounted, setMounted] = useState(false);
@@ -42,10 +45,7 @@ export function CapabilitiesSection({
 
   return (
     <section
-      className={cn(
-        "w-full bg-[#121212] py-20 px-6 lg:py-32",
-        className,
-      )}>
+      className={cn("w-full bg-[#121212] py-20 px-6 lg:py-32", className)}>
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-start">
           {/* Left Content */}
@@ -116,12 +116,21 @@ export function CapabilitiesSection({
             </div>
 
             <div>
-              <Button
-                onClick={onButtonClick}
-                className="group flex items-center space-x-3 rounded-full bg-primary px-4! py-7 text-lg tracking-wider text-accent-foreground transition-all hover:bg-primary/90 hover:scale-[1.02] cursor-pointer">
-                <span>{buttonLabel}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              {buttonHref ? (
+                <Link href={buttonHref}>
+                  <Button className="group flex items-center space-x-3 rounded-full bg-primary px-4! py-7 text-lg tracking-wider text-accent-foreground transition-all hover:bg-primary/90 hover:scale-[1.02] cursor-pointer">
+                    <span>{buttonLabel}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  onClick={onButtonClick}
+                  className="group flex items-center space-x-3 rounded-full bg-primary px-4! py-7 text-lg tracking-wider text-accent-foreground transition-all hover:bg-primary/90 hover:scale-[1.02] cursor-pointer">
+                  <span>{buttonLabel}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              )}
             </div>
           </motion.div>
 
