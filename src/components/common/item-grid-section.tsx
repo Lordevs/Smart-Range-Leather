@@ -90,7 +90,7 @@ export function ItemGridSection({
               <motion.div
                 variants={{
                   initial: { y: 0, opacity: 1 },
-                  hover: { y: 150, opacity: 0 },
+                  hover: { y: 100, opacity: 0 },
                 }}
                 transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
                 className="absolute bottom-0 left-0 right-0 bg-[#FFCC80] py-6 px-4 text-center z-10">
