@@ -48,7 +48,7 @@ export function Footer() {
                 className="h-16 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-[#d4d4d4] text-sm leading-relaxed max-w-xs">
+            <p className="text-secondary/80 text-sm leading-relaxed max-w-xs">
               Premium leather manufacturing for global brands since 2004.
             </p>
             <div className="flex gap-4">
@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#d4d4d4] hover:text-primary transition-colors text-sm">
+                    className="text-secondary/80 hover:text-primary transition-colors text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -91,7 +91,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#d4d4d4] hover:text-primary transition-colors text-sm">
+                    className="text-secondary/80 hover:text-primary transition-colors text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -105,15 +105,15 @@ export function Footer() {
               Contact
             </h3>
             <ul className="space-y-6">
-              <li className="flex items-center gap-4 text-[#d4d4d4] text-sm group cursor-pointer hover:text-primary transition-colors">
+              <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Mail className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
                 <span>info@smartrangeleather.com</span>
               </li>
-              <li className="flex items-center gap-4 text-[#d4d4d4] text-sm group cursor-pointer hover:text-primary transition-colors">
+              <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Phone className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
                 <span>+92 XXX XXXXXXX</span>
               </li>
-              <li className="flex items-start gap-4 text-[#d4d4d4] text-sm group cursor-pointer hover:text-primary transition-colors">
+              <li className="flex items-start gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <MapPin className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
                 <span>Pakistan</span>
               </li>
@@ -124,23 +124,23 @@ export function Footer() {
         <Separator className="bg-white/10 mb-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[#888] text-[13px]">
+          <p className="text-secondary/40 text-[13px]">
             © 2026 Smart Range Leather. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link
               href="/privacy-policy"
-              className="text-[#888] hover:text-primary transition-colors text-[13px]">
+              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-[#888] hover:text-primary transition-colors text-[13px]">
+              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
               Terms
             </Link>
             <Link
               href="/sitemap"
-              className="text-[#888] hover:text-primary transition-colors text-[13px]">
+              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
               Sitemap
             </Link>
           </div>

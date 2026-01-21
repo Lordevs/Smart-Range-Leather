@@ -6,8 +6,11 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
+import { motion } from "motion/react";
+
 interface GridItem {
   title: string;
+  description?: string;
   image: string;
   link?: string;
 }
@@ -56,24 +59,68 @@ export function ItemGridSection({
         {/* Grid Section */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] transition-all hover:shadow-xl">
-              <div className="aspect-4/5 w-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={500}
-                  height={600}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+              initial="initial"
+              whileHover="hover"
+              style={{
+                WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+              }}
+              className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-[580px] cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
+              {/* Image Container */}
+              <div className="h-full w-full overflow-hidden">
+                <motion.div
+                  variants={{
+                    initial: { scale: 1 },
+                    hover: { scale: 1.08 },
+                  }}
+                  transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                  className="h-full w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={500}
+                    height={600}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
               </div>
-              <div className="bg-primary py-6 px-4 text-center">
-                <h3 className="text-xl font-medium text-[#6C3403] font-serif">
+
+              {/* Static Bottom Title (Initially visible, hides by sliding down) */}
+              <motion.div
+                variants={{
+                  initial: { y: 0, opacity: 1 },
+                  hover: { y: 100, opacity: 0 },
+                }}
+                transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                className="absolute bottom-0 left-0 right-0 bg-[#FFCC80] py-6 px-4 text-center z-10">
+                <h3 className="text-xl font-bold text-[#6C3403] font-serif uppercase tracking-tight">
                   {item.title}
                 </h3>
-              </div>
-            </div>
+              </motion.div>
+
+              {/* Hover Content Overlay (Peach Box - Slides Up) */}
+              <motion.div
+                variants={{
+                  initial: { y: "100%" },
+                  hover: { y: "0%" },
+                }}
+                transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
+                className="absolute inset-0 flex flex-col justify-end z-20">
+                <div className="bg-[#FFCC80] p-10 min-h-[50%] flex flex-col space-y-6">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-[#6C3403] font-serif text-center leading-tight underline decoration-2 underline-offset-8">
+                      {item.title}
+                    </h3>
+                  </div>
+                  {item.description && (
+                    <p className="text-[#6C3403] text-lg leading-relaxed font-medium">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
@@ -82,7 +129,7 @@ export function ItemGridSection({
           <div className="mt-16 flex justify-center">
             <Button
               onClick={onButtonClick}
-              className="group flex items-center space-x-3 rounded-full bg-[#6C3403] w-68 py-7 text-sm tracking-[0.55px] text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
+              className="group flex items-center space-x-3 rounded-full bg-[#6C3403] px-12 py-7 text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
               <span>{buttonLabel}</span>
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Button>
