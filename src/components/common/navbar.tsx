@@ -72,22 +72,22 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-6 mt-12">
-                <SheetTitle className="text-left">Menu</SheetTitle>
+              <div className="flex flex-col gap-6 ">
+                <SheetTitle className="text-left"></SheetTitle>
                 {NAV_ITEMS.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "text-lg font-medium transition-colors hover:text-accent-foreground",
+                      "text-lg font-medium px-4 transition-colors hover:text-accent-foreground",
                       pathname === item.href
                         ? "text-accent-foreground"
-                        : "text-secondary",
+                        : "text-accent-foreground",
                     )}>
                     {item.name}
                   </Link>
                 ))}
-                <div className="mt-4 pt-6 border-t border-secondary">
+                <div className="mt-4 pt-6 border-t px-4 border-secondary">
                   <Button className="w-full h-12 rounded-full bg-primary text-primary-foreground font-bold hover:bg-primary/80 gap-2">
                     Request a Quote
                     <ArrowRight className="h-5 w-5" />

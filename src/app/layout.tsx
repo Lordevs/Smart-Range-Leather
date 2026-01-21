@@ -23,8 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${tinos.variable} font-sans antialiased`}>
+      <body className={`${tinos.variable} font-sans antialiased`}>
         <Navbar />
         {children}
       </body>
