@@ -43,7 +43,7 @@ export function CapabilitiesSection({
   return (
     <section
       className={cn(
-        "w-full bg-[#121212] py-20 px-6 lg:py-32 overflow-hidden",
+        "w-full bg-[#121212] py-20 px-6 lg:py-32",
         className,
       )}>
       <div className="mx-auto max-w-7xl">
@@ -132,7 +132,7 @@ export function CapabilitiesSection({
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="order-1 md:order-2 md:sticky md:top-32">
-            <div className="relative aspect-square w-full">
+            <div className="aspect-square w-full">
               {/* Decorative accent block from reference image */}
               <div className="absolute -top-8 md:-top-10 -left-4 md:-left-8 h-40 w-40 rounded-xl bg-[#FE9A00]/20" />
 
