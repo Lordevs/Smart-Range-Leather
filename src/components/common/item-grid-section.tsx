@@ -69,7 +69,7 @@ export function ItemGridSection({
                                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
-                            <div className="bg-[#FFD18B] py-6 px-4 text-center">
+                            <div className="bg-primary py-6 px-4 text-center">
                                 <h3 className="text-xl font-medium text-[#6C3403] font-serif">
                                     {item.title}
                                 </h3>
