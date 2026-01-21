@@ -1,4 +1,3 @@
-import { AboutSection } from "@/components/about-section";
 import { ApproachSection } from "@/components/about-us/approach-section";
 import CatalogueHeroSection from "@/components/catalogue/catalogue-hero-section";
 import { HomeCatalogueCTA } from "@/components/home-catalogue-cta";
