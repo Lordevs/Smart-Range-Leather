@@ -45,10 +45,10 @@ export function ManufacturingProcess({
                 {step.number}
               </span>
               <CardContent className="p-0 space-y-4">
-                <h3 className="text-xl max-w-50 font-medium text-foreground leading-snug tracking-tight">
+                <h3 className="text-xl max-w-40 font-medium text-foreground leading-snug tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-[14px] leading-relaxed font-medium opacity-80">
+                <p className="text-muted-foreground max-w-40 text-[14px] leading-relaxed font-medium opacity-80">
                   {step.description}
                 </p>
               </CardContent>

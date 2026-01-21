@@ -9,11 +9,12 @@ import { HomeCapabilitiesSection } from "@/components/home-capabilities-section"
 import { HomeClientsSection } from "@/components/home-clients-section";
 import { HomeSustainabilitySection } from "@/components/home-sustainability-section";
 import { HomeCertificationsSection } from "@/components/home-certifications-section";
+import { HomeCatalogueCTA } from "@/components/home-catalogue-cta";
 import { HomeContactSection } from "@/components/home-contact-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       <HomeHeroSection />
       <StatsSection />
       <AboutSection />
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeCapabilitiesSection />
       <HomeManufacturingProcess />
       <HomeCertificationsSection />
+      <HomeCatalogueCTA />
       <HomeSustainabilitySection />
       <HomeClientsSection />
       <HomeContactSection />

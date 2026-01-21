@@ -3,6 +3,7 @@ import { Tinos } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/navbar";
 import { Footer } from "@/components/common/footer";
+import { ScrollToTop } from "@/components/common/scroll-to-top";
 
 const tinos = Tinos({
   subsets: ["latin"],
@@ -24,9 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${tinos.variable} font-sans antialiased`}>
+      <body
+        className={`${tinos.variable} font-sans antialiased`}
+        suppressHydrationWarning>
         <Navbar />
         {children}
+        <ScrollToTop />
         <Footer />
       </body>
     </html>

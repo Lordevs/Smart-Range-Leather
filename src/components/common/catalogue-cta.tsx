@@ -45,7 +45,7 @@ export function CatalogueCTA({
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="h-14 rounded-full bg-primary px-10 text-xs font-bold tracking-[0.15em] text-primary-foreground hover:bg-primary/90 transition-all gap-3 shadow-lg group">
+            <Button className="h-14 px-10! py-7!  rounded-full bg-primary text-xs font-bold tracking-[0.15em] text-primary-foreground hover:bg-primary/90 transition-all gap-3 shadow-lg group">
               {buttonLabel}
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Button>
