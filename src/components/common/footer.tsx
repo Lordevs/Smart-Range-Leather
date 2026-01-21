@@ -9,6 +9,8 @@ import {
   MapPin,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { ROUTES } from "@/constants/route";
+import { NAV_ITEMS } from "@/lib/nav-items";
 
 const socialLinks = [
   { icon: Facebook, href: "#", name: "Facebook" },
@@ -16,13 +18,7 @@ const socialLinks = [
   { icon: Linkedin, href: "#", name: "LinkedIn" },
 ];
 
-const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Catalogue", href: "/catalogue" },
-  { name: "Contact", href: "/contact" },
-];
+const quickLinks = NAV_ITEMS
 
 const productLinks = [
   { name: "Leather Jackets", href: "/products/leather-jackets" },
@@ -129,19 +125,14 @@ export function Footer() {
           </p>
           <div className="flex gap-8">
             <Link
-              href="/privacy-policy"
+              href={ROUTES.PRIVACY_POLICY}
               className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
               Privacy Policy
             </Link>
             <Link
-              href="/terms"
+              href={ROUTES.TERMS_AND_CONDITIONS}
               className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
-              Terms
-            </Link>
-            <Link
-              href="/sitemap"
-              className="text-secondary/40 hover:text-primary transition-colors text-[13px]">
-              Sitemap
+              Terms & Conditions
             </Link>
           </div>
         </div>

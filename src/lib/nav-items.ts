@@ -14,11 +14,11 @@ export const NAV_ITEMS = [
     href: ROUTES.CATALOGUE,
   },
   {
-    name: "About US",
+    name: "About Us",
     href: ROUTES.ABOUT,
   },
   {
-    name: "Contact US",
+    name: "Contact Us",
     href: ROUTES.CONTACT,
   },
 ];
