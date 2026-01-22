@@ -125,7 +125,8 @@ export function ContactSection({
   return (
     <section
       id="contact-form"
-      className={cn("w-full bg-[#fdfbf8] py-24 px-6 md:px-12", className)}>
+      className={cn("w-full bg-[#fdfbf8] py-24 px-6 md:px-12", className)}
+    >
       <div className="mx-auto max-w-7xl">
         {/* Thank You Modal */}
         <Dialog open={showThankYouModal} onOpenChange={setShowThankYouModal}>
@@ -135,7 +136,8 @@ export function ContactSection({
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}>
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-10 h-10 text-green-600" />
                 </div>
@@ -145,7 +147,8 @@ export function ContactSection({
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}>
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >
                 <DialogHeader className="text-center">
                   <DialogTitle className="text-2xl font-serif text-[#1A1A1A]">
                     Thank You!
@@ -163,10 +166,12 @@ export function ContactSection({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="w-full pt-4">
+                className="w-full pt-4"
+              >
                 <Button
                   onClick={handleCloseModal}
-                  className="w-full bg-[#B8641A] text-white font-serif py-2 rounded-sm hover:bg-[#3D230B] transition-all">
+                  className="w-full bg-[#B8641A] text-white font-serif py-2 rounded-sm hover:bg-[#3D230B] transition-all"
+                >
                   Done
                 </Button>
               </motion.div>
@@ -179,7 +184,8 @@ export function ContactSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20 flex flex-col items-center text-center space-y-6">
+          className="mb-20 flex flex-col items-center text-center space-y-6"
+        >
           {tag && (
             <div className="inline-block border-b border-[#B8641A]">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A]">
@@ -203,7 +209,8 @@ export function ContactSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="mb-20 overflow-hidden bg-white shadow-[0_10px_50px_rgba(0,0,0,0.05)] border border-neutral-100 lg:flex items-stretch">
+          className="mb-20 overflow-hidden bg-white shadow-[0_10px_50px_rgba(0,0,0,0.05)] border border-neutral-100 lg:flex items-stretch"
+        >
           {/* Left Column - info */}
           <div className="px-2 py-4 lg:w-115 flex flex-col">
             <div className="relative flex flex-col justify-between bg-[#FFD18B] p-10 overflow-hidden rounded-xl grow min-h-full">
@@ -239,7 +246,8 @@ export function ContactSection({
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="absolute -bottom-16 -right-16 w-80 h-80 pointer-events-none">
+                className="absolute -bottom-16 -right-16 w-80 h-80 pointer-events-none"
+              >
                 <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#552C07]" />
                 <div className="absolute bottom-32 right-32 h-40 w-40 rounded-full bg-[#994903]/51" />
               </motion.div>
@@ -250,11 +258,13 @@ export function ContactSection({
           <div className="flex-1 p-10 lg:p-16 bg-white flex flex-col">
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2 grow">
+              className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2 grow"
+            >
               <div className="space-y-2">
                 <Label
                   htmlFor="firstName"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   First Name
                 </Label>
                 <Input
@@ -271,7 +281,8 @@ export function ContactSection({
               <div className="space-y-2">
                 <Label
                   htmlFor="lastName"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Last Name
                 </Label>
                 <Input
@@ -288,7 +299,8 @@ export function ContactSection({
               <div className="space-y-2 lg:mt-6">
                 <Label
                   htmlFor="email"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Email
                 </Label>
                 <Input
@@ -305,7 +317,8 @@ export function ContactSection({
               <div className="space-y-2 lg:mt-6">
                 <Label
                   htmlFor="phone"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Phone Number
                 </Label>
                 <Input
@@ -321,7 +334,8 @@ export function ContactSection({
               <div className="space-y-2 lg:mt-6">
                 <Label
                   htmlFor="company"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Company Name
                 </Label>
                 <Input
@@ -337,7 +351,8 @@ export function ContactSection({
               <div className="space-y-2 lg:mt-6">
                 <Label
                   htmlFor="website"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Website
                 </Label>
                 <Input
@@ -353,7 +368,8 @@ export function ContactSection({
               <div className="space-y-2 md:col-span-2 lg:mt-6">
                 <Label
                   htmlFor="message"
-                  className="text-sm font-bold text-accent-foreground">
+                  className="text-sm font-bold text-accent-foreground"
+                >
                   Brief Description of your Interest
                 </Label>
                 <Textarea
@@ -376,7 +392,8 @@ export function ContactSection({
                       submitStatus.type === "success"
                         ? "bg-green-100 text-green-800 border border-green-300"
                         : "bg-red-100 text-red-800 border border-red-300",
-                    )}>
+                    )}
+                  >
                     {submitStatus.message}
                   </div>
                 </div>
@@ -386,7 +403,8 @@ export function ContactSection({
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="bg-accent-foreground text-white px-12 py-4 rounded-sm text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+                  className="bg-accent-foreground text-white px-12 py-4 rounded-sm text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                >
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </div>
@@ -411,7 +429,8 @@ export function ContactSection({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4">
+                    className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4"
+                  >
                     <div className="flex items-center space-x-3">
                       <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
                         <Image
@@ -433,7 +452,7 @@ export function ContactSection({
                           {loc.type}
                         </span>
                       </div>
-                      <p className="text-lg text-accent-foreground">
+                      <p className="text-base text-accent-foreground">
                         {loc.address}
                       </p>
                     </div>
@@ -443,11 +462,12 @@ export function ContactSection({
           </div>
 
           {/* Our Production Houses */}
-          <div className="space-y-8">
-            <h3 className="text-5xl font-normal text-accent-foreground font-serif">
-              Our Production Houses.
-            </h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt">
+          <div className="relative">
+            <div className="space-y-8">
+              <h3 className="text-5xl font-normal text-accent-foreground font-serif">
+                Our Production Houses.
+              </h3>
+               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt">
               {locations
                 .filter((loc) => loc.type === "Warehouse" || loc.type === "Manufacturing Factory")
                 .map((loc, idx) => (
@@ -479,12 +499,22 @@ export function ContactSection({
                           {loc.type}
                         </span>
                       </div>
-                      <p className="text-lg text-accent-foreground">
+                      <p className="text-base text-accent-foreground">
                         {loc.address}
                       </p>
                     </div>
                   </motion.div>
                 ))}
+            </div>
+            </div>
+            <div className="absolute right-0 aspect-1/2 top-0 w-[400px]">
+              <Image
+                alt="Contact Section"
+                src="/map.png"
+                width={1000}
+                height={500}
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>
