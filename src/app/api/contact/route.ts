@@ -8,6 +8,8 @@ interface ContactFormData {
 	lastName: string;
 	email: string;
 	phone: string;
+	company: string;
+	website: string;
 	message: string;
 }
 
@@ -58,9 +60,11 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${body.firstName} ${body.lastName}</p>
             <p><strong>Email:</strong> <a href="mailto:${body.email}">${body.email}</a></p>
             ${body.phone ? `<p><strong>Phone:</strong> ${body.phone}</p>` : ""}
+            ${body.company ? `<p><strong>Company:</strong> ${body.company}</p>` : ""}
+            ${body.website ? `<p><strong>Website:</strong> <a href="${body.website}" target="_blank">${body.website}</a></p>` : ""}
             
             <div style="margin-top: 20px; padding: 15px; background-color: #fdfbf8; border-left: 4px solid #B8641A;">
-              <strong>Message:</strong>
+              <strong>Brief Description of your Interest:</strong>
               <p style="margin-top: 10px; white-space: pre-wrap;">${body.message}</p>
             </div>
           </div>
@@ -96,7 +100,7 @@ export async function POST(request: NextRequest) {
           </p>
           
           <div style="margin: 30px 0; padding: 15px; background-color: #fdfbf8; border-left: 4px solid #B8641A;">
-            <p><strong>Message Details:</strong></p>
+            <p><strong>Brief Description of your Interest:</strong></p>
             <p style="white-space: pre-wrap;">${body.message}</p>
           </div>
           
