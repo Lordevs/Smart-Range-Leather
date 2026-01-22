@@ -8,25 +8,25 @@ const products = [
     title: "Leather Jackets and Coats",
     description:
       "Premium handcrafted leather outerwear, blending timeless style with contemporary design and superior quality.",
-    image: "/images/products/leather-jackets-and-coats.png",
+    image: "/images/products/leather-jackets-and-coats.webp",
   },
   {
     title: "Shearling and Aviator Jackets",
     description:
       "Luxurious shearling and classic aviator styles, engineered for warmth and refined aesthetic appeal.",
-    image: "/images/products/shearling-and-aviatorjackets.png",
+    image: "/images/products/shearling-and-aviatorjackets.webp",
   },
   {
     title: "Custom Leather Products",
     description:
       "Bespoke manufacturing solutions tailored to your brand's unique specifications and design vision.",
-    image: "/images/sections/approach-section.png",
+    image: "/images/sections/approach-section.webp",
   },
   {
     title: "Leather Bags and Small Goods",
     description:
       "Exquisite leather bags and daily essentials, showcasing impeccable craftsmanship and functional luxury.",
-    image: "/images/products/leather-bags-and-small-goods.png",
+    image: "/images/products/leather-bags-and-small-goods.webp",
   },
 ];
 

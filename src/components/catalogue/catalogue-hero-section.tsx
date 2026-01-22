@@ -6,7 +6,7 @@ import { DynamicHeroSection } from "../common/dynamic-hero-section";
 export default function HeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/hero-imgs/hero.png"
+      imageSrc="/images/hero-imgs/hero.webp"
       imageAlt="Leather Craftsmanship"
       title={
         <>

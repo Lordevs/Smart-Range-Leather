@@ -5,31 +5,31 @@ import { ContactSection } from "../common/contact-section";
 const locations = [
   {
     country: "United Kingdom",
-    flag: "uk-flag.png",
+    flag: "uk-flag.webp",
     type: "Office",
     address: "Unit 3 Dominion Works Dagenham, RM8 1RX.",
   },
   {
     country: "United Arab Emirates",
-    flag: "united-arab-emirates.png",
+    flag: "united-arab-emirates.webp",
     type: "Office",
     address: "Business Bay Dubai, UAE",
   },
   {
     country: "United States of America",
-    flag: "america.png",
+    flag: "america.webp",
     type: "Office",
     address: "Texas",
   },
   {
     country: "Turkey",
-    flag: "turkey.png",
+    flag: "turkey.webp",
     type: "Warehouse",
     address: "Zeytinburnu, Istanbul 34020.",
   },
   {
     country: "Pakistan",
-    flag: "pakistan.png",
+    flag: "pakistan.webp",
     type: "Manufacturing Factory",
     address: "Toorabad, Daska Road Sialkot, Pakistan.",
   },

@@ -5,7 +5,7 @@ import { DynamicHeroSection } from "@/components/common/dynamic-hero-section";
 export default function ContactUsHeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/hero-imgs/contact-us.png"
+      imageSrc="/images/hero-imgs/contact-us.webp"
       imageAlt="Contact Us"
       title="Contact Us"
       subtext="Let's discuss your leather product needs."

@@ -18,7 +18,7 @@ export function AboutSection() {
         "We don't just manufacture products. We help brands bring leather collections to market with confidence.",
       ]}
       buttonHref={ROUTES.ABOUT}
-      imageSrc="/images/sections/about-section.png"
+      imageSrc="/images/sections/about-section.webp"
       imageAlt="Leather Workshop"
       accentColor="#6C3403"
       circleColor="#ffcc80"

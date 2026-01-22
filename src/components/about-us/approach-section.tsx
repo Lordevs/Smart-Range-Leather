@@ -17,7 +17,7 @@ export function ApproachSection() {
       ]}
       buttonText="Request a Quote"
       buttonHref={ROUTES.CONTACT}
-      imageSrc="/images/sections/approach-section.png"
+      imageSrc="/images/sections/approach-section.webp"
       imageAlt="Approach Section"
       accentColor="#6C3403"
       circleColor="#ffcc80"
