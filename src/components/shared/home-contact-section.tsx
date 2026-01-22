@@ -19,7 +19,7 @@ const locations = [
     country: "United States of America",
     flag: "america.webp",
     type: "Office",
-    address: "Texas",
+    address: "Dallas, Texas, USA.",
   },
   {
     country: "Turkey",
