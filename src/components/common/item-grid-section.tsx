@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Download } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
@@ -39,6 +39,24 @@ export function ItemGridSection({
   gridClassName,
   footer,
 }: ItemGridSectionProps) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect if device is mobile on mount
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleCardClick = (index: number) => {
+    if (isMobile) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
+  };
   return (
     <section className={cn("w-full bg-white py-20 px-6", className)}>
       <div className="mx-auto max-w-7xl">
@@ -80,7 +98,11 @@ export function ItemGridSection({
               }}>
               <motion.div
                 initial="initial"
-                whileHover="hover"
+                whileHover={!isMobile ? "hover" : undefined}
+                animate={
+                  isMobile && expandedIndex === index ? "hover" : "initial"
+                }
+                onClick={() => handleCardClick(index)}
                 style={{
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
                 }}
