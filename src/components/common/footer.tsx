@@ -50,6 +50,7 @@ export function Footer() {
                 width={150}
                 height={60}
                 className="h-16 w-auto brightness-0 invert"
+                suppressHydrationWarning
               />
             </Link>
             <p className="text-secondary/80 text-sm leading-relaxed max-w-xs">

@@ -97,6 +97,7 @@ export function DynamicHeroSection({
               fill
               className="object-cover"
               priority
+              suppressHydrationWarning
             />
           </motion.div>
         )}

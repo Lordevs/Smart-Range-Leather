@@ -100,6 +100,7 @@ export function ItemGridSection({
                       width={500}
                       height={600}
                       className="h-full w-full object-cover"
+                      suppressHydrationWarning
                     />
                   </motion.div>
                 </div>

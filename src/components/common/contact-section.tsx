@@ -380,6 +380,7 @@ export function ContactSection({
                       width={16}
                       height={16}
                       className="w-full h-full object-cover"
+                      suppressHydrationWarning
                     />
                   </div>
                   <span className="text-2xl font-bold text-accent-foreground">

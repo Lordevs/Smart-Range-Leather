@@ -63,6 +63,7 @@ export function DownloadCatalogueDialog({
                   width={100}
                   height={100}
                   className="h-14 w-auto object-contain opacity-80"
+                  suppressHydrationWarning
                 />
               </div>
             </div>
