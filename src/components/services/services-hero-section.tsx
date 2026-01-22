@@ -1,5 +1,4 @@
-"use client";
-
+import { ROUTES } from "@/constants/route";
 import { DynamicHeroSection } from "../common/dynamic-hero-section";
 
 export default function ServicesHeroSection() {
@@ -10,7 +9,9 @@ export default function ServicesHeroSection() {
       title="Our Service"
       subtext="At Smart Range Leather, we deliver premium craftsmanship and efficient, scalable solutions across the leather supply chain."
       primaryButtonLabel="Request a Quote"
+      primaryButtonHref={ROUTES.CONTACT_FORM}
       secondaryButtonLabel="Explore Our Capabilities"
+       secondaryButtonHref={ROUTES.ABOUT}
       overlayGradient=""
       contentClassName="text-center flex flex-col items-center"
       buttonContainerClassName="flex justify-center"
