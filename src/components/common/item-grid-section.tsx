@@ -45,8 +45,8 @@ export function ItemGridSection({
         {/* Header Section */}
         <div className="mb-16 flex flex-col items-center text-center space-y-6">
           {tag && (
-            <div className="inline-block border-b border-[#6C3403]/80">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403]/80">
+            <div className="inline-block border-b border-[#6C3403]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403]">
                 {tag}
               </span>
             </div>

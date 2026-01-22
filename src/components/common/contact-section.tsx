@@ -177,7 +177,7 @@ export function ContactSection({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-20 flex flex-col items-center text-center space-y-6">
           {tag && (
-            <div className="inline-block border-b border-[#B8641A] pb-1">
+            <div className="inline-block border-b border-[#B8641A]">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A]">
                 {tag}
               </span>

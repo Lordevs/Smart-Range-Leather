@@ -33,7 +33,7 @@ export function ManufacturingProcess({
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-24 space-y-6">
           {tag && (
-            <div className="inline-block border-b border-[#B8641A] pb-1">
+            <div className="inline-block border-b border-[#B8641A]">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A]">
                 {tag}
               </span>

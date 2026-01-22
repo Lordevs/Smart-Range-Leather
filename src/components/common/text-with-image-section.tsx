@@ -69,10 +69,10 @@ export function TextWithImageSection({
                   whileInView={{ opacity: 1, scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="inline-block border-b pb-1 origin-left"
+                  className="inline-block border-b  origin-left"
                   style={{ borderColor: accentColor }}>
                   <span
-                    className="text-xs font-bold uppercase tracking-[0.2em]"
+                    className="text-xs text-[#6C3403] font-bold uppercase tracking-[0.2em]"
                     style={{ color: accentColor }}>
                     {tag}
                   </span>
@@ -105,7 +105,7 @@ export function TextWithImageSection({
                 {buttonHref ? (
                   <Link
                     href={buttonHref}
-                    className="group flex w-fit items-center space-x-3 rounded-full border-2 px-6 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
+                    className="group flex w-fit items-center space-x-3 rounded-full border-2 px-4 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
                     style={{
                       borderColor: accentColor,
                       color: accentColor,
@@ -124,7 +124,7 @@ export function TextWithImageSection({
                 ) : (
                   <button
                     onClick={onButtonClick}
-                    className="group flex items-center space-x-3 rounded-full border-2 px-6 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
+                    className="group flex items-center space-x-3 rounded-full border-2 px-4 py-4 text-sm font-semibold tracking-wider transition-all hover:text-[#fdfbf8]"
                     style={{
                       borderColor: accentColor,
                       color: accentColor,
