@@ -50,6 +50,8 @@ export function ContactSection({
     lastName: "",
     email: "",
     phone: "",
+    company: "",
+    website: "",
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -100,6 +102,8 @@ export function ContactSection({
           lastName: "",
           email: "",
           phone: "",
+          company: "",
+          website: "",
           message: "",
         });
       } else {
@@ -199,7 +203,7 @@ export function ContactSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="mb-32 overflow-hidden bg-white shadow-[0_10px_50px_rgba(0,0,0,0.05)] border border-neutral-100 lg:flex items-stretch">
+          className="mb-20 overflow-hidden bg-white shadow-[0_10px_50px_rgba(0,0,0,0.05)] border border-neutral-100 lg:flex items-stretch">
           {/* Left Column - info */}
           <div className="px-2 py-4 lg:w-115 flex flex-col">
             <div className="relative flex flex-col justify-between bg-[#FFD18B] p-10 overflow-hidden rounded-xl grow min-h-full">
@@ -314,15 +318,47 @@ export function ContactSection({
                   className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all h-auto disabled:opacity-50"
                 />
               </div>
+              <div className="space-y-2 lg:mt-6">
+                <Label
+                  htmlFor="company"
+                  className="text-sm font-bold text-accent-foreground">
+                  Company Name
+                </Label>
+                <Input
+                  id="company"
+                  type="text"
+                  placeholder="Write your company name..."
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                  className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all h-auto disabled:opacity-50"
+                />
+              </div>
+              <div className="space-y-2 lg:mt-6">
+                <Label
+                  htmlFor="website"
+                  className="text-sm font-bold text-accent-foreground">
+                  Website
+                </Label>
+                <Input
+                  id="website"
+                  type="url"
+                  placeholder="Write your website..."
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                  className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all h-auto disabled:opacity-50"
+                />
+              </div>
               <div className="space-y-2 md:col-span-2 lg:mt-6">
                 <Label
                   htmlFor="message"
                   className="text-sm font-bold text-accent-foreground">
-                  Message
+                  Brief Description of your Interest
                 </Label>
                 <Textarea
                   id="message"
-                  placeholder="Write your message..."
+                  placeholder="Write your Interest..."
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -359,46 +395,97 @@ export function ContactSection({
         </motion.div>
 
         {/* Locations Grid */}
-        <div className="space-y-12">
-          <h3 className="text-5xl font-normal text-accent-foreground font-serif">
-            Our Locations
-          </h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {locations.map((loc, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
-                    <Image
-                      src={`/images/flags/${loc.flag}`}
-                      alt={loc.country}
-                      width={16}
-                      height={16}
-                      className="w-full h-full object-cover"
-                      suppressHydrationWarning
-                    />
-                  </div>
-                  <span className="text-2xl font-bold text-accent-foreground">
-                    {loc.country}
-                  </span>
-                </div>
-                <div className="space-y-2">
-                  <div className="inline-block border-b-2 border-accent-foreground">
-                    <span className="text-base font-bold text-accent-foreground">
-                      {loc.type}
-                    </span>
-                  </div>
-                  <p className="text-lg text-accent-foreground">
-                    {loc.address}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+        <div className="space-y-20">
+          {/* Our Offices and Operations */}
+          <div className="space-y-8">
+            <h3 className="text-5xl font-normal text-accent-foreground font-serif ">
+              Our Offices and Operations.
+            </h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-20">
+              {locations
+                .filter((loc) => loc.type === "Office")
+                .map((loc, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
+                        <Image
+                          src={`/images/flags/${loc.flag}`}
+                          alt={loc.country}
+                          width={16}
+                          height={16}
+                          className="w-full h-full object-cover"
+                          suppressHydrationWarning
+                        />
+                      </div>
+                      <span className="text-2xl font-bold text-accent-foreground">
+                        {loc.country}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="inline-block border-b-2 border-accent-foreground">
+                        <span className="text-base font-bold text-accent-foreground">
+                          {loc.type}
+                        </span>
+                      </div>
+                      <p className="text-lg text-accent-foreground">
+                        {loc.address}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+            </div>
+          </div>
+
+          {/* Our Production Houses */}
+          <div className="space-y-8">
+            <h3 className="text-5xl font-normal text-accent-foreground font-serif">
+              Our Production Houses.
+            </h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt">
+              {locations
+                .filter((loc) => loc.type === "Warehouse" || loc.type === "Manufacturing Factory")
+                .map((loc, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
+                        <Image
+                          src={`/images/flags/${loc.flag}`}
+                          alt={loc.country}
+                          width={16}
+                          height={16}
+                          className="w-full h-full object-cover"
+                          suppressHydrationWarning
+                        />
+                      </div>
+                      <span className="text-2xl font-bold text-accent-foreground">
+                        {loc.country}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="inline-block border-b-2 border-accent-foreground">
+                        <span className="text-base font-bold text-accent-foreground">
+                          {loc.type}
+                        </span>
+                      </div>
+                      <p className="text-lg text-accent-foreground">
+                        {loc.address}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+            </div>
           </div>
         </div>
       </div>
