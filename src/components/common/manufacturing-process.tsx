@@ -44,7 +44,7 @@ export function ManufacturingProcess({
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-10 md:gap-y-20">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -55,16 +55,17 @@ export function ManufacturingProcess({
                 duration: 0.8,
                 delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
-              }}>
-              <Card className="bg-transparent border-none shadow-none p-0 max-w-xs">
+              }}
+              className="flex justify-center md:justify-start">
+              <Card className="bg-transparent border-none shadow-none p-0 max-w-7xl sm:max-w-xs text-center sm:text-left">
                 <span className="text-6xl md:text-6xl font-serif text-[#B8641A]/40 block font-light">
                   {step.number}
                 </span>
                 <CardContent className="p-0 space-y-4">
-                  <h3 className="text-xl max-w-40 font-medium text-foreground leading-snug tracking-tight">
+                  <h3 className="text-xl max-w-7xl sm:max-w-40 font-medium text-foreground leading-snug tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground max-w-40 text-[14px] leading-relaxed font-medium opacity-80">
+                  <p className="text-muted-foreground max-w-7xl sm:max-w-40 text-lg sm:text-[14px] leading-relaxed font-medium opacity-80">
                     {step.description}
                   </p>
                 </CardContent>

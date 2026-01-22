@@ -76,7 +76,7 @@ export function ClientSegmentsSection({
                 duration: 0.8,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="space-y-6">
+              className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
               <div className="flex h-12 w-12 items-center justify-center">
                 <segment.icon
                   className="h-8 w-8 text-primary"
@@ -104,7 +104,7 @@ export function ClientSegmentsSection({
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="bg-[#FFD18B] p-10 flex flex-col justify-center space-y-4 text-accent-foreground max-w-[300px] rounded-sm">
+            className="bg-[#FFD18B] p-10 flex flex-col justify-center space-y-4 text-accent-foreground max-w-[300px] rounded-sm mx-auto md:mx-0">
             <h3 className="text-2xl font-serif">{highlightCard.title}</h3>
             <p className="text-sm leading-relaxed">
               {highlightCard.description}

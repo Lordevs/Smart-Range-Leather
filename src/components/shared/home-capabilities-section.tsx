@@ -15,6 +15,7 @@ import {
   CapabilitiesSection,
   CapabilityItem,
 } from "../common/capabilities-section";
+import { MobileCapabilitiesSection } from "../common/mobile-capabilities-section";
 
 const capabilities: CapabilityItem[] = [
   {
@@ -69,12 +70,28 @@ const capabilities: CapabilityItem[] = [
 
 export function HomeCapabilitiesSection() {
   return (
-    <CapabilitiesSection
-      tag="Full Service Manufacturing"
-      title="End-to-End Leather Manufacturing Capabilities"
-      description="From raw material to finished product, we provide comprehensive manufacturing services that ensure quality at every stage."
-      items={capabilities}
-      buttonHref={ROUTES.ABOUT}
-    />
+    <>
+      {/* Mobile Version */}
+      <div className="lg:hidden">
+        <MobileCapabilitiesSection
+          tag="Full Service Manufacturing"
+          title="End-to-End Leather Manufacturing Capabilities"
+          description="From raw material to finished product, we provide comprehensive manufacturing services that ensure quality at every stage."
+          items={capabilities}
+          buttonHref={ROUTES.ABOUT}
+        />
+      </div>
+
+      {/* Desktop Version */}
+      <div className="hidden lg:block">
+        <CapabilitiesSection
+          tag="Full Service Manufacturing"
+          title="End-to-End Leather Manufacturing Capabilities"
+          description="From raw material to finished product, we provide comprehensive manufacturing services that ensure quality at every stage."
+          items={capabilities}
+          buttonHref={ROUTES.ABOUT}
+        />
+      </div>
+    </>
   );
 }
