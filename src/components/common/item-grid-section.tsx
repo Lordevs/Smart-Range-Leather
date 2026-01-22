@@ -84,7 +84,7 @@ export function ItemGridSection({
                 style={{
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
                 }}
-                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-[580px] cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
+                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-145 cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
                 {/* Image Container */}
                 <div className="h-full w-full overflow-hidden">
                   <motion.div

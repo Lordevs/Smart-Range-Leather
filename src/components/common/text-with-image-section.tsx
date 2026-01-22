@@ -175,7 +175,7 @@ export function TextWithImageSection({
                 alt={imageAlt}
                 width={550}
                 height={650}
-                className="h-[600px] w-full object-cover grayscale-[0.1] contrast-[1.05] transition-transform duration-1000 hover:scale-105 md:h-[650px]"
+                className="h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] transition-transform duration-1000 hover:scale-105 md:h-162.5"
                 priority
               />
             </motion.div>
