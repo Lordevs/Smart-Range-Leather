@@ -25,6 +25,7 @@ interface ItemGridSectionProps {
   onButtonClick?: () => void;
   className?: string;
   gridClassName?: string;
+  footer?: ReactNode;
 }
 
 export function ItemGridSection({
@@ -36,6 +37,7 @@ export function ItemGridSection({
   onButtonClick,
   className,
   gridClassName,
+  footer,
 }: ItemGridSectionProps) {
   return (
     <section className={cn("w-full bg-white py-20 px-6", className)}>
@@ -141,16 +143,20 @@ export function ItemGridSection({
           ))}
         </div>
 
-        {/* Footer Button */}
-        {buttonLabel && (
-          <div className="mt-16 flex justify-center">
-            <Button
-              onClick={onButtonClick}
-              className="group flex items-center space-x-3  rounded-full bg-[#6C3403] px-12! py-7! text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
-              <span>{buttonLabel}</span>
-              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-            </Button>
-          </div>
+        {/* Footer Button or Custom Footer */}
+        {footer ? (
+          <div className="mt-16 flex justify-center">{footer}</div>
+        ) : (
+          buttonLabel && (
+            <div className="mt-16 flex justify-center">
+              <Button
+                onClick={onButtonClick}
+                className="group flex items-center space-x-3  rounded-full bg-[#6C3403] px-12! py-7! text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
+                <span>{buttonLabel}</span>
+                <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              </Button>
+            </div>
+          )
         )}
       </div>
     </section>

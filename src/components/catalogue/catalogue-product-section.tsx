@@ -1,6 +1,7 @@
 "use client";
 
 import { ItemGridSection } from "../common/item-grid-section";
+import { DownloadCatalogueDialog } from "../common/download-catalogue-dialog";
 
 const products = [
   {
@@ -40,8 +41,9 @@ export function CatalogueProductSection() {
         </>
       }
       items={products}
-      buttonLabel="DOWNLOAD CATALOGUE"
-      onButtonClick={() => console.log("Downloading catalogue...")}
+      footer={
+        <DownloadCatalogueDialog className="bg-[#6C3403] px-12! text-sm tracking-widest text-[#fdfbf8] hover:bg-[#5a2b02]" />
+      }
     />
   );
 }
