@@ -8,7 +8,7 @@ import {
   Factory,
   CircleCheck,
 } from "lucide-react";
-import { WhyChooseUs, Feature } from "./common/why-choose-us";
+import { WhyChooseUs, Feature } from "../common/why-choose-us";
 
 const features: Feature[] = [
   {

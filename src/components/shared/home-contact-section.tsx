@@ -1,6 +1,6 @@
 "use client";
 
-import { ContactSection } from "./common/contact-section";
+import { ContactSection } from "../common/contact-section";
 
 const locations = [
   {

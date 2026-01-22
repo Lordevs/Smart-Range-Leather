@@ -14,7 +14,7 @@ import { ROUTES } from "@/constants/route";
 import {
   CapabilitiesSection,
   CapabilityItem,
-} from "./common/capabilities-section";
+} from "../common/capabilities-section";
 
 const capabilities: CapabilityItem[] = [
   {

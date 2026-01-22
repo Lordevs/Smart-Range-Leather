@@ -1,7 +1,7 @@
 "use client";
 
-import { ItemGridSection } from "./common/item-grid-section";
-import { DownloadCatalogueDialog } from "./common/download-catalogue-dialog";
+import { ItemGridSection } from "../common/item-grid-section";
+import { DownloadCatalogueDialog } from "../common/download-catalogue-dialog";
 
 const products = [
   {

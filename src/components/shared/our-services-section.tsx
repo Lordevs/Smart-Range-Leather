@@ -1,6 +1,6 @@
 "use client";
 
-import { ItemGridSection } from "./common/item-grid-section";
+import { ItemGridSection } from "../common/item-grid-section";
 
 const services = [
   {

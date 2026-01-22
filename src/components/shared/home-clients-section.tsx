@@ -7,7 +7,8 @@ import {
   MousePointer2,
   Package,
 } from "lucide-react";
-import { ClientSegmentsSection } from "./common/client-segments-section";
+import { ClientSegmentsSection } from "../common/client-segments-section";
+
 
 const clientSegments = [
   {

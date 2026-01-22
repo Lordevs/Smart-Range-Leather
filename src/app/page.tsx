@@ -1,16 +1,14 @@
-import HomeHeroSection from "@/components/home-hero-section";
+import HomeHeroSection from "@/components/home/home-hero-section";
 import { StatsSection } from "@/components/common/stats-section";
-import { AboutSection } from "@/components/about-section";
-import { OurProductsSection } from "@/components/our-products-section";
-import { OurServicesSection } from "@/components/our-services-section";
-import { HomeWhyChooseUs } from "@/components/home-why-choose-us";
-import { HomeManufacturingProcess } from "@/components/home-manufacturing-process";
-import { HomeCapabilitiesSection } from "@/components/home-capabilities-section";
-import { HomeClientsSection } from "@/components/home-clients-section";
-import { HomeSustainabilitySection } from "@/components/home-sustainability-section";
-import { HomeCertificationsSection } from "@/components/home-certifications-section";
-import { HomeCatalogueCTA } from "@/components/home-catalogue-cta";
-import { HomeContactSection } from "@/components/home-contact-section";
+import { AboutSection } from "@/components/shared/about-section";
+import { OurProductsSection } from "@/components/shared/our-products-section";
+import { HomeWhyChooseUs } from "@/components/shared/home-why-choose-us";
+import { HomeManufacturingProcess } from "@/components/shared/home-manufacturing-process";
+import { HomeCapabilitiesSection } from "@/components/shared/home-capabilities-section";
+import { HomeClientsSection } from "@/components/shared/home-clients-section";
+import { HomeSustainabilitySection } from "@/components/shared/home-sustainability-section";
+import { HomeCertificationsSection } from "@/components/shared/home-certifications-section";
+;import { HomeContactSection } from "@/components/shared/home-contact-section";
 
 export default function Home() {
   return (

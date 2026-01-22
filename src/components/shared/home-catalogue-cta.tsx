@@ -1,4 +1,4 @@
-import { CatalogueCTA } from "./common/catalogue-cta";
+import { CatalogueCTA } from "../common/catalogue-cta";
 
 export function HomeCatalogueCTA() {
   return (

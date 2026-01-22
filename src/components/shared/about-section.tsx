@@ -1,5 +1,5 @@
 import { ROUTES } from "@/constants/route";
-import { TextWithImageSection } from "./common/text-with-image-section";
+import { TextWithImageSection } from "../common/text-with-image-section";
 
 export function AboutSection() {
   return (

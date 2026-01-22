@@ -1,6 +1,6 @@
 "use client";
 
-import { CertificationsSection } from "./common/certifications-section";
+import { CertificationsSection } from "../common/certifications-section";
 
 const certifications = [
     {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Leaf, ShieldCheck, Droplets, Recycle } from "lucide-react";
-import { FeatureGridSection } from "./common/feature-grid-section";
+import { FeatureGridSection } from "../common/feature-grid-section";
 
 const sustainabilityFeatures = [
   {

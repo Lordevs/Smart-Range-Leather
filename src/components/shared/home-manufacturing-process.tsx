@@ -1,7 +1,7 @@
 import {
   ManufacturingProcess,
   ProcessStep,
-} from "./common/manufacturing-process";
+} from "../common/manufacturing-process";
 
 const steps: ProcessStep[] = [
   {
