@@ -28,18 +28,14 @@ const products = [
       "Sophisticated belts, gloves, and small leather items designed to complement a premium lifestyle.",
     image: "/images/products/leather-accessories.webp",
   },
-  {
-    title: "Custom and Private Label Collections",
-    description:
-      "Bespoke manufacturing solutions tailored to your brand's unique specifications and design vision.",
-    image: "/images/products/custom-and-private-cabel-collections.webp",
-  },
+
 ];
 
 export function OurProductsSection() {
   return (
     <ItemGridSection
       tag="Our Products"
+      gridClassName="lg:grid-cols-2"
       title={
         <>
           What We <span className="text-[#6C3403]">Manufacture</span>
