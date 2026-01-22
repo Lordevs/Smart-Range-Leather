@@ -30,6 +30,7 @@ export default function Navbar() {
             height={100}
             className="h-14 w-auto object-contain"
             priority
+            suppressHydrationWarning
           />
         </Link>
 

@@ -167,6 +167,7 @@ export function CapabilitiesSection({
                       fill
                       className="object-cover"
                       priority
+                      suppressHydrationWarning
                     />
                     {/* Subtle overlay to soften the image and match the theme */}
                     <div className="absolute inset-0 bg-linear-to-tr from-[#121212]/30 to-transparent" />

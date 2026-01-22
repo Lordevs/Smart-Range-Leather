@@ -177,6 +177,7 @@ export function TextWithImageSection({
                 height={650}
                 className="h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] transition-transform duration-1000 hover:scale-105 md:h-162.5"
                 priority
+                suppressHydrationWarning
               />
             </motion.div>
           </div>
