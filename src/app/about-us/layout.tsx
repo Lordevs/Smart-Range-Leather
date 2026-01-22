@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+// seo
 export const metadata: Metadata = {
   title: "About Us",
   description:
