@@ -15,6 +15,7 @@ export default function AboutUsHeroSection() {
       secondaryButtonLabel=""
       overlayGradient=""
       contentClassName="text-center flex flex-col items-center"
+      subtextClassName="mx-auto"
       buttonContainerClassName="flex justify-center"
     />
   );

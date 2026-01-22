@@ -28,6 +28,7 @@ interface DynamicHeroSectionProps {
   height?: string; // e.g. '94vh'
   className?: string;
   contentClassName?: string;
+  subtextClassName?: string;
   buttonContainerClassName?: string;
 }
 
@@ -65,6 +66,7 @@ export function DynamicHeroSection({
   height = "94vh",
   className,
   contentClassName,
+  subtextClassName,
   buttonContainerClassName,
 }: DynamicHeroSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -143,7 +145,7 @@ export function DynamicHeroSection({
             {/* Subtext */}
             <motion.p
               variants={fadeInUp}
-              className="max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide">
+              className={cn("max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide", subtextClassName)}>
               {subtext}
             </motion.p>
           </div>

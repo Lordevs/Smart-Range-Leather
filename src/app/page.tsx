@@ -8,7 +8,7 @@ import { HomeCapabilitiesSection } from "@/components/shared/home-capabilities-s
 import { HomeClientsSection } from "@/components/shared/home-clients-section";
 import { HomeSustainabilitySection } from "@/components/shared/home-sustainability-section";
 import { HomeCertificationsSection } from "@/components/shared/home-certifications-section";
-;import { HomeContactSection } from "@/components/shared/home-contact-section";
+import { HomeContactSection } from "@/components/shared/home-contact-section";
 
 export default function Home() {
   return (
