@@ -4,7 +4,7 @@ import { DynamicHeroSection } from "../common/dynamic-hero-section";
 export default function ServicesHeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/our-services.png"
+      imageSrc="/images/services/hero-services.png"
       imageAlt="Our Services"
       title="Our Service"
       subtext="At Smart Range Leather, we deliver premium craftsmanship and efficient, scalable solutions across the leather supply chain."

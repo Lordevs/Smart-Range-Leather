@@ -21,7 +21,7 @@ const capabilities: CapabilityItem[] = [
     id: "sourcing",
     title: "Leather sourcing and selection",
     icon: Layers,
-    image: "/images/modern-factory-production.png",
+    image: "/images/capabilities/leather-sourcing-selection.png",
   },
   {
     id: "pattern",
