@@ -507,13 +507,13 @@ export function ContactSection({
                 ))}
             </div>
             </div>
-            <div className="absolute right-0 aspect-1/2 top-0 w-[400px]">
+            <div className="absolute right-0 aspect-1/2 -bottom-20 top-0 w-100">
               <Image
                 alt="Contact Section"
                 src="/map.png"
                 width={1000}
                 height={500}
-                className="w-full h-full"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
