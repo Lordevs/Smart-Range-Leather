@@ -15,6 +15,7 @@ interface DynamicHeroSectionProps {
   title: ReactNode;
   subtext: string;
   features?: string[];
+  primaryButton?: ReactNode;
   primaryButtonLabel?: string;
   onPrimaryButtonClick?: () => void;
   primaryButtonHref?: string;
@@ -53,6 +54,7 @@ export function DynamicHeroSection({
   title,
   subtext,
   features = [],
+  primaryButton,
   primaryButtonLabel,
   onPrimaryButtonClick,
   primaryButtonHref,
@@ -170,7 +172,8 @@ export function DynamicHeroSection({
                 "flex flex-col sm:flex-row items-center gap-5 pt-4",
                 buttonContainerClassName,
               )}>
-              {primaryButtonLabel &&
+              {primaryButton ? primaryButton :
+                primaryButtonLabel &&
                 (primaryButtonHref ? (
                   <Link href={primaryButtonHref}>
                     <Button
@@ -193,6 +196,7 @@ export function DynamicHeroSection({
                     )}
                   </Button>
                 ))}
+
               {secondaryButtonLabel &&
                 (secondaryButtonHref ? (
                   <Link href={secondaryButtonHref}>

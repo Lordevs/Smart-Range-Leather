@@ -51,8 +51,6 @@ export function OurServicesSection() {
         </>
       }
       items={services}
-      buttonLabel="DOWNLOAD SERVICES"
-      onButtonClick={() => console.log("Downloading services...")}
     />
   );
 }

@@ -5,6 +5,7 @@ import { Download } from "lucide-react";
 import { ReactNode, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { DownloadCatalogueDialog } from "./download-catalogue-dialog";
 
 import { motion } from "motion/react";
 
@@ -26,6 +27,7 @@ interface ItemGridSectionProps {
   className?: string;
   gridClassName?: string;
   footer?: ReactNode;
+  showDownloadButton?: boolean;
 }
 
 export function ItemGridSection({
@@ -38,6 +40,7 @@ export function ItemGridSection({
   className,
   gridClassName,
   footer,
+  showDownloadButton,
 }: ItemGridSectionProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -158,6 +161,16 @@ export function ItemGridSection({
                       <p className="text-[#6C3403] text-lg leading-relaxed font-medium">
                         {item.description}
                       </p>
+                    )}
+                    {showDownloadButton && (
+                      <div
+                        className="pt-4"
+                        onClick={(e) => e.stopPropagation()}>
+                        <DownloadCatalogueDialog
+                          buttonLabel="DOWNLOAD CATALOGUE"
+                          className="w-full bg-[#6C3403] text-white hover:bg-[#5a2b02] h-12 py-0!"
+                        />
+                      </div>
                     )}
                   </div>
                 </motion.div>
