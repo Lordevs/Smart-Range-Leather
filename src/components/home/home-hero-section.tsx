@@ -4,7 +4,7 @@ import { DynamicHeroSection } from "../common/dynamic-hero-section";
 export default function HeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/leather-craftsmanship.webp"
+      imageSrc="/images/hero-imgs/hero.webp"
       imageAlt="Leather Craftsmanship"
       videoSrc="/videos/smart-range.mp4"
       title={

@@ -63,7 +63,6 @@ export function DynamicHeroSection({
   secondaryButtonIcon: SecondaryIcon,
   bottomText,
   overlayGradient = "linear-gradient(to right, rgba(71, 53, 24, 0.82) 0%, rgba(71, 53, 24, 0.82) 50%, rgba(71, 53, 24, 0.5) 100%)",
-  height = "94vh",
   className,
   contentClassName,
   subtextClassName,
@@ -83,8 +82,8 @@ export function DynamicHeroSection({
   return (
     <section
       ref={sectionRef}
-      className={cn("relative w-full overflow-hidden", className)}
-      style={{ height }}>
+      className={cn("relative min-h-[94vh] h-full w-full overflow-hidden flex flex-col items-center justify-center gap-8", className)}
+    >
       {/* Background Media */}
       <div className="absolute inset-0">
         {imageSrc && (
@@ -230,26 +229,28 @@ export function DynamicHeroSection({
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          onClick={scrollToNext}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer group/scroll">
-          <div className="w-[28px] h-[46px] border-2 border-white/40 rounded-full flex justify-center items-start pt-2 transition-colors group-hover/scroll:border-white/60">
-            <motion.div
-              animate={{ y: [0, 16, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="w-1.5 h-2.5 bg-white/60 rounded-full group-hover:bg-white/80"
-            />
-          </div>
-        </motion.div>
+
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        onClick={scrollToNext}
+        className="flex items-center justify-center mb-4 md:mb-0 md:block md:absolute md:bottom-10 md:left-1/2 md:-translate-x-1/2 cursor-pointer group/scroll z-30">
+        <div className="w-[28px] h-[46px] border-2 border-white/40 rounded-full flex justify-center items-start pt-2 transition-colors group-hover/scroll:border-white/60">
+          <motion.div
+            animate={{ y: [0, 16, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="w-1.5 h-2.5 bg-white/60 rounded-full group-hover:bg-white/80"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }

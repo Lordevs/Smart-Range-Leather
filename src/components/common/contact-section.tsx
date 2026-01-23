@@ -493,7 +493,7 @@ export function ContactSection({
                     ))}
                 </div>
               </div>
-              <div className="absolute right-0 aspect-1/2 -bottom-20 top-0 w-100">
+              <div className="hidden lg:block absolute right-0 aspect-1/2 -bottom-20 top-0 w-100">
                 <Image
                   alt="Contact Section"
                   src="/map.png"
