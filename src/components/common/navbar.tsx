@@ -12,6 +12,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetTitle,
+  SheetClose,
 } from "@/components/ui/sheet";
 import { ROUTES } from "@/constants/route";
 
@@ -78,25 +79,28 @@ export default function Navbar() {
               <div className="flex flex-col gap-6 ">
                 <SheetTitle className="text-left"></SheetTitle>
                 {NAV_ITEMS.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "text-lg font-medium px-4 transition-colors hover:text-accent-foreground",
-                      pathname === item.href
-                        ? "text-accent-foreground"
-                        : "text-accent-foreground",
-                    )}>
-                    {item.name}
-                  </Link>
+                  <SheetClose asChild key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "text-lg font-medium px-4 transition-colors hover:text-accent-foreground",
+                        pathname === item.href
+                          ? "text-accent-foreground"
+                          : "text-accent-foreground",
+                      )}>
+                      {item.name}
+                    </Link>
+                  </SheetClose>
                 ))}
                 <div className="mt-4 pt-6 border-t px-4 border-secondary">
-                  <Link href={ROUTES.CONTACT_FORM}>
-                    <Button className="w-full h-12 rounded-full cursor-pointer bg-primary text-primary-foreground hover:bg-primary/80 gap-2">
-                      Request a Quote
-                      <ArrowRight className="h-5 w-5" />
-                    </Button>
-                  </Link>
+                  <SheetClose asChild>
+                    <Link href={ROUTES.CONTACT_FORM}>
+                      <Button className="w-full h-12 rounded-full cursor-pointer bg-primary text-primary-foreground hover:bg-primary/80 gap-2">
+                        Request a Quote
+                        <ArrowRight className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  </SheetClose>
                 </div>
               </div>
             </SheetContent>
