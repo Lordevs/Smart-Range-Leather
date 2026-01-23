@@ -134,12 +134,12 @@ export function DynamicHeroSection({
           variants={staggerContainer}
           initial="initial"
           animate="animate"
-          className="max-w-[1300px] space-y-12">
+          className="max-w-[1300px] space-y-8">
           {/* Heading */}
           <div className="space-y-6">
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl text-white md:text-6xl lg:text-7xl leading-[1.05] font-bold tracking-tight font-serif">
+              className="text-4xl text-white md:text-6xl lg:text-7xl leading-[1.05] font-bold tracking-tight font-serif">
               {title}
             </motion.h1>
 
@@ -155,7 +155,7 @@ export function DynamicHeroSection({
           {features.length > 0 && (
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap items-center gap-x-12 gap-y-4 text-base font-normal text-white/80 italic">
+              className="flex flex-wrap items-center gap-x-12 gap-y-4 text-sm md:text-base font-normal text-white/80 italic">
               {features.map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -169,7 +169,7 @@ export function DynamicHeroSection({
           <motion.div className="space-y-8">
             <div
               className={cn(
-                "flex flex-col sm:flex-row items-center gap-5 pt-4",
+                "flex flex-row items-center md:gap-5 gap-2 pt-4",
                 buttonContainerClassName,
               )}>
               {primaryButton ? primaryButton :
@@ -178,7 +178,7 @@ export function DynamicHeroSection({
                   <Link href={primaryButtonHref}>
                     <Button
                       size="lg"
-                      className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                      className="h-10 md:h-14 cursor-pointer rounded-full bg-primary md:w-52 text-sm md:text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
                       {primaryButtonLabel}
                       {PrimaryIcon && (
                         <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
@@ -189,7 +189,7 @@ export function DynamicHeroSection({
                   <Button
                     size="lg"
                     onClick={onPrimaryButtonClick}
-                    className="h-14 cursor-pointer rounded-full bg-primary w-52 text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                    className="h-10 md:h-14 cursor-pointer rounded-full bg-primary md:w-52 text-sm md:text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
                     {primaryButtonLabel}
                     {PrimaryIcon && (
                       <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
@@ -202,7 +202,7 @@ export function DynamicHeroSection({
                   <Link href={secondaryButtonHref}>
                     <Button
                       size="lg"
-                      className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
+                      className="h-10 md:h-14 rounded-full border-white/60 bg-secondary text-sm md:text-[17px] cursor-pointer px-4 md:px-10 text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
                       {secondaryButtonLabel}
                       {SecondaryIcon && (
                         <SecondaryIcon className="h-4 w-4 stroke-[3px]" />
@@ -213,7 +213,7 @@ export function DynamicHeroSection({
                   <Button
                     size="lg"
                     onClick={onSecondaryButtonClick}
-                    className="h-14 rounded-full border-white/60 bg-secondary  text-[17px] cursor-pointer px-10 text-base text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
+                    className="h-10 md:h-14 rounded-full border-white/60 bg-secondary text-sm md:text-[17px] cursor-pointer px-4 md:px-10 text-primary-foreground hover:bg-secondary/90 transition-all flex items-center justify-center gap-3">
                     {secondaryButtonLabel}
                     {SecondaryIcon && (
                       <SecondaryIcon className="h-4 w-4 stroke-[3px]" />

@@ -240,8 +240,8 @@ export function ContactSection({
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5 }}
                 className="absolute -bottom-16 -right-16 w-80 h-80 pointer-events-none">
-                <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#552C07]" />
-                <div className="absolute bottom-32 right-32 h-40 w-40 rounded-full bg-[#994903]/51" />
+                <div className="absolute bottom-0 right-0 h-40 w-40 md:h-64 md:w-64 rounded-full bg-[#552C07]" />
+                <div className="absolute bottom-24 right-24 h-20 w-20 md:bottom-32 md:right-32 md:h-40 md:w-40 rounded-full bg-[#994903]/51" />
               </motion.div>
             </div>
           </div>
