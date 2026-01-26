@@ -340,7 +340,7 @@ export function ContactSection({
                 <Label
                   htmlFor="website"
                   className="text-sm font-bold text-accent-foreground">
-                  Website
+                  Website (Optional)
                 </Label>
                 <Input
                   id="website"
