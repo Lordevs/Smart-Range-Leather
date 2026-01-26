@@ -314,6 +314,7 @@ export function ContactSection({
                   placeholder="Write your phone number..."
                   value={formData.phone}
                   onChange={handleInputChange}
+                  required
                   disabled={isLoading}
                   className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all h-auto disabled:opacity-50"
                 />
@@ -330,6 +331,7 @@ export function ContactSection({
                   placeholder="Write your company name..."
                   value={formData.company}
                   onChange={handleInputChange}
+                  required
                   disabled={isLoading}
                   className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all h-auto disabled:opacity-50"
                 />

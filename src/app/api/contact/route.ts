@@ -4,53 +4,60 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface ContactFormData {
-	firstName: string;
-	lastName: string;
-	email: string;
-	phone: string;
-	company: string;
-	website: string;
-	message: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  company: string;
+  website: string;
+  message: string;
 }
 
 export async function POST(request: NextRequest) {
-	try {
-		if (
-			!process.env.RESEND_API_KEY ||
-			!process.env.CONTACT_EMAIL ||
-			!process.env.SENDER_EMAIL
-		) {
-			return NextResponse.json(
-				{ error: "Server configuration error" },
-				{ status: 500 }
-			);
-		}
+  try {
+    if (
+      !process.env.RESEND_API_KEY ||
+      !process.env.CONTACT_EMAIL ||
+      !process.env.SENDER_EMAIL
+    ) {
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 },
+      );
+    }
 
-		const body: ContactFormData = await request.json();
+    const body: ContactFormData = await request.json();
 
-		// Validate required fields
-		if (!body.firstName || !body.lastName || !body.email || !body.message) {
-			return NextResponse.json(
-				{ error: "Missing required fields" },
-				{ status: 400 }
-			);
-		}
+    // Validate required fields
+    if (
+      !body.firstName ||
+      !body.lastName ||
+      !body.email ||
+      !body.phone ||
+      !body.company ||
+      !body.message
+    ) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 },
+      );
+    }
 
-		// Validate email format
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!emailRegex.test(body.email)) {
-			return NextResponse.json(
-				{ error: "Invalid email format" },
-				{ status: 400 }
-			);
-		}
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(body.email)) {
+      return NextResponse.json(
+        { error: "Invalid email format" },
+        { status: 400 },
+      );
+    }
 
-		// Send email to company
-		const companyEmailResponse = await resend.emails.send({
-			from: `Contact Form <${process.env.SENDER_EMAIL}>`,
-			to: process.env.CONTACT_EMAIL,
-			subject: `New Contact Form Submission from ${body.firstName} ${body.lastName}`,
-			html: `
+    // Send email to company
+    const companyEmailResponse = await resend.emails.send({
+      from: `Contact Form <${process.env.SENDER_EMAIL}>`,
+      to: process.env.CONTACT_EMAIL,
+      subject: `New Contact Form Submission from ${body.firstName} ${body.lastName}`,
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1A1A1A; border-bottom: 2px solid #B8641A; padding-bottom: 10px;">
             New Contact Form Submission
@@ -74,22 +81,22 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
-		});
+    });
 
-		if (companyEmailResponse.error) {
-			console.error("Resend error:", companyEmailResponse.error);
-			return NextResponse.json(
-				{ error: "Failed to send email" },
-				{ status: 500 }
-			);
-		}
+    if (companyEmailResponse.error) {
+      console.error("Resend error:", companyEmailResponse.error);
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 500 },
+      );
+    }
 
-		// Send confirmation email to customer
-		await resend.emails.send({
-			from: "Smart Range Leather <onboarding@resend.dev>", // Replace with your verified sender email
-			to: body.email,
-			subject: "We received your message - Smart Range Leather",
-			html: `
+    // Send confirmation email to customer
+    await resend.emails.send({
+      from: "Smart Range Leather <onboarding@resend.dev>", // Replace with your verified sender email
+      to: body.email,
+      subject: "We received your message - Smart Range Leather",
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1A1A1A;">Thank You for Contacting Us</h2>
           
@@ -114,21 +121,21 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
-		});
+    });
 
-		return NextResponse.json(
-			{
-				success: true,
-				message: "Email sent successfully",
-				id: companyEmailResponse.data?.id,
-			},
-			{ status: 200 }
-		);
-	} catch (error) {
-		console.error("API error:", error);
-		return NextResponse.json(
-			{ error: "Internal server error" },
-			{ status: 500 }
-		);
-	}
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Email sent successfully",
+        id: companyEmailResponse.data?.id,
+      },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error("API error:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    );
+  }
 }
