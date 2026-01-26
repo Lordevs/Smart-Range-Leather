@@ -2,7 +2,7 @@
 
 import { DynamicHeroSection } from "@/components/common/dynamic-hero-section";
 import { ROUTES } from "@/constants/route";
-
+// about us
 export default function AboutUsHeroSection() {
   return (
     <DynamicHeroSection
