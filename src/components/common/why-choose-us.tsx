@@ -57,8 +57,8 @@ export function WhyChooseUs({
                 delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}>
-              <Card className="group rounded-[2.5rem]  h-full gap-0 border-border/50 bg-background p-10 shadow-[0px_2px_8px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-black/5 hover:shadow-xl">
-                <CardHeader className="mb-1 p-0">
+              <Card className="group rounded-[2.5rem] flex flex-col items-center text-center h-full gap-0 border-border/50 bg-background p-10 shadow-[0px_2px_8px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-black/5 hover:shadow-xl">
+                <CardHeader className="mb-6 p-0 flex flex-col items-center justify-center">
                   <div className="bg-primary/40 flex h-14 w-14 items-center justify-center rounded-full transition-colors duration-300 group-hover:bg-primary/80">
                     <feature.icon
                       className="text-primary-foreground h-6 w-6"
@@ -66,11 +66,11 @@ export function WhyChooseUs({
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4 p-0">
-                  <CardTitle className="text-foreground text-2xl font-normal max-w-50 leading-tight tracking-tight">
+                <CardContent className="space-y-4 p-0 flex flex-col items-center justify-center">
+                  <CardTitle className="text-foreground text-2xl font-normal leading-tight tracking-tight">
                     {feature.title}
                   </CardTitle>
-                  <p className="text-muted-foreground max-w-50 text-[15px] font-medium leading-relaxed opacity-90">
+                  <p className="text-muted-foreground text-[15px] font-medium leading-relaxed opacity-90">
                     {feature.description}
                   </p>
                 </CardContent>
