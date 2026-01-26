@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Download } from "lucide-react";
+import { Mail } from "lucide-react";
 import { ReactNode, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
@@ -193,8 +193,8 @@ export function ItemGridSection({
               <Button
                 onClick={onButtonClick}
                 className="group flex items-center space-x-3  rounded-full bg-[#6C3403] px-12! py-7! text-sm font-bold tracking-widest text-[#fdfbf8] transition-all hover:bg-[#5a2b02] shadow-lg">
+                <Mail className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                 <span>{buttonLabel}</span>
-                <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               </Button>
             </div>
           )
