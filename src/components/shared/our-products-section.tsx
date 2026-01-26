@@ -8,7 +8,7 @@ const products = [
     title: "Leather Jackets and Coats (Men and Women)",
     description:
       "Premium handcrafted leather outerwear, blending timeless style with contemporary design and superior quality.",
-    image: "/images/products/leather-jackets-and-Coats-men-and-women.webp",
+    image: "/images/products/leather-jackets-and-Coats-men-and-women.png",
   },
   {
     title: "Leather Bags",
@@ -38,7 +38,7 @@ const products = [
     title: "Wallets and Small Goods",
     description:
       "Elegantly designed wallets and accessories, meticulously crafted from the finest leather for lasting sophistication.",
-    image: "/images/products/wallets-and-Small-goods.webp",
+    image: "/images/products/wallets-and-Small-goods.png",
   },
 ];
 
