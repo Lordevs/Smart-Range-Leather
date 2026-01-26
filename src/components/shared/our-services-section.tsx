@@ -4,7 +4,7 @@ import { ItemGridSection } from "../common/item-grid-section";
 
 const services = [
   {
-    title: "Product Design & Development",
+    title: "Product Development (OEM/ODM)",
     description:
       "Creative, tailored, trend-focused designs with fast sampling, prototyping, and technical development to bring your ideas to life.",
     image: "/images/services/product-design-and-development.webp",
@@ -16,25 +16,25 @@ const services = [
     image: "/images/services/private-label-manufacturing.webp",
   },
   {
-    title: "Leather Bags and Small Goods",
+    title: "Materials and Hardware Sourcing",
     description:
       "Expert craftsmanship in creating premium leather bags, wallets, and accessories with attention to every stitch.",
     image: "/images/services/leather-bags-and-small-goods.webp",
   },
   {
-    title: "Pattern Making & Sample Development",
+    title: "Pattern Making and Sampling",
     description:
       "Transforming concepts into precision patterns and physical samples to ensure perfect fit and functionality.",
-    image: "/images/services/pattern-making-and-sample-development.webp",
+    image: "/images/services/pattern-making-and-sampling.webp",
   },
   {
-    title: "Global Logistics & Export Support",
+    title: "Export Packing and Shipping Support",
     description:
       "Seamless international shipping and compliance support to deliver your products anywhere in the world.",
     image: "/images/services/global-logistics-and-export-support.webp",
   },
   {
-    title: "Finishing, Quality Control & Compliance",
+    title: "Quality Control and Compliance",
     description:
       "Rigorous inspection and finishing processes to meet international safety and quality standards.",
     image: "/images/services/finishing-quality-control-and-compliance.webp",

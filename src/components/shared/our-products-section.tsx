@@ -55,6 +55,7 @@ export function OurProductsSection() {
       items={products}
       // showDownloadButton={true}
       buttonLabel="Request Catalogue"
+      imageClassName="object-contain"
       onButtonClick={() => (window.location.href = ROUTES.CATALOGUE)}
     />
   );

@@ -26,6 +26,7 @@ interface ItemGridSectionProps {
   onButtonClick?: () => void;
   className?: string;
   gridClassName?: string;
+  imageClassName?: string;
   footer?: ReactNode;
   showDownloadButton?: boolean;
 }
@@ -39,6 +40,7 @@ export function ItemGridSection({
   onButtonClick,
   className,
   gridClassName,
+  imageClassName,
   footer,
   showDownloadButton,
 }: ItemGridSectionProps) {
@@ -118,13 +120,16 @@ export function ItemGridSection({
                       hover: { scale: 1.08 },
                     }}
                     transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                    className="h-full w-full">
+                    className="h-full w-full bg-[#F4F2EC]">
                     <Image
                       src={item.image}
                       alt={item.title}
-                      width={500}
-                      height={600}
-                      className="h-full w-full object-cover"
+                      width={600}
+                      height={500}
+                      className={cn(
+                        "h-full w-full object-cover",
+                        imageClassName,
+                      )}
                       suppressHydrationWarning
                     />
                   </motion.div>
