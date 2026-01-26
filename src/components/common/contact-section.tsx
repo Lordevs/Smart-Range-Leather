@@ -386,13 +386,13 @@ export function ContactSection({
               <div className="md:col-span-2 space-y-4">
                 <div className="flex items-center gap-4">
                   <Label
-                    htmlFor="file-upload"
+                    htmlFor="contact-file-upload"
                     className="flex items-center gap-2 px-4 py-2 border border-dashed border-accent-foreground/30 rounded-lg cursor-pointer hover:bg-accent-foreground/5 transition-all">
                     <span className="text-sm font-medium text-accent-foreground/80">
                       {selectedFile ? "Change File" : "Attach File"}
                     </span>
                     <Input
-                      id="file-upload"
+                      id="contact-file-upload"
                       type="file"
                       accept=".pdf,.doc,.docx"
                       className="hidden"

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, FileText, X } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -44,7 +44,6 @@ export function DownloadCatalogueDialog({
     website: "",
     message: "",
   });
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -53,13 +52,6 @@ export function DownloadCatalogueDialog({
     type: null,
     message: "",
   });
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-    }
-  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -77,17 +69,12 @@ export function DownloadCatalogueDialog({
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const dataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        dataToSend.append(key, value);
-      });
-      if (selectedFile) {
-        dataToSend.append("file", selectedFile);
-      }
-
       const response = await fetch("/api/catalogue", {
         method: "POST",
-        body: dataToSend,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
@@ -106,7 +93,6 @@ export function DownloadCatalogueDialog({
           website: "",
           message: "",
         });
-        setSelectedFile(null);
         // Optionally close dialog after success
         setTimeout(() => {
           onOpenChange?.(false);
@@ -292,44 +278,6 @@ export function DownloadCatalogueDialog({
                 rows={1}
                 className="w-full border-t-0 border-l-0 border-r-0 border-b-[1.5px] border-primary-foreground/30 rounded-none bg-transparent px-0 h-auto focus-visible:ring-0 focus-visible:border-[#6C3403] focus:outline-none transition-all placeholder:text-[#6b6b6b]/40 resize-none"
               />
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <Label
-                  htmlFor="file-upload"
-                  className="flex items-center gap-2 px-4 py-2 border border-dashed border-primary-foreground/30 rounded-lg cursor-pointer hover:bg-primary-foreground/5 transition-all">
-                  <span className="text-sm font-medium text-accent-foreground opacity-80">
-                    {selectedFile ? "Change File" : "Attach File"}
-                  </span>
-                  <Input
-                    id="file-upload"
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    className="hidden"
-                    onChange={handleFileChange}
-                    disabled={isLoading}
-                  />
-                </Label>
-                {selectedFile && (
-                  <div className="flex items-center gap-2 bg-white/50 px-3 py-1.5 rounded-full border border-primary-foreground/10">
-                    {selectedFile.type === "application/pdf" ? (
-                      <FileText className="h-4 w-4 text-red-600" />
-                    ) : (
-                      <FileText className="h-4 w-4 text-blue-600" />
-                    )}
-                    <span className="text-xs font-medium text-accent-foreground truncate max-w-[150px]">
-                      {selectedFile.name}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedFile(null)}
-                      className="text-accent-foreground/50 hover:text-red-600 transition-colors">
-                      <X className="h-3 w-3" />
-                    </button>
-                  </div>
-                )}
-              </div>
             </div>
 
             {submitStatus.type && (
