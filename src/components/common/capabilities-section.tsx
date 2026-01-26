@@ -82,10 +82,10 @@ export function CapabilitiesSection({
                   )}>
                   <div
                     className={cn(
-                      "flex h-10 w-12 items-center justify-center rounded-[3px] transition-colors duration-300",
+                      "flex h-12 w-12 items-center justify-center rounded-lg transition-colors duration-300",
                       activeItem.id === item.id
                         ? "bg-primary/10 text-primary"
-                        : "bg-white/5 text-white/40 group-hover:text-white/60",
+                        : "bg-white/5 text-primary group-hover:text-white/60",
                     )}>
                     <item.icon className="h-5.5 w-5.5" />
                   </div>
@@ -94,7 +94,7 @@ export function CapabilitiesSection({
                       "text-lg font-medium tracking-wide transition-colors duration-300",
                       activeItem.id === item.id
                         ? "text-primary"
-                        : "text-white/40 group-hover:text-white/70",
+                        : "text-white/70 group-hover:text-white/70",
                     )}>
                     {item.title}
                   </span>
