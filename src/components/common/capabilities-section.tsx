@@ -40,7 +40,8 @@ export function CapabilitiesSection({
   const [activeItem, setActiveItem] = useState<CapabilityItem>(items[0]);
 
   useEffect(() => {
-    setMounted(true);
+    const rafId = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (

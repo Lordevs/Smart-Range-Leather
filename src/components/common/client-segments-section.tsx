@@ -33,7 +33,6 @@ export function ClientSegmentsSection({
   tag,
   title,
   segments,
-  highlightCard,
   stats,
   className,
 }: ClientSegmentsSectionProps) {
