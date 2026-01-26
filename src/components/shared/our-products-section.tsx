@@ -1,7 +1,7 @@
 "use client";
 
-import { ROUTES } from "@/constants/route";
 import { ItemGridSection } from "../common/item-grid-section";
+import { DownloadCatalogueDialog } from "../common/download-catalogue-dialog";
 
 const products = [
   {
@@ -53,10 +53,13 @@ export function OurProductsSection() {
         </>
       }
       items={products}
-      // showDownloadButton={true}
-      buttonLabel="Request Catalogue"
       imageClassName="object-contain"
-      onButtonClick={() => (window.location.href = ROUTES.CATALOGUE)}
+      footer={
+        <DownloadCatalogueDialog
+          buttonLabel="Request Catalogue"
+          className="bg-[#6C3403] text-[#fdfbf8] hover:bg-[#5a2b02]! px-12! py-7! tracking-widest!"
+        />
+      }
     />
   );
 }
