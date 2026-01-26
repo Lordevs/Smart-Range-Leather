@@ -11,12 +11,16 @@ export function Counter({ value }: CounterProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Parse the number and suffix
+  // Parse the number, prefix and suffix
   const numMatch = value.match(/([\d,.]+)/);
-  const suffixMatch = value.match(/[^\d,.]+/);
 
-  const target = numMatch ? parseFloat(numMatch[0].replace(/,/g, "")) : 0;
-  const suffix = suffixMatch ? suffixMatch[0] : "";
+  const prefix = numMatch ? value.slice(0, numMatch.index) : "";
+  const numberPart = numMatch ? numMatch[0] : "";
+  const suffix = numMatch
+    ? value.slice((numMatch.index ?? 0) + numberPart.length)
+    : value;
+
+  const target = numberPart ? parseFloat(numberPart.replace(/,/g, "")) : 0;
 
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => {
@@ -46,6 +50,7 @@ export function Counter({ value }: CounterProps) {
 
   return (
     <span ref={ref}>
+      {prefix}
       {displayValue}
       {suffix}
     </span>
