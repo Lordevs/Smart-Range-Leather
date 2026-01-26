@@ -27,7 +27,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body: CatalogueFormData = await request.json();
+    const formData = await request.formData();
+    const body = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      company: formData.get("company") as string,
+      website: formData.get("website") as string,
+      message: formData.get("message") as string,
+    };
+    const file = formData.get("file") as File | null;
 
     // Validate required fields
     if (
@@ -83,11 +93,22 @@ export async function POST(request: NextRequest) {
       console.error("Subscription error:", subError);
     }
 
+    // Prepare attachments if file exists
+    const attachments = [];
+    if (file) {
+      const buffer = Buffer.from(await file.arrayBuffer());
+      attachments.push({
+        filename: file.name,
+        content: buffer,
+      });
+    }
+
     // 2. Send notification email to company
     const companyEmailResponse = await resend.emails.send({
       from: `Catalogue Request <onboarding@resend.dev>`,
       to: process.env.CONTACT_EMAIL,
       subject: `Catalogue Request: ${body.firstName} ${body.lastName} from ${body.company}`,
+      attachments,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1A1A1A; border-bottom: 2px solid #B8641A; padding-bottom: 10px;">

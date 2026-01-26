@@ -77,12 +77,17 @@ export function DownloadCatalogueDialog({
     setSubmitStatus({ type: null, message: "" });
 
     try {
+      const dataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        dataToSend.append(key, value);
+      });
+      if (selectedFile) {
+        dataToSend.append("file", selectedFile);
+      }
+
       const response = await fetch("/api/catalogue", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: dataToSend,
       });
 
       const data = await response.json();
