@@ -2,12 +2,13 @@
 
 import {
   Layers,
-  PenTool,
-  FlaskConical,
+  Ruler,
+  TestTube,
   Scissors,
-  Droplets,
+  Droplet,
   Wrench,
   ClipboardCheck,
+  Package,
   Truck,
 } from "lucide-react";
 import { ROUTES } from "@/constants/route";
@@ -25,16 +26,16 @@ const capabilities: CapabilityItem[] = [
     image: "/images/capabilities/sourcing.webp",
   },
   {
-    id: "tanning",
-    title: "Tanning",
-    icon: PenTool,
-    image: "/images/capabilities/tanning.webp",
-  },
-  {
     id: "designing",
     title: "Designing",
-    icon: FlaskConical,
+    icon: Ruler,
     image: "/images/capabilities/designing.webp",
+  },
+  {
+    id: "tanning",
+    title: "Tanning",
+    icon: TestTube,
+    image: "/images/capabilities/tanning.webp",
   },
   {
     id: "pattern",
@@ -45,7 +46,7 @@ const capabilities: CapabilityItem[] = [
   {
     id: "cutting",
     title: "Cutting",
-    icon: Droplets,
+    icon: Droplet,
     image: "/images/capabilities/cutting-leather.webp",
   },
   {
@@ -63,7 +64,7 @@ const capabilities: CapabilityItem[] = [
   {
     id: "packing",
     title: "Packing",
-    icon: Truck,
+    icon: Package,
     image: "/images/capabilities/packing.webp",
   },
   {
