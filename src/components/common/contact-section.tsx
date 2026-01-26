@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, Clock, CheckCircle } from "lucide-react";
+import { Phone, Mail, Clock, CheckCircle, FileText, X } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -63,6 +63,14 @@ export function ContactSection({
     message: "",
   });
   const [showThankYouModal, setShowThankYouModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -106,6 +114,7 @@ export function ContactSection({
           website: "",
           message: "",
         });
+        setSelectedFile(null);
       } else {
         setSubmitStatus({
           type: "error",
@@ -367,6 +376,44 @@ export function ContactSection({
                   disabled={isLoading}
                   className="border-0 border-b border-accent-foreground text-accent-foreground/79 placeholder:text-accent-foreground/63 py-2 px-0 rounded-none shadow-none focus-visible:border-accent-foreground focus-visible:ring-0 transition-all min-h-0 h-auto field-sizing-content bg-transparent resize-none disabled:opacity-50"
                 />
+              </div>
+
+              <div className="md:col-span-2 space-y-4">
+                <div className="flex items-center gap-4">
+                  <Label
+                    htmlFor="file-upload"
+                    className="flex items-center gap-2 px-4 py-2 border border-dashed border-accent-foreground/30 rounded-lg cursor-pointer hover:bg-accent-foreground/5 transition-all">
+                    <span className="text-sm font-medium text-accent-foreground/80">
+                      {selectedFile ? "Change File" : "Attach File"}
+                    </span>
+                    <Input
+                      id="file-upload"
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      className="hidden"
+                      onChange={handleFileChange}
+                      disabled={isLoading}
+                    />
+                  </Label>
+                  {selectedFile && (
+                    <div className="flex items-center gap-2 bg-neutral-50 px-3 py-1.5 rounded-full border border-neutral-100 shadow-sm">
+                      {selectedFile.type === "application/pdf" ? (
+                        <FileText className="h-4 w-4 text-red-600" />
+                      ) : (
+                        <FileText className="h-4 w-4 text-blue-600" />
+                      )}
+                      <span className="text-xs font-medium text-accent-foreground truncate max-w-[150px]">
+                        {selectedFile.name}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedFile(null)}
+                        className="text-accent-foreground/50 hover:text-red-600 transition-colors">
+                        <X className="h-3 w-3" />
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Status Messages */}
