@@ -52,7 +52,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email to company
+    // 1. Subscribe user to 'General' Segment using Resend
+    try {
+      // Find or create 'General' segment
+      const { data: segments } = await resend.segments.list();
+      let generalSegment = Array.isArray(segments)
+        ? (segments as { name: string; id: string }[]).find(
+            (a) => a.name === "General",
+          )
+        : undefined;
+
+      if (!generalSegment) {
+        const { data: newSegment } = await resend.segments.create({
+          name: "General",
+        });
+        generalSegment =
+          (newSegment as { name: string; id: string }) ?? undefined;
+      }
+
+      if (generalSegment?.id) {
+        await resend.contacts.create({
+          email: body.email,
+          firstName: body.firstName,
+          lastName: body.lastName,
+          unsubscribed: false,
+          audienceId: generalSegment.id,
+        });
+      }
+    } catch (subError) {
+      // Log subscription error but don't fail the entire contact request
+      console.error("Subscription error:", subError);
+    }
+
+    // 2. Send email to company
     const companyEmailResponse = await resend.emails.send({
       from: `Contact Form <${process.env.SENDER_EMAIL}>`,
       to: process.env.CONTACT_EMAIL,
