@@ -8,8 +8,8 @@ export default function AboutUsHeroSection() {
     <DynamicHeroSection
       imageSrc="/images/hero-imgs/about-us.webp"
       imageAlt="About Us"
-      title="Crafting Leather Excellence For Over Three Decades"
-      subtext="Where timeless craftsmanship meets modern innovation. We transform premium leather into exceptional garments that tell your story."
+      title="Over 30 Years of Leather Manufacturing Experience"
+      subtext="We manufacture leather garments and accessories for brands, retailers, and uniform suppliers. Low MOQs, fast sampling, ISO-certified systems, and global shipping support"
       primaryButtonLabel="Request a Quote"
       primaryButtonHref={ROUTES.CONTACT_FORM}
       secondaryButtonLabel=""

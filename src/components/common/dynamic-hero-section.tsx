@@ -13,7 +13,7 @@ interface DynamicHeroSectionProps {
   imageAlt?: string;
   videoSrc?: string;
   title: ReactNode;
-  subtext: string;
+  subtext: ReactNode;
   features?: string[];
   primaryButton?: ReactNode;
   primaryButtonLabel?: string;
@@ -84,8 +84,10 @@ export function DynamicHeroSection({
   return (
     <section
       ref={sectionRef}
-      className={cn("relative min-h-[94vh] h-full w-full overflow-hidden flex flex-col items-center justify-center gap-8", className)}
-    >
+      className={cn(
+        "relative min-h-[94vh] h-full w-full overflow-hidden flex flex-col items-center justify-center gap-8",
+        className,
+      )}>
       {/* Background Media */}
       <div className="absolute inset-0">
         {imageSrc && (
@@ -146,7 +148,10 @@ export function DynamicHeroSection({
             {/* Subtext */}
             <motion.p
               variants={fadeInUp}
-              className={cn("max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide", subtextClassName)}>
+              className={cn(
+                "max-w-5xl text-lg text-white/85 md:text-3xl font-normal leading-[1.4] tracking-wide",
+                subtextClassName,
+              )}>
               {subtext}
             </motion.p>
           </div>
@@ -172,30 +177,31 @@ export function DynamicHeroSection({
                 "flex flex-row items-center md:gap-5 gap-2 pt-4",
                 buttonContainerClassName,
               )}>
-              {primaryButton ? primaryButton :
-                primaryButtonLabel &&
-                (primaryButtonHref ? (
-                  <Link href={primaryButtonHref}>
+              {primaryButton
+                ? primaryButton
+                : primaryButtonLabel &&
+                  (primaryButtonHref ? (
+                    <Link href={primaryButtonHref}>
+                      <Button
+                        size="lg"
+                        className="h-10 md:h-14 cursor-pointer rounded-full bg-primary md:w-52 text-sm md:text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
+                        {primaryButtonLabel}
+                        {PrimaryIcon && (
+                          <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
+                        )}
+                      </Button>
+                    </Link>
+                  ) : (
                     <Button
                       size="lg"
+                      onClick={onPrimaryButtonClick}
                       className="h-10 md:h-14 cursor-pointer rounded-full bg-primary md:w-52 text-sm md:text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
                       {primaryButtonLabel}
                       {PrimaryIcon && (
                         <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
                       )}
                     </Button>
-                  </Link>
-                ) : (
-                  <Button
-                    size="lg"
-                    onClick={onPrimaryButtonClick}
-                    className="h-10 md:h-14 cursor-pointer rounded-full bg-primary md:w-52 text-sm md:text-[17px] text-[#6C3403] hover:bg-primary/90 transition-all gap-3 border-none flex items-center justify-center">
-                    {primaryButtonLabel}
-                    {PrimaryIcon && (
-                      <PrimaryIcon className="h-4 w-4 stroke-[3px]" />
-                    )}
-                  </Button>
-                ))}
+                  ))}
 
               {secondaryButtonLabel &&
                 (secondaryButtonHref ? (
@@ -232,8 +238,6 @@ export function DynamicHeroSection({
             )}
           </motion.div>
         </motion.div>
-
-
       </div>
 
       {/* Scroll Indicator */}

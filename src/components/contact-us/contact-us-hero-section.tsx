@@ -6,10 +6,17 @@ export default function ContactUsHeroSection() {
     <DynamicHeroSection
       imageSrc="/images/hero-imgs/contact-us.webp"
       imageAlt="Contact Us"
-      title="Contact Us"
-      subtext="Let&apos;s discuss your needs for premium leather products. We provide high-quality, tailored solutions, from custom designs to expert craftsmanship. Share your preferences, and we&apos;ll guide you to the perfect fit."
-      primaryButtonLabel="View our Capibilities"
-      primaryButtonHref={ROUTES.ABOUT}
+      title="Request a Quote"
+      subtext={
+        <>
+          Share your product details and quantity. We'll reply with pricing, MOQ
+          options, sampling timeline, and lead time.
+          <br />
+          Prefer WhatsApp or email? Contact us below.
+        </>
+      }
+      primaryButtonLabel="Request a Quote"
+      primaryButtonHref={ROUTES.CONTACT_FORM}
       secondaryButtonLabel=""
       overlayGradient=""
       contentClassName="text-center flex flex-col items-center"
