@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { ClientSegmentsSection } from "../common/client-segments-section";
 
-
 const clientSegments = [
   {
     icon: Store,

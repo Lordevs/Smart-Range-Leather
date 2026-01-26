@@ -76,7 +76,7 @@ export function ClientSegmentsSection({
                 duration: 0.8,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+              className="flex flex-col items-center text-center space-y-6">
               <div className="flex h-12 w-12 items-center justify-center">
                 <segment.icon
                   className="h-8 w-8 text-primary"
@@ -95,7 +95,7 @@ export function ClientSegmentsSection({
           ))}
 
           {/* Highlight Card */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 20 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true }}
@@ -109,7 +109,7 @@ export function ClientSegmentsSection({
             <p className="text-sm leading-relaxed">
               {highlightCard.description}
             </p>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Stats Section */}
