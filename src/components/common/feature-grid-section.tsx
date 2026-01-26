@@ -50,18 +50,18 @@ export function FeatureGridSection({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="flex items-start space-x-6 max-w-lg mx-auto">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center">
+              className="flex flex-col items-center text-center max-w-lg mx-auto">
+              <div className="flex h-16 w-16 items-center justify-center mb-6">
                 <feature.icon
-                  className="h-8 w-8 text-[#B8641A]"
+                  className="h-10 w-10 text-[#B8641A]"
                   strokeWidth={1.5}
                 />
               </div>
               <div className="space-y-3">
-                <h3 className="text-xl font-medium text-[#1a1a1a] font-serif">
+                <h3 className="text-2xl font-medium text-[#1a1a1a] font-serif">
                   {feature.title}
                 </h3>
-                <p className="text-base text-[#6B6B6B] leading-relaxed max-w-sm">
+                <p className="text-base text-[#6B6B6B] leading-relaxed max-w-md">
                   {feature.description}
                 </p>
               </div>
