@@ -68,7 +68,18 @@ export function ContactSection({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      const maxSize = 40 * 1024 * 1024; // 40MB
+      if (file.size > maxSize) {
+        setSubmitStatus({
+          type: "error",
+          message: "File size exceeds 40MB. Please select a smaller file.",
+        });
+        e.target.value = ""; // Clear input
+        setSelectedFile(null);
+        return;
+      }
       setSelectedFile(file);
+      setSubmitStatus({ type: null, message: "" }); // Clear any previous size errors
     }
   };
 
