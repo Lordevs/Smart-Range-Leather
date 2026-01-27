@@ -9,7 +9,7 @@ export default function ContactUsHeroSection() {
       title="Request a Quote"
       subtext={
         <>
-          Share your product details and quantity. We&apos;ll reply with
+          Share your product details and quantity. <br /> We&apos;ll reply with
           pricing, MOQ options, sampling timeline, and lead time.
           <br />
           Prefer WhatsApp or email? Contact us below.

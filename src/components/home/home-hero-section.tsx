@@ -16,16 +16,21 @@ export default function HeroSection() {
         videoSrc="/videos/smart-range.mp4"
         title={
           <>
-            <span className="text-primary">Low MOQ</span> Leather Jackets and{" "}
-            <br className="hidden md:block" />
-            Accessories <span className="text-primary">Manufacturer</span>
+            <span className="text-primary border-b-2 border-primary">
+              Low MOQ
+            </span>{" "}
+            Leather Jackets and <br className="hidden md:block" />
+            Accessories{" "}
+            <span className="text-primary border-b-2 border-primary">
+              Manufacturer
+            </span>
           </>
         }
-        subtext="Premium leather garments, shearling, bags, and accessories, manufactured with precision, flexibility, and uncompromising quality."
+        subtext="OEM/ODM and private label production for brands and retailers. Fast sampling, reliable lead times, ISO-certified quality systems, and worldwide shipping."
         features={[
-          "Over 20 years of manufacturing excellence",
-          "Low MOQs",
-          "On-time global delivery",
+          "Over 30 Years of Manufacturing Excellence",
+          "Fast Sampling",
+          "On-time Global Delivery",
         ]}
         primaryButtonLabel="Request a Quote"
         primaryButtonHref={ROUTES.CONTACT_FORM}

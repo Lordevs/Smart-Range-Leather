@@ -12,8 +12,10 @@ export default function HeroSection() {
         imageAlt="Leather Craftsmanship"
         title={
           <>
-            Leather Product Catalogue for{" "}
-            <span className="text-primary border-b-3 border-primary">Brands</span>{" "}
+            Leather Product Catalogue for <br />
+            <span className="text-primary border-b-3 border-primary">
+              Brands
+            </span>{" "}
             and{" "}
             <span className="text-primary border-b-3 border-primary">
               Retailers
@@ -23,7 +25,12 @@ export default function HeroSection() {
         subtext="Explore a selection of leather products manufactured by Smart Range Leather. This catalogue highlights key product types, but it is not a limitation of what we produce. If it is made from leather, we can manufacture it."
         primaryButtonLabel="Download Catalogue"
         primaryButtonIcon={Download}
-        primaryButton={<DownloadCatalogueDialog buttonLabel="Download Catalogue" className="min-w-52 text-[17px] text-[#6C3403] font-medium" />}
+        primaryButton={
+          <DownloadCatalogueDialog
+            buttonLabel="Download Catalogue"
+            className="min-w-52 text-[17px] text-[#6C3403] font-medium"
+          />
+        }
         bottomText="Low minimum order quantities. Custom manufacturing. Global delivery."
         secondaryButtonLabel=""
         overlayGradient=""

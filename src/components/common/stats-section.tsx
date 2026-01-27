@@ -62,13 +62,13 @@ function Counter({ value }: CounterProps) {
 const stats = [
   {
     icon: TrendingUp,
-    value: "20+",
+    value: "30+",
     label: "Years in Leather Manufacturing",
   },
   {
     icon: Package,
-    value: "100,000+",
-    label: "Items Produced Annually",
+    value: "450,000+",
+    label: "Units Produced Annually",
   },
   {
     icon: Clock,
@@ -77,7 +77,7 @@ const stats = [
   },
   {
     icon: BookOpen,
-    value: "500+",
+    value: "3000+",
     label: "Designs Available In-House",
   },
 ];
