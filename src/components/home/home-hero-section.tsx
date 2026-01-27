@@ -26,12 +26,11 @@ export default function HeroSection() {
             </span>
           </>
         }
-        subtext="OEM/ODM and private label production for brands and retailers. 
-Fast sampling, reliable lead times, ISO-certified quality systems, and worldwide shipping."
+        subtext="OEM/ODM and private label production for brands and retailers. Fast sampling, reliable lead times, ISO-certified quality systems, and worldwide shipping."
         features={[
-          "Over 20 years of manufacturing excellence",
-          "Low MOQs",
-          "On-time global delivery",
+          "Over 30 Years of Manufacturing Excellence",
+          "Fast Sampling",
+          "On-time Global Delivery",
         ]}
         primaryButtonLabel="Request a Quote"
         primaryButtonHref={ROUTES.CONTACT_FORM}
