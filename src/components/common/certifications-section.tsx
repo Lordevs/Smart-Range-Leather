@@ -64,8 +64,11 @@ export function CertificationsSection({
               }}
               className="group flex flex-col items-center text-center bg-white p-12 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all hover:shadow-[0_20px_60px_rgb(0,0,0,0.05)] h-full rounded-2xl">
               <div className="mb-10">
-                <div className="h-16 w-16 bg-[#6C3403]/5 rounded-xl flex items-center justify-center transition-colors group-hover:bg-[#6C3403]/10">
-                  <Award className="h-8 w-8 text-[#6C3403]" strokeWidth={1.2} />
+                <div className="h-16 w-16 rounded-xl flex items-center justify-center transition-colors group-hover:bg-[#6C3403]/10">
+                  <Award
+                    className="h-12 w-12 text-[#B8641A]"
+                    strokeWidth={1.2}
+                  />
                 </div>
               </div>
 
@@ -73,13 +76,13 @@ export function CertificationsSection({
                 <h3 className="text-2xl md:text-3xl font-normal text-foreground font-serif leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#6C3403]/60">
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#B8641A]">
                   {item.subtitle}
                 </p>
               </div>
 
               <div className="mt-14 pt-8 border-t border-black/5 w-full flex justify-center">
-                <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#6C3403] transition-all hover:gap-4">
+                <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
                   <span>LEARN MORE</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                 </button>

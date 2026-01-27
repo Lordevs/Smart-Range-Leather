@@ -57,8 +57,8 @@ export function HomeManufacturingProcess() {
       tag="PROCESS"
       title={
         <>
-          Our <span className="text-accent-foreground">Manufacturing</span>{" "}
-          Process
+          Our{" "}
+          <span className="text-accent-foreground">Manufacturing Process</span>
         </>
       }
       steps={steps}

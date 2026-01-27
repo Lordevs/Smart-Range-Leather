@@ -13,7 +13,7 @@ export function AboutSection() {
         </>
       }
       description={[
-        "Smart Range Leather is a vertically integrated leather factory manufacturer specialising in premium leather garments, shearling jackets, bags, and accessories.",
+        "Smart Range Leather is a vertically integrated manufacturer specializing in premium leather garments, shearling jackets, bags, and accessories.",
         "From sourcing top-grade hides to final finishing, every stage of production is handled with precision, consistency, and craftsmanship.",
         "We don't just manufacture products. We help brands bring leather collections to market with confidence.",
       ]}

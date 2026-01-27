@@ -38,8 +38,8 @@ const clientSegments = [
 ];
 
 const stats = [
-  { value: "50+", label: "COUNTRIES SERVED" },
-  { value: "1000+", label: "ACTIVE CLIENTS" },
+  { value: "20+", label: "COUNTRIES SERVED" },
+  { value: "500+", label: "ACTIVE CLIENTS" },
   { value: "98%", label: "SATISFACTION" },
   { value: "24/7", label: "SUPPORT" },
 ];
