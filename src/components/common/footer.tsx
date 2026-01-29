@@ -2,16 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { ROUTES } from "@/constants/route";
 import { NAV_ITEMS } from "@/lib/nav-items";
 import { motion } from "motion/react";
 
 const socialLinks = [
-  { icon: Facebook, href: "#", name: "Facebook" },
-  { icon: Instagram, href: "#", name: "Instagram" },
-  { icon: Linkedin, href: "#", name: "LinkedIn" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/smartrangeleather",
+    name: "Instagram",
+  },
 ];
 
 const quickLinks = NAV_ITEMS;
