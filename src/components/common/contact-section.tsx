@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, Clock, CheckCircle, FileText, X, Instagram } from "lucide-react";
+import { Phone, Mail, CheckCircle, FileText, X, Instagram } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -255,8 +255,6 @@ export function ContactSection({
                     <Phone className="h-6 w-6" />
                     <span className="text-lg">{contactInfo.phone}</span>
                   </div>
-
-
                 </div>
               </div>
 
@@ -449,7 +447,7 @@ export function ContactSection({
                 </div>
               )}
 
-              <div className="md:col-span-2 flex justify-end pt-12 items-end">
+              <div className="md:col-span-2 flex justify-end items-end">
                 <Button
                   type="submit"
                   disabled={isLoading}
@@ -458,14 +456,28 @@ export function ContactSection({
                 </Button>
               </div>
 
-              <div className="md:col-span-2">
-                <h4 className="text-lg font-bold font-serif text-accent-foreground mb-3">
+              <div className="md:col-span-2 border-t border-neutral-100">
+                <h4 className="text-xl font-bold font-serif text-accent-foreground mb-8">
                   What happens next
                 </h4>
-                <div className="space-y-2 text-accent-foreground/80 text-sm">
-                  <p>1. We review your request.</p>
-                  <p>2. We confirm materials + MOQ + timeline.</p>
-                  <p>3. We send pricing and sampling options.</p>
+                <div className="flex flex-col md:flex-row gap-3 w-full">
+                  {[
+                    "We review your request.",
+                    "We confirm materials + MOQ + timeline.",
+                    "We send pricing and sampling options.",
+                  ].map((text, idx) => (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ y: -4 }}
+                      className="flex-1 bg-white p-4 rounded-xl border border-neutral-200 flex flex-row items-center gap-4 shadow-sm transition-all duration-300">
+                      <span className="text-base font-bold text-accent-foreground shrink-0 leading-none">
+                        {idx + 1}
+                      </span>
+                      <p className="text-base font-medium text-accent-foreground/85 leading-snug">
+                        {text}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </form>
