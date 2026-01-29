@@ -11,8 +11,7 @@ const products = [
     image: "/images/products/leather-jackets-and-Coats-men-and-women.png",
     images: [
       "/images/products/leather-jackets-and-Coats-men-and-women.png",
-      "/images/products/leather-jackets-and-coats-men-and-women.webp",
-      "/images/products/shearling-jackets-and-coats.webp",
+      "/images/products/leather-jackets-and-coats-men-and-women.png",
     ],
   },
   {
@@ -22,7 +21,7 @@ const products = [
     image: "/images/products/leather-bags.webp",
     images: [
       "/images/products/leather-bags.webp",
-      "/images/products/leather-bags-and-small-goods.webp",
+      "/images/products/leather-bags.webp",
     ],
   },
   {
@@ -40,12 +39,20 @@ const products = [
     description:
       "Luxurious shearling and classic aviator styles, engineered for warmth and refined aesthetic appeal.",
     image: "/images/products/shearling-jackets-and-coats.webp",
+    images: [
+      "/images/products/shearling-jackets-and-coats.webp",
+      "/images/products/shearling-jackets-and-coats.webp",
+    ],
   },
   {
     title: "Leather Belts",
     description:
       "Finely finished leather belts that combine robust functionality with a polished look for every occasion.",
     image: "/images/products/leather-belts.webp",
+    images: [
+      "/images/products/leather-belts.webp",
+      "/images/products/leather-belts.webp",
+    ],
   },
   {
     title: "Wallets and Small Goods",
@@ -54,7 +61,7 @@ const products = [
     image: "/images/products/wallets-and-Small-goods.png",
     images: [
       "/images/products/wallets-and-Small-goods.png",
-      "/images/products/wallets-and-small-goods.webp",
+      "/images/products/wallets-and-small-goods.png",
     ],
   },
 ];
