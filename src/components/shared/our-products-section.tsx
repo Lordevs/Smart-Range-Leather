@@ -9,18 +9,31 @@ const products = [
     description:
       "Premium handcrafted leather outerwear, blending timeless style with contemporary design and superior quality.",
     image: "/images/products/leather-jackets-and-Coats-men-and-women.png",
+    images: [
+      "/images/products/leather-jackets-and-Coats-men-and-women.png",
+      "/images/products/leather-jackets-and-coats-men-and-women.webp",
+      "/images/products/shearling-jackets-and-coats.webp",
+    ],
   },
   {
     title: "Leather Bags",
     description:
       "Exquisite leather bags and daily essentials, showcasing impeccable craftsmanship and functional luxury.",
     image: "/images/products/leather-bags.webp",
+    images: [
+      "/images/products/leather-bags.webp",
+      "/images/products/leather-bags-and-small-goods.webp",
+    ],
   },
   {
     title: "Leather Pants and Skirts",
     description:
       "Statement leather apparel designed for a perfect silhouette, blending edgy modern style with high-end luxury.",
     image: "/images/products/leather-pants-and-skirts.webp",
+    images: [
+      "/images/products/leather-pants-and-skirts.webp",
+      "/images/products/leather-pants-and-skirts.webp",
+    ],
   },
   {
     title: "Shearling Jackets and Coats",
@@ -39,6 +52,10 @@ const products = [
     description:
       "Elegantly designed wallets and accessories, meticulously crafted from the finest leather for lasting sophistication.",
     image: "/images/products/wallets-and-Small-goods.png",
+    images: [
+      "/images/products/wallets-and-Small-goods.png",
+      "/images/products/wallets-and-small-goods.webp",
+    ],
   },
 ];
 

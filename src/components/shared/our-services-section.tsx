@@ -8,12 +8,20 @@ const services = [
     description:
       "Creative, tailored, trend-focused designs with fast sampling, prototyping, and technical development to bring your ideas to life.",
     image: "/images/services/product-design-and-development.webp",
+    images: [
+      "/images/services/product-design-and-development.webp",
+      "/images/services/pattern-making-and-sample-development.webp",
+    ],
   },
   {
     title: "Private Label Manufacturing",
     description:
       "Full-scale production solutions for your brand, maintaining the highest quality standards from start to finish.",
     image: "/images/services/private-label-manufacturing.webp",
+    images: [
+      "/images/services/private-label-manufacturing.webp",
+      "/images/services/finishing-quality-control-and-compliance.webp",
+    ],
   },
   {
     title: "Materials and Hardware Sourcing",
@@ -26,6 +34,10 @@ const services = [
     description:
       "Transforming concepts into precision patterns and physical samples to ensure perfect fit and functionality.",
     image: "/images/services/pattern-making-and-sampling.webp",
+    images: [
+      "/images/services/pattern-making-and-sampling.webp",
+      "/images/services/pattern-making-and-sample-development.webp",
+    ],
   },
   {
     title: "Export Packing and Shipping Support",

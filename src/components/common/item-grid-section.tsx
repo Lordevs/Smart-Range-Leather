@@ -7,12 +7,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { DownloadCatalogueDialog } from "./download-catalogue-dialog";
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface GridItem {
   title: string;
   description?: string;
   image: string;
+  images?: string[];
   link?: string;
   gridClassName?: string;
 }
@@ -29,6 +30,47 @@ interface ItemGridSectionProps {
   imageClassName?: string;
   footer?: ReactNode;
   showDownloadButton?: boolean;
+}
+
+function GridItemCarousel({
+  images,
+  title,
+  imageClassName,
+}: {
+  images: string[];
+  title: string;
+  imageClassName?: string;
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          className="absolute inset-0">
+          <Image
+            src={images[currentIndex]}
+            alt={`${title} - image ${currentIndex + 1}`}
+            fill
+            className={cn("object-cover", imageClassName)}
+            suppressHydrationWarning
+          />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export function ItemGridSection({
@@ -120,18 +162,26 @@ export function ItemGridSection({
                       hover: { scale: 1.08 },
                     }}
                     transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                    className="h-full w-full bg-[#F4F2EC]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={600}
-                      height={500}
-                      className={cn(
-                        "h-full w-full object-cover",
-                        imageClassName,
-                      )}
-                      suppressHydrationWarning
-                    />
+                    className="h-full w-full bg-[#F4F2EC] relative">
+                    {item.images && item.images.length > 0 ? (
+                      <GridItemCarousel
+                        images={item.images}
+                        title={item.title}
+                        imageClassName={imageClassName}
+                      />
+                    ) : (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={600}
+                        height={500}
+                        className={cn(
+                          "h-full w-full object-cover",
+                          imageClassName,
+                        )}
+                        suppressHydrationWarning
+                      />
+                    )}
                   </motion.div>
                 </div>
 
