@@ -42,9 +42,9 @@ export function HomeContactSection() {
       title="Ready to Manufacture Your Collection?"
       description="Whether you're launching a new brand or scaling production, we provide the expertise and reliability you need."
       contactInfo={{
-        phone: "+44 123 456 7890",
+        phone: "+1 (682) 667 - 9769",
         email: "info@smartrangeleather.com",
-        hours: "Mon-Fri: 9AM-6PM GMT",
+        hours: "@smartrangeleather",
       }}
       locations={locations}
     />

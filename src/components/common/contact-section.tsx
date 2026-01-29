@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, Clock, CheckCircle, FileText, X } from "lucide-react";
+import { Phone, Mail, Clock, CheckCircle, FileText, X, Instagram } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -244,17 +244,19 @@ export function ContactSection({
 
                 <div className="space-y-10 pb-20">
                   <div className="flex items-center space-x-6 text-accent-foreground">
-                    <Phone className="h-6 w-6" />
-                    <span className="text-lg">{contactInfo.phone}</span>
-                  </div>
-                  <div className="flex items-center space-x-6 text-accent-foreground">
                     <Mail className="h-6 w-6" />
                     <span className="text-lg">{contactInfo.email}</span>
                   </div>
                   <div className="flex items-center space-x-6 text-accent-foreground">
-                    <Clock className="h-6 w-6" />
+                    <Instagram className="h-6 w-6" />
                     <span className="text-lg">{contactInfo.hours}</span>
                   </div>
+                  <div className="flex items-center space-x-6 text-accent-foreground">
+                    <Phone className="h-6 w-6" />
+                    <span className="text-lg">{contactInfo.phone}</span>
+                  </div>
+
+
                 </div>
               </div>
 
@@ -454,6 +456,17 @@ export function ContactSection({
                   className="bg-accent-foreground text-white px-12 py-4 rounded-sm text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
+              </div>
+
+              <div className="md:col-span-2">
+                <h4 className="text-lg font-bold font-serif text-accent-foreground mb-3">
+                  What happens next
+                </h4>
+                <div className="space-y-2 text-accent-foreground/80 text-sm">
+                  <p>1. We review your request.</p>
+                  <p>2. We confirm materials + MOQ + timeline.</p>
+                  <p>3. We send pricing and sampling options.</p>
+                </div>
               </div>
             </form>
           </div>
