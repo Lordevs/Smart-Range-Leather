@@ -5,7 +5,7 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 export default function ContactUsHeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/hero-imgs/contact-us.webp"
+      imageSrc="/images/hero-imgs/contact-us.png"
       imageAlt="Contact Us"
       title="Request a Quote"
       subtext={
@@ -20,7 +20,6 @@ export default function ContactUsHeroSection() {
       secondaryButtonLabel="Chat on What'sApp"
       secondaryButtonIcon={WhatsAppIcon}
       secondaryButtonClassName="bg-green-500 text-white hover:bg-green-600"
-      overlayGradient=""
       contentClassName="text-center flex flex-col items-center"
       buttonContainerClassName="flex justify-center"
     />
