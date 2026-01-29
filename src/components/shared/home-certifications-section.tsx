@@ -1,7 +1,7 @@
 "use client";
 
 import { CertificationsSection } from "../common/certifications-section";
-
+// certification
 const certifications = [
   {
     title: "ISO 9001:2015",
