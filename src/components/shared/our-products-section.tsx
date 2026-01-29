@@ -7,7 +7,7 @@ const products = [
   {
     title: "Leather Jackets and Coats (Men and Women)",
     description:
-      "Premium handcrafted leather outerwear, blending timeless style with contemporary design and superior quality.",
+      "Premium  leather outerwear, blending timeless style with contemporary design and superior quality.",
     image: "/images/products/leather-jackets-and-Coats-men-and-women.png",
   },
   {

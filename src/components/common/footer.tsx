@@ -47,7 +47,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-secondary/80 text-sm leading-relaxed max-w-xs">
-              Premium leather manufacturing for global brands since 2004.
+              Premium leather manufacturing for global brands since 1990.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -128,7 +128,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Phone className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
-                <span>+44 123 456 7890</span>
+                <span>+1 (682) 667 - 9769</span>
               </li>
             </ul>
           </motion.div>
