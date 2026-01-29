@@ -21,6 +21,7 @@ export default function ContactUsHeroSection() {
       secondaryButtonIcon={WhatsAppIcon}
       secondaryButtonClassName="bg-green-500 text-white hover:bg-green-600"
       contentClassName="text-center flex flex-col items-center"
+      overlayGradient="linear-gradient(to right, rgba(71, 53, 24, 0.6) 0%, rgba(71, 53, 24, 0.7) 50%, rgba(71, 53, 24, 0.7) 100%)"
       buttonContainerClassName="flex justify-center"
     />
   );
