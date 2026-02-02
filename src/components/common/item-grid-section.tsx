@@ -2,12 +2,20 @@
 
 import Image from "next/image";
 import { Mail } from "lucide-react";
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { DownloadCatalogueDialog } from "./download-catalogue-dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 interface GridItem {
   title: string;
@@ -41,34 +49,38 @@ function GridItemCarousel({
   title: string;
   imageClassName?: string;
 }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [images.length]);
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={currentIndex}
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="absolute inset-0">
-          <Image
-            src={images[currentIndex]}
-            alt={`${title} - image ${currentIndex + 1}`}
-            fill
-            className={cn("object-cover", imageClassName)}
-            suppressHydrationWarning
-          />
-        </motion.div>
-      </AnimatePresence>
+    <div className="w-full h-full relative group/carousel">
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full h-full"
+        opts={{
+          loop: true,
+        }}>
+        <CarouselContent className="h-full ml-0" wrapperClassName="h-full">
+          {images.map((image, index) => (
+            <CarouselItem key={index} className="h-full pl-0 basis-full">
+              <div className="relative h-full w-full">
+                <Image
+                  src={image}
+                  alt={`${title} - image ${index + 1}`}
+                  fill
+                  className={cn("object-cover", imageClassName)}
+                  priority={index === 0}
+                  suppressHydrationWarning
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* Navigation Arrows */}
+        <div className="">
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gray-500/10 text-white border-0 backdrop-blur-sm transition-all hover:bg-[#FFCC80] hover:text-[#6C3403] z-60 pointer-events-auto" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gray-500/10 text-white border-0 backdrop-blur-sm transition-all hover:bg-[#FFCC80] hover:text-[#6C3403] z-60 pointer-events-auto" />
+        </div>
+      </Carousel>
     </div>
   );
 }
@@ -153,7 +165,7 @@ export function ItemGridSection({
                 style={{
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
                 }}
-                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-145 cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
+                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-[580px] cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
                 {/* Image Container */}
                 <div className="h-full w-full overflow-hidden">
                   <motion.div
@@ -205,8 +217,8 @@ export function ItemGridSection({
                     hover: { y: "0%" },
                   }}
                   transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                  className="absolute inset-0 flex flex-col justify-end z-20">
-                  <div className="bg-[#FFCC80] p-10 min-h-[50%] flex flex-col space-y-6">
+                  className="absolute inset-0 flex flex-col justify-end z-20 pointer-events-none">
+                  <div className="bg-[#FFCC80]/95 backdrop-blur-sm p-8 min-h-[40%] flex flex-col space-y-4 pointer-events-auto">
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold text-[#6C3403] font-serif text-center leading-tight underline decoration-2 underline-offset-8">
                         {item.title}
