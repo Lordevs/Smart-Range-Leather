@@ -11,6 +11,7 @@ const products = [
     image:
       "/images/products/jackets/leather-jackets-and-Coats-men-and-women.png",
     images: [
+      "/images/products/jackets/leather-jackets-and-Coats-men-and-women.png",
       "/images/products/jackets/1.png",
       "/images/products/jackets/2.png",
       "/images/products/jackets/3.png",
@@ -24,6 +25,7 @@ const products = [
       "Exquisite leather bags and daily essentials, showcasing impeccable craftsmanship and functional luxury.",
     image: "/images/products/bags/leather-bags.webp",
     images: [
+      "/images/products/bags/leather-bags.webp",
       "/images/products/bags/1.png",
       "/images/products/bags/2.png",
       "/images/products/bags/3.png",
@@ -35,6 +37,7 @@ const products = [
       "Statement leather apparel designed for a perfect silhouette, blending edgy modern style with high-end luxury.",
     image: "/images/products/pants/leather-pants-and-skirts.webp",
     images: [
+      "/images/products/pants/leather-pants-and-skirts.webp",
       "/images/products/pants/1.png",
       "/images/products/pants/2.png",
       "/images/products/pants/3.png",
@@ -46,6 +49,7 @@ const products = [
       "Luxurious shearling and classic aviator styles, engineered for warmth and refined aesthetic appeal.",
     image: "/images/products/shearling/shearling-jackets-and-coats.webp",
     images: [
+      "/images/products/shearling/shearling-jackets-and-coats.webp",
       "/images/products/shearling/1.png",
       "/images/products/shearling/2.png",
       "/images/products/shearling/3.png",
@@ -60,6 +64,7 @@ const products = [
       "Finely finished leather belts that combine robust functionality with a polished look for every occasion.",
     image: "/images/products/belts/leather-belts.webp",
     images: [
+      "/images/products/belts/leather-belts.webp",
       "/images/products/belts/1.png",
       "/images/products/belts/2.png",
       "/images/products/belts/3.png",
@@ -71,6 +76,7 @@ const products = [
       "Elegantly designed wallets and accessories, meticulously crafted from the finest leather for lasting sophistication.",
     image: "/images/products/wallets/wallets-and-small-goods.png",
     images: [
+      "/images/products/wallets/wallets-and-small-goods.png",
       "/images/products/wallets/1.png",
       "/images/products/wallets/2.png",
       "/images/products/wallets/3.png",
