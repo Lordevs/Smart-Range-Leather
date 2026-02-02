@@ -6,14 +6,14 @@ import { HomeSustainabilitySection } from "@/components/shared/home-sustainabili
 import { HomeContactSection } from "@/components/shared/home-contact-section";
 
 export default function ContactUs() {
-    return (
-        <main className="min-h-screen">
-            <ContactUsHeroSection />
-            <StatsSection />
-            <HomeContactSection />
-            <HomeSustainabilitySection />
-            <HomeClientsSection />
-            <HomeWhyChooseUs />
-        </main>
-    );
+  return (
+    <main className="min-h-screen">
+      <ContactUsHeroSection />
+      <StatsSection />
+      <HomeContactSection />
+      <HomeSustainabilitySection />
+      <HomeClientsSection />
+      <HomeWhyChooseUs />
+    </main>
+  );
 }
