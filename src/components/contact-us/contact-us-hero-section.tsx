@@ -5,7 +5,7 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 export default function ContactUsHeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/hero-imgs/contact-us-2.png"
+      imageSrc="/images/hero-imgs/contact-us-3.webp"
       imageAlt="Contact Us"
       title="Request a Quote"
       subtext={
