@@ -4,6 +4,7 @@ import { Award, ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 interface CertificationItem {
   title: string;
@@ -82,10 +83,21 @@ export function CertificationsSection({
               </div>
 
               <div className="mt-14 pt-8 border-t border-black/5 w-full flex justify-center">
-                <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
-                  <span>LEARN MORE</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+                {item.link ? (
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
+                    <span>LEARN MORE</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Link>
+                ) : (
+                  <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
+                    <span>LEARN MORE</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
