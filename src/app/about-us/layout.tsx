@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "20+ years of excellence in leather manufacturing. Discover our vertically integrated approach and craftmanship.",
   },
 };
-
+// about us
 export default function AboutUsLayout({
   children,
 }: {
