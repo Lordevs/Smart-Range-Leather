@@ -4,9 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Mail, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ROUTES } from "@/constants/route";
 import { NAV_ITEMS } from "@/lib/nav-items";
 import { motion } from "motion/react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const socialLinks = [
   {
@@ -27,6 +30,8 @@ const quickLinks = NAV_ITEMS;
 // ];
 
 export function Footer() {
+  const [logoLoaded, setLogoLoaded] = useState(false);
+
   return (
     <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -38,14 +43,23 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8">
-            <Link href="/" className="block">
+            <Link
+              href="/"
+              className="relative w-[150px] h-16 flex items-center">
+              {!logoLoaded && (
+                <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+              )}
               <Image
                 src="/logo.svg"
                 alt="Smart Range Leather"
                 width={150}
-                height={60}
-                className="h-16 w-auto brightness-0 invert"
+                height={64}
+                className={cn(
+                  "h-16 w-auto brightness-0 invert transition-opacity duration-700 relative z-10",
+                  logoLoaded ? "opacity-100" : "opacity-0",
+                )}
                 suppressHydrationWarning
+                onLoad={() => setLogoLoaded(true)}
               />
             </Link>
             <p className="text-secondary/80 text-sm leading-relaxed max-w-xs">

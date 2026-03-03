@@ -14,24 +14,36 @@ import {
   SheetTitle,
   SheetClose,
 } from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ROUTES } from "@/constants/route";
+import { useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
-        <Link href={ROUTES.HOME} className="shrink-0">
+        <Link
+          href={ROUTES.HOME}
+          className="shrink-0 relative w-[100px] h-14 flex items-center justify-center">
+          {!logoLoaded && (
+            <Skeleton className="absolute inset-0 z-0 rounded-none w-full h-full" />
+          )}
           <Image
             src="/logo.svg"
             alt="Smart Range Leather"
             width={100}
-            height={100}
-            className="h-14 w-auto object-contain"
+            height={56}
+            className={cn(
+              "h-14 w-auto object-contain transition-opacity duration-700 relative z-10",
+              logoLoaded ? "opacity-100" : "opacity-0",
+            )}
             priority
             suppressHydrationWarning
+            onLoad={() => setLogoLoaded(true)}
           />
         </Link>
 

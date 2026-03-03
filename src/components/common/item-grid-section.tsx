@@ -5,6 +5,7 @@ import { Mail } from "lucide-react";
 import { ReactNode, useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 import { DownloadCatalogueDialog } from "./download-catalogue-dialog";
 import {
   Carousel,
@@ -40,6 +41,41 @@ interface ItemGridSectionProps {
   showDownloadButton?: boolean;
 }
 
+function GridImage({
+  src,
+  alt,
+  className,
+  priority,
+  fill,
+  width,
+  height,
+}: any) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <>
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        priority={priority}
+        fill={fill}
+        width={width}
+        height={height}
+        className={cn(
+          className,
+          "transition-opacity duration-700",
+          isLoaded ? "opacity-100" : "opacity-0",
+        )}
+        suppressHydrationWarning
+        onLoad={() => setIsLoaded(true)}
+      />
+    </>
+  );
+}
+
 function GridItemCarousel({
   images,
   title,
@@ -63,13 +99,12 @@ function GridItemCarousel({
           {images.map((image, index) => (
             <CarouselItem key={index} className="h-full pl-0 basis-full">
               <div className="relative h-full w-full">
-                <Image
+                <GridImage
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   fill
                   className={cn("object-cover", imageClassName)}
                   priority={index === 0}
-                  suppressHydrationWarning
                 />
               </div>
             </CarouselItem>
@@ -182,7 +217,7 @@ export function ItemGridSection({
                         imageClassName={imageClassName}
                       />
                     ) : (
-                      <Image
+                      <GridImage
                         src={item.image}
                         alt={item.title}
                         width={600}
@@ -191,7 +226,6 @@ export function ItemGridSection({
                           "h-full w-full object-cover",
                           imageClassName,
                         )}
-                        suppressHydrationWarning
                       />
                     )}
                   </motion.div>

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -44,6 +45,7 @@ export function DownloadCatalogueDialog({
     website: "",
     message: "",
   });
+  const [logoLoaded, setLogoLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -146,14 +148,21 @@ export function DownloadCatalogueDialog({
                 {dialogDescription}
               </DialogDescription>
             </div>
-            <div className="shrink-0 pt-2">
+            <div className="shrink-0 pt-2 relative w-[100px] h-14 flex items-center">
+              {!logoLoaded && (
+                <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+              )}
               <Image
                 src="/logo.svg"
                 alt="Smart Range Leather"
                 width={100}
-                height={100}
-                className="h-14 w-auto object-contain opacity-80"
+                height={56}
+                className={cn(
+                  "h-14 w-auto object-contain transition-opacity duration-700 relative z-10",
+                  logoLoaded ? "opacity-80" : "opacity-0",
+                )}
                 suppressHydrationWarning
+                onLoad={() => setLogoLoaded(true)}
               />
             </div>
           </div>
