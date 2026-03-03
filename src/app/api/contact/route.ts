@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to customer
     await resend.emails.send({
-      from: "Smart Range Leather <onboarding@resend.dev>", // Replace with your verified sender email
+      from: "Smart Range Leather <noreply@smartrangeleather.com>",
       to: body.email,
       subject: "We received your message - Smart Range Leather",
       html: `
