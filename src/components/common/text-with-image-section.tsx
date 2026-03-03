@@ -23,6 +23,7 @@ interface TextWithImageSectionProps {
   backgroundColor?: string;
   accentColor?: string; // e.g. #6C3403
   circleColor?: string; // e.g. #ffcc80
+  priority?: boolean;
 }
 
 export function TextWithImageSection({
@@ -39,6 +40,7 @@ export function TextWithImageSection({
   backgroundColor = "#fdfbf8",
   accentColor = "#6C3403",
   circleColor = "#ffcc80",
+  priority = false,
 }: TextWithImageSectionProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -121,7 +123,11 @@ export function TextWithImageSection({
                       e.currentTarget.style.backgroundColor = "transparent";
                       e.currentTarget.style.color = accentColor;
                     }}>
-                    <span>{buttonText}</span>
+                    <span className="sr-only">
+                      {buttonText} ABOUT{" "}
+                      {typeof title === "string" ? title : tag}
+                    </span>
+                    <span aria-hidden="true">{buttonText}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 ) : (
@@ -140,7 +146,11 @@ export function TextWithImageSection({
                       e.currentTarget.style.backgroundColor = "transparent";
                       e.currentTarget.style.color = accentColor;
                     }}>
-                    <span>{buttonText}</span>
+                    <span className="sr-only">
+                      {buttonText} ABOUT{" "}
+                      {typeof title === "string" ? title : tag}
+                    </span>
+                    <span aria-hidden="true">{buttonText}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                 )}
@@ -168,12 +178,12 @@ export function TextWithImageSection({
 
             {/* Main Image */}
             <motion.div
-              initial={{ opacity: 0, x: reverse ? -50 : 50, scale: 0.95 }}
+              initial={{ opacity: 0, x: reverse ? -20 : 20, scale: 0.98 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 overflow-hidden rounded-[40px] shadow-[-20px_20px_60px_-15px_rgba(0,0,0,0.15)]">
-              {!imageLoaded && (
+              {!imageLoaded && !priority && (
                 <Skeleton className="absolute inset-0 z-20 h-full w-full rounded-[40px]" />
               )}
               <Image
@@ -182,12 +192,14 @@ export function TextWithImageSection({
                 width={550}
                 height={650}
                 className={cn(
-                  "h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] transition-all duration-1000 md:h-162.5",
-                  imageLoaded
-                    ? "scale-100 opacity-100 hover:scale-105"
+                  "h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] md:h-162.5",
+                  !priority && "transition-all duration-700",
+                  (!priority && imageLoaded) || priority
+                    ? "scale-100 opacity-100"
                     : "scale-95 opacity-0",
+                  "hover:scale-105",
                 )}
-                priority
+                priority={priority}
                 suppressHydrationWarning
                 onLoad={() => setImageLoaded(true)}
               />

@@ -4,12 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Mail, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ROUTES } from "@/constants/route";
 import { NAV_ITEMS } from "@/lib/nav-items";
 import { motion } from "motion/react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 const socialLinks = [
   {
@@ -21,10 +18,7 @@ const socialLinks = [
 
 const quickLinks = NAV_ITEMS;
 
-
 export function Footer() {
-  const [logoLoaded, setLogoLoaded] = useState(false);
-
   return (
     <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -38,21 +32,15 @@ export function Footer() {
             className="space-y-8">
             <Link
               href="/"
+              aria-label="Smart Range Leather - Home"
               className="relative w-[150px] h-16 flex items-center">
-              {!logoLoaded && (
-                <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
-              )}
               <Image
                 src="/logo.svg"
                 alt="Smart Range Leather"
                 width={150}
                 height={64}
-                className={cn(
-                  "h-16 w-auto brightness-0 invert transition-opacity duration-700 relative z-10",
-                  logoLoaded ? "opacity-100" : "opacity-0",
-                )}
+                className="h-16 w-auto brightness-0 invert relative z-10"
                 suppressHydrationWarning
-                onLoad={() => setLogoLoaded(true)}
               />
             </Link>
             <p className="text-secondary/80 text-sm leading-relaxed max-w-xs">
@@ -63,8 +51,14 @@ export function Footer() {
                 <Link
                   key={social.name}
                   href={social.href}
+                  aria-label={`Follow us on ${social.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 flex items-center justify-center bg-primary rounded-sm transition-transform hover:scale-110">
-                  <social.icon className="w-5 h-5 text-primary-foreground" />
+                  <social.icon
+                    className="w-5 h-5 text-primary-foreground"
+                    aria-hidden="true"
+                  />
                 </Link>
               ))}
             </div>
@@ -81,9 +75,9 @@ export function Footer() {
               ease: [0.22, 1, 0.36, 1],
             }}
             className="space-y-8">
-            <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
+            <p className="text-primary font-bold uppercase tracking-wider text-sm">
               Quick Links
-            </h3>
+            </p>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -127,9 +121,9 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8">
-            <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
+            <p className="text-primary font-bold uppercase tracking-wider text-sm">
               Contact
-            </h3>
+            </p>
             <ul className="space-y-6">
               <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Mail className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />

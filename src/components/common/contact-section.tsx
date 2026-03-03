@@ -31,6 +31,7 @@ interface ContactImageWithSkeletonProps {
   className?: string;
   width?: number;
   height?: number;
+  priority?: boolean;
 }
 
 function ContactImageWithSkeleton({
@@ -39,11 +40,12 @@ function ContactImageWithSkeleton({
   className,
   width,
   height,
+  priority = false,
 }: ContactImageWithSkeletonProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      {!isLoaded && (
+      {!isLoaded && !priority && (
         <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
       )}
       <Image
@@ -53,9 +55,11 @@ function ContactImageWithSkeleton({
         height={height}
         className={cn(
           className,
-          "transition-opacity duration-700 relative z-10",
-          isLoaded ? "opacity-100" : "opacity-0",
+          !priority && "transition-opacity duration-700",
+          (!priority && isLoaded) || priority ? "opacity-100" : "opacity-0",
+          "relative z-10",
         )}
+        priority={priority}
         suppressHydrationWarning
         onLoad={() => setIsLoaded(true)}
       />
@@ -245,8 +249,8 @@ export function ContactSection({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-20 flex flex-col items-center text-center space-y-6">
           {tag && (
-            <div className="inline-block border-b border-[#B8641A]">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A]">
+            <div className="inline-block border-b border-[#7A3410]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#7A3410]">
                 {tag}
               </span>
             </div>
@@ -486,11 +490,11 @@ export function ContactSection({
                 </div>
               )}
 
-              <div className="md:col-span-2 flex justify-end items-end">
+              <div className="md:col-span-2 flex justify-center lg:justify-end items-end">
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="bg-accent-foreground text-white px-12 py-4 rounded-sm text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+                  className="bg-accent-foreground text-white px-8 lg:px-12 py-2 lg:py-4 rounded-sm text-lg lg:text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </div>

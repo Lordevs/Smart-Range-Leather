@@ -34,8 +34,8 @@ export function CertificationsSection({
         {/* Header Section */}
         <div className="mb-20 flex flex-col items-center text-center space-y-6">
           {tag && (
-            <div className="inline-block border-b border-[#B8641A]">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A]">
+            <div className="inline-block border-b border-[#7A3410]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#7A3410]">
                 {tag}
               </span>
             </div>
@@ -67,7 +67,7 @@ export function CertificationsSection({
               <div className="mb-10">
                 <div className="h-16 w-16 rounded-xl flex items-center justify-center transition-colors group-hover:bg-[#6C3403]/10">
                   <Award
-                    className="h-12 w-12 text-[#B8641A]"
+                    className="h-12 w-12 text-[#7A3410]"
                     strokeWidth={1.2}
                   />
                 </div>
@@ -77,7 +77,7 @@ export function CertificationsSection({
                 <h3 className="text-2xl md:text-3xl font-normal text-foreground font-serif leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#B8641A]">
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#7A3410]">
                   {item.subtitle}
                 </p>
               </div>
@@ -88,13 +88,19 @@ export function CertificationsSection({
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
-                    <span>LEARN MORE</span>
+                    className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#7A3410] transition-all hover:gap-4">
+                    <span className="sr-only">
+                      LEARN MORE ABOUT {item.title}
+                    </span>
+                    <span aria-hidden="true">LEARN MORE</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 ) : (
-                  <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#B8641A] transition-all hover:gap-4">
-                    <span>LEARN MORE</span>
+                  <button className="group/btn flex items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-[#7A3410] transition-all hover:gap-4">
+                    <span className="sr-only">
+                      LEARN MORE ABOUT {item.title}
+                    </span>
+                    <span aria-hidden="true">LEARN MORE</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
                 )}

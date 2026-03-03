@@ -14,13 +14,10 @@ import {
   SheetTitle,
   SheetClose,
 } from "@/components/ui/sheet";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ROUTES } from "@/constants/route";
-import { useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [logoLoaded, setLogoLoaded] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white">
@@ -28,22 +25,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href={ROUTES.HOME}
+          aria-label="Smart Range Leather - Home"
           className="shrink-0 relative w-[100px] h-14 flex items-center justify-center">
-          {!logoLoaded && (
-            <Skeleton className="absolute inset-0 z-0 rounded-none w-full h-full" />
-          )}
           <Image
             src="/logo.svg"
             alt="Smart Range Leather"
             width={100}
             height={56}
-            className={cn(
-              "h-14 w-auto object-contain transition-opacity duration-700 relative z-10",
-              logoLoaded ? "opacity-100" : "opacity-0",
-            )}
+            className="h-14 w-auto object-contain relative z-10"
             priority
             suppressHydrationWarning
-            onLoad={() => setLogoLoaded(true)}
           />
         </Link>
 
@@ -89,7 +80,7 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-6 ">
-                <SheetTitle className="text-left"></SheetTitle>
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 {NAV_ITEMS.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <Link

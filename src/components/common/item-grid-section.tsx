@@ -49,6 +49,7 @@ interface GridImageProps {
   fill?: boolean;
   width?: number;
   height?: number;
+  sizes?: string;
 }
 
 function GridImage({
@@ -59,12 +60,13 @@ function GridImage({
   fill,
   width,
   height,
+  sizes,
 }: GridImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <>
-      {!isLoaded && (
+      {!isLoaded && !priority && (
         <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
       )}
       <Image
@@ -74,10 +76,11 @@ function GridImage({
         fill={fill}
         width={width}
         height={height}
+        sizes={sizes}
         className={cn(
           className,
-          "transition-opacity duration-700",
-          isLoaded ? "opacity-100" : "opacity-0",
+          !priority && "transition-opacity duration-700",
+          (!priority && isLoaded) || priority ? "opacity-100" : "opacity-0",
         )}
         suppressHydrationWarning
         onLoad={() => setIsLoaded(true)}
@@ -113,6 +116,7 @@ function GridItemCarousel({
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className={cn("object-cover", imageClassName)}
                   priority={index === 0}
                 />
@@ -174,12 +178,12 @@ export function ItemGridSection({
           {items.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-20px" }}
               transition={{
-                duration: 1.2,
-                delay: index * 0.1,
+                duration: 0.8,
+                delay: Math.min(index * 0.05, 0.3),
                 ease: [0.22, 1, 0.36, 1],
               }}>
               <motion.div

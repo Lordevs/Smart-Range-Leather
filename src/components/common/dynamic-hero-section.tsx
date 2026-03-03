@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react";
 import { ComponentType, ReactNode, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 interface DynamicHeroSectionProps {
   imageSrc?: string;
@@ -95,27 +94,17 @@ export function DynamicHeroSection({
       {/* Background Media */}
       <div className="absolute inset-0">
         {imageSrc && (
-          <motion.div
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative h-full w-full">
-            {!imageLoaded && (
-              <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
-            )}
+          <div className="relative h-full w-full">
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
-              className={cn(
-                "object-cover transition-opacity duration-1000",
-                imageLoaded ? "opacity-100" : "opacity-0",
-              )}
+              sizes="100vw"
+              className="object-cover"
               priority
               suppressHydrationWarning
-              onLoad={() => setImageLoaded(true)}
             />
-          </motion.div>
+          </div>
         )}
         {videoSrc && (
           <video
@@ -123,6 +112,7 @@ export function DynamicHeroSection({
             loop
             muted
             playsInline
+            preload="none"
             className="absolute inset-0 h-full w-full object-cover">
             <source src={videoSrc} type="video/mp4" />
           </video>
