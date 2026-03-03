@@ -49,6 +49,7 @@ interface GridImageProps {
   fill?: boolean;
   width?: number;
   height?: number;
+  sizes?: string;
 }
 
 function GridImage({
@@ -59,6 +60,7 @@ function GridImage({
   fill,
   width,
   height,
+  sizes,
 }: GridImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -74,6 +76,7 @@ function GridImage({
         fill={fill}
         width={width}
         height={height}
+        sizes={sizes}
         className={cn(
           className,
           "transition-opacity duration-700",
@@ -113,6 +116,7 @@ function GridItemCarousel({
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className={cn("object-cover", imageClassName)}
                   priority={index === 0}
                 />

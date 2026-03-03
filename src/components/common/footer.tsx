@@ -45,6 +45,7 @@ export function Footer() {
             className="space-y-8">
             <Link
               href="/"
+              aria-label="Smart Range Leather - Home"
               className="relative w-[150px] h-16 flex items-center">
               {!logoLoaded && (
                 <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />

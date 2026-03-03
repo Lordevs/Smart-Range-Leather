@@ -104,9 +104,9 @@ export function StatsSection() {
                 <stat.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
               </div>
               <div className="space-y-4">
-                <h3 className="text-5xl font-serif font-normal tracking-tight text-white md:text-6xl">
+                <p className="text-5xl font-serif font-normal tracking-tight text-white md:text-6xl">
                   <Counter value={stat.value} />
-                </h3>
+                </p>
                 <p className="text-sm font-medium text-white/90 leading-relaxed mx-auto uppercase tracking-widest max-w-[200px]">
                   {stat.label}
                 </p>

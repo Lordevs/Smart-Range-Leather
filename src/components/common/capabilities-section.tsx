@@ -38,6 +38,7 @@ function AnimatedCapabilityImage({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         fill
+        sizes="(max-width: 1024px) 100vw, 50vw"
         className={cn(
           "object-cover transition-opacity duration-700",
           isLoaded ? "opacity-100" : "opacity-0",

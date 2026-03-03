@@ -486,11 +486,11 @@ export function ContactSection({
                 </div>
               )}
 
-              <div className="md:col-span-2 flex justify-end items-end">
+              <div className="md:col-span-2 flex justify-center lg:justify-end items-end">
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="bg-accent-foreground text-white px-12 py-4 rounded-sm text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+                  className="bg-accent-foreground text-white px-8 lg:px-12 py-2 lg:py-4 rounded-sm text-lg lg:text-xl font-serif hover:bg-[#3D230B] transition-all shadow-lg active:scale-95 h-auto disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </div>

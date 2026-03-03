@@ -99,7 +99,7 @@ export function DynamicHeroSection({
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative h-full w-full">
+            className="relative h-full w-full will-change-transform">
             {!imageLoaded && (
               <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
             )}
@@ -107,6 +107,7 @@ export function DynamicHeroSection({
               src={imageSrc}
               alt={imageAlt}
               fill
+              sizes="100vw"
               className={cn(
                 "object-cover transition-opacity duration-1000",
                 imageLoaded ? "opacity-100" : "opacity-0",
@@ -123,6 +124,7 @@ export function DynamicHeroSection({
             loop
             muted
             playsInline
+            preload="none"
             className="absolute inset-0 h-full w-full object-cover">
             <source src={videoSrc} type="video/mp4" />
           </video>
