@@ -9,14 +9,14 @@ const products = [
     description:
       "Premium  leather outerwear, blending timeless style with contemporary design and superior quality.",
     image:
-      "/images/products/jackets/leather-jackets-and-Coats-men-and-women.png",
+      "/images/products/jackets/leather-jackets-and-Coats-men-and-women.webp",
     images: [
-      "/images/products/jackets/leather-jackets-and-Coats-men-and-women.png",
-      "/images/products/jackets/1.png",
-      "/images/products/jackets/2.png",
-      "/images/products/jackets/3.png",
-      "/images/products/jackets/4.png",
-      "/images/products/jackets/5.png",
+      "/images/products/jackets/leather-jackets-and-Coats-men-and-women.webp",
+      "/images/products/jackets/1.webp",
+      "/images/products/jackets/2.webp",
+      "/images/products/jackets/3.webp",
+      "/images/products/jackets/4.webp",
+      "/images/products/jackets/5.webp",
     ],
   },
   {
@@ -26,9 +26,9 @@ const products = [
     image: "/images/products/bags/leather-bags.webp",
     images: [
       "/images/products/bags/leather-bags.webp",
-      "/images/products/bags/1.png",
-      "/images/products/bags/2.png",
-      "/images/products/bags/3.png",
+      "/images/products/bags/1.webp",
+      "/images/products/bags/2.webp",
+      "/images/products/bags/3.webp",
     ],
   },
   {
@@ -38,9 +38,9 @@ const products = [
     image: "/images/products/pants/leather-pants-and-skirts.webp",
     images: [
       "/images/products/pants/leather-pants-and-skirts.webp",
-      "/images/products/pants/1.png",
-      "/images/products/pants/2.png",
-      "/images/products/pants/3.png",
+      "/images/products/pants/1.webp",
+      "/images/products/pants/2.webp",
+      "/images/products/pants/3.webp",
     ],
   },
   {
@@ -50,12 +50,12 @@ const products = [
     image: "/images/products/shearling/shearling-jackets-and-coats.webp",
     images: [
       "/images/products/shearling/shearling-jackets-and-coats.webp",
-      "/images/products/shearling/1.png",
-      "/images/products/shearling/2.png",
-      "/images/products/shearling/3.png",
-      "/images/products/shearling/4.png",
-      "/images/products/shearling/5.png",
-      "/images/products/shearling/6.png",
+      "/images/products/shearling/1.webp",
+      "/images/products/shearling/2.webp",
+      "/images/products/shearling/3.webp",
+      "/images/products/shearling/4.webp",
+      "/images/products/shearling/5.webp",
+      "/images/products/shearling/6.webp",
     ],
   },
   {
@@ -65,21 +65,21 @@ const products = [
     image: "/images/products/belts/leather-belts.webp",
     images: [
       "/images/products/belts/leather-belts.webp",
-      "/images/products/belts/1.png",
-      "/images/products/belts/2.png",
-      "/images/products/belts/3.png",
+      "/images/products/belts/1.webp",
+      "/images/products/belts/2.webp",
+      "/images/products/belts/3.webp",
     ],
   },
   {
     title: "Wallets and Small Goods",
     description:
       "Elegantly designed wallets and accessories, meticulously crafted from the finest leather for lasting sophistication.",
-    image: "/images/products/wallets/wallets-and-small-goods.png",
+    image: "/images/products/wallets/wallets-and-small-goods.webp",
     images: [
-      "/images/products/wallets/wallets-and-small-goods.png",
-      "/images/products/wallets/1.png",
-      "/images/products/wallets/2.png",
-      "/images/products/wallets/3.png",
+      "/images/products/wallets/wallets-and-small-goods.webp",
+      "/images/products/wallets/1.webp",
+      "/images/products/wallets/2.webp",
+      "/images/products/wallets/3.webp",
     ],
   },
 ];

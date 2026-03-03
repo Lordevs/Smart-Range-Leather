@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
 
     // 2. Send notification email to company
     const companyEmailResponse = await resend.emails.send({
-      from: `Catalogue Request <onboarding@resend.dev>`,
+      from: `Catalogue Request <${process.env.SENDER_EMAIL}>`,
       to: process.env.CONTACT_EMAIL,
       subject: `Catalogue Request: ${body.firstName} ${body.lastName} from ${body.company}`,
       html: `
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
 
     // 3. Send catalogue link to customer
     await resend.emails.send({
-      from: "Smart Range Leather <onboarding@resend.dev>",
+      from: `Smart Range Leather <${process.env.SENDER_EMAIL}>`,
       to: body.email,
       subject: "Your Requested Catalogue - Smart Range Leather",
       html: `
@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
             <strong>Smart Range Leather Team</strong></p>
             <p style="color: #666; font-size: 12px;">
               Business Bay Dubai, UAE | Dagenham, UK | Sialkot, Pakistan<br>
-              Email: info@smartrangeleather.com
+              Email: ${process.env.CONTACT_EMAIL}
             </p>
           </div>
         </div>

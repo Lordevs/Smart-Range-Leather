@@ -4,9 +4,10 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TextWithImageSectionProps {
   tag?: string;
@@ -39,6 +40,8 @@ export function TextWithImageSection({
   accentColor = "#6C3403",
   circleColor = "#ffcc80",
 }: TextWithImageSectionProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section
       className={cn(
@@ -170,14 +173,23 @@ export function TextWithImageSection({
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 overflow-hidden rounded-[40px] shadow-[-20px_20px_60px_-15px_rgba(0,0,0,0.15)]">
+              {!imageLoaded && (
+                <Skeleton className="absolute inset-0 z-20 h-full w-full rounded-[40px]" />
+              )}
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 width={550}
                 height={650}
-                className="h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] transition-transform duration-1000 hover:scale-105 md:h-162.5"
+                className={cn(
+                  "h-150 w-full object-cover grayscale-[0.1] contrast-[1.05] transition-all duration-1000 md:h-162.5",
+                  imageLoaded
+                    ? "scale-100 opacity-100 hover:scale-105"
+                    : "scale-95 opacity-0",
+                )}
                 priority
                 suppressHydrationWarning
+                onLoad={() => setImageLoaded(true)}
               />
             </motion.div>
           </div>

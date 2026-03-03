@@ -15,6 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
+import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
 
 interface LocationItem {
@@ -22,6 +23,44 @@ interface LocationItem {
   flag: string; // URL or emoji
   type: string;
   address: string;
+}
+
+interface ContactImageWithSkeletonProps {
+  src: string;
+  alt: string;
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+function ContactImageWithSkeleton({
+  src,
+  alt,
+  className,
+  width,
+  height,
+}: ContactImageWithSkeletonProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={cn(
+          className,
+          "transition-opacity duration-700 relative z-10",
+          isLoaded ? "opacity-100" : "opacity-0",
+        )}
+        suppressHydrationWarning
+        onLoad={() => setIsLoaded(true)}
+      />
+    </div>
+  );
 }
 
 interface ContactSectionProps {
@@ -504,13 +543,12 @@ export function ContactSection({
                     className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4">
                     <div className="flex items-center space-x-3">
                       <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
-                        <Image
+                        <ContactImageWithSkeleton
                           src={`/images/flags/${loc.flag}`}
                           alt={loc.country}
                           width={16}
                           height={16}
                           className="w-full h-full object-cover"
-                          suppressHydrationWarning
                         />
                       </div>
                       <span className="text-2xl font-bold text-accent-foreground">
@@ -556,13 +594,12 @@ export function ContactSection({
                         className="rounded-lg bg-white p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-neutral-50 space-y-4 lg:relative lg:z-10">
                         <div className="flex items-center space-x-3">
                           <div className="text-2xl overflow-hidden w-10 h-8 flex items-center justify-center">
-                            <Image
+                            <ContactImageWithSkeleton
                               src={`/images/flags/${loc.flag}`}
                               alt={loc.country}
                               width={16}
                               height={16}
                               className="w-full h-full object-cover"
-                              suppressHydrationWarning
                             />
                           </div>
                           <span className="text-2xl font-bold text-accent-foreground">
@@ -584,7 +621,7 @@ export function ContactSection({
                 </div>
               </div>
               <div className="hidden lg:block absolute right-0 aspect-1/2 -bottom-20 top-0 w-100">
-                <Image
+                <ContactImageWithSkeleton
                   alt="Contact Section"
                   src="/map.png"
                   width={1000}
@@ -596,7 +633,7 @@ export function ContactSection({
 
             {/* Map for Mobile - Below Cards */}
             <div className="lg:hidden mt-12">
-              <Image
+              <ContactImageWithSkeleton
                 alt="Contact Section Map"
                 src="/map.png"
                 width={1000}

@@ -6,14 +6,14 @@ import { ROUTES } from "@/constants/route";
 export default function AboutUsHeroSection() {
   return (
     <DynamicHeroSection
-      imageSrc="/images/hero-imgs/about-us.webp"
+      imageSrc="/images/hero-imgs/about-us-1.webp"
       imageAlt="About Us"
       title="Over 30 Years of Leather Manufacturing Experience"
       subtext="We manufacture leather garments and accessories for brands, retailers, and uniform suppliers. Low MOQs, fast sampling, ISO-certified systems, and global shipping support"
       primaryButtonLabel="Request a Quote"
       primaryButtonHref={ROUTES.CONTACT_FORM}
       secondaryButtonLabel=""
-      overlayGradient=""
+      overlayGradient="linear-gradient(to right, rgba(40, 30, 14, 0.75) 0%, rgba(40, 30, 14, 0.80) 50%, rgba(40, 30, 14, 0.70) 100%)"
       contentClassName="text-center flex flex-col items-center"
       subtextClassName="mx-auto"
       buttonContainerClassName="flex justify-center"

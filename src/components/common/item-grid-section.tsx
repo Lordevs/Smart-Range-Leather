@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Mail } from "lucide-react";
-import { ReactNode, useState, useEffect, useRef } from "react";
+import { ReactNode, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 import { DownloadCatalogueDialog } from "./download-catalogue-dialog";
 import {
   Carousel,
@@ -40,6 +41,51 @@ interface ItemGridSectionProps {
   showDownloadButton?: boolean;
 }
 
+interface GridImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+  fill?: boolean;
+  width?: number;
+  height?: number;
+}
+
+function GridImage({
+  src,
+  alt,
+  className,
+  priority,
+  fill,
+  width,
+  height,
+}: GridImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <>
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        priority={priority}
+        fill={fill}
+        width={width}
+        height={height}
+        className={cn(
+          className,
+          "transition-opacity duration-700",
+          isLoaded ? "opacity-100" : "opacity-0",
+        )}
+        suppressHydrationWarning
+        onLoad={() => setIsLoaded(true)}
+      />
+    </>
+  );
+}
+
 function GridItemCarousel({
   images,
   title,
@@ -63,13 +109,12 @@ function GridItemCarousel({
           {images.map((image, index) => (
             <CarouselItem key={index} className="h-full pl-0 basis-full">
               <div className="relative h-full w-full">
-                <Image
+                <GridImage
                   src={image}
                   alt={`${title} - image ${index + 1}`}
                   fill
                   className={cn("object-cover", imageClassName)}
                   priority={index === 0}
-                  suppressHydrationWarning
                 />
               </div>
             </CarouselItem>
@@ -98,24 +143,6 @@ export function ItemGridSection({
   footer,
   showDownloadButton,
 }: ItemGridSectionProps) {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect if device is mobile on mount
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    }
-  };
   return (
     <section className={cn("w-full bg-white py-20 px-6", className)}>
       <div className="mx-auto max-w-7xl">
@@ -157,17 +184,13 @@ export function ItemGridSection({
               }}>
               <motion.div
                 initial="initial"
-                whileHover={!isMobile ? "hover" : undefined}
-                animate={
-                  isMobile && expandedIndex === index ? "hover" : "initial"
-                }
-                onClick={() => handleCardClick(index)}
+                whileHover="hover"
                 style={{
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
                 }}
-                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-[580px] cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30">
+                className="group relative overflow-hidden rounded-[2.5rem] bg-[#f8f8f8] h-[580px] cursor-pointer isolate transform-gpu backface-hidden transition-all duration-300 hover:z-30 flex flex-col">
                 {/* Image Container */}
-                <div className="h-full w-full overflow-hidden">
+                <div className="flex-1 min-h-0 w-full overflow-hidden relative">
                   <motion.div
                     variants={{
                       initial: { scale: 1 },
@@ -182,7 +205,7 @@ export function ItemGridSection({
                         imageClassName={imageClassName}
                       />
                     ) : (
-                      <Image
+                      <GridImage
                         src={item.image}
                         alt={item.title}
                         width={600}
@@ -191,33 +214,32 @@ export function ItemGridSection({
                           "h-full w-full object-cover",
                           imageClassName,
                         )}
-                        suppressHydrationWarning
                       />
                     )}
                   </motion.div>
                 </div>
 
-                {/* Static Bottom Title (Initially visible, hides by sliding down) */}
+                {/* Desktop Static Bottom Title (Initially visible, hides by sliding down on hover) */}
                 <motion.div
                   variants={{
                     initial: { y: 0, opacity: 1 },
                     hover: { y: 100, opacity: 0 },
                   }}
                   transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                  className="absolute bottom-0 left-0 right-0 bg-[#FFCC80] flex items-center justify-center px-4 text-center z-10 h-24">
+                  className="hidden md:flex absolute bottom-0 left-0 right-0 bg-[#FFCC80] items-center justify-center px-4 text-center z-10 h-24">
                   <h3 className="text-xl font-bold text-[#6C3403] font-serif uppercase tracking-tight leading-tight">
                     {item.title}
                   </h3>
                 </motion.div>
 
-                {/* Hover Content Overlay (Peach Box - Slides Up) */}
+                {/* Desktop Hover Content Overlay (Peach Box - Slides Up on md+) */}
                 <motion.div
                   variants={{
                     initial: { y: "100%" },
                     hover: { y: "0%" },
                   }}
                   transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-                  className="absolute inset-0 flex flex-col justify-end z-20 pointer-events-none">
+                  className="hidden md:flex absolute inset-0 flex-col justify-end z-20 pointer-events-none">
                   <div className="bg-[#FFCC80]/95 backdrop-blur-sm p-8 min-h-[40%] flex flex-col space-y-4 pointer-events-auto">
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold text-[#6C3403] font-serif text-center leading-tight underline decoration-2 underline-offset-8">
@@ -241,6 +263,28 @@ export function ItemGridSection({
                     )}
                   </div>
                 </motion.div>
+
+                {/* Mobile Static Content (Visible only on small screens below the image) */}
+                <div className="md:hidden shrink-0 bg-[#FFCC80]/95 backdrop-blur-sm p-6 flex flex-col space-y-3 z-20 border-t border-[#6C3403]/10">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-[#6C3403] font-serif leading-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                  {item.description && (
+                    <p className="text-[#6C3403] text-sm leading-relaxed font-medium">
+                      {item.description}
+                    </p>
+                  )}
+                  {showDownloadButton && (
+                    <div className="pt-2">
+                      <DownloadCatalogueDialog
+                        buttonLabel="DOWNLOAD CATALOGUE"
+                        className="w-full bg-[#6C3403] text-white hover:bg-[#5a2b02] h-10 py-0! text-[10px]"
+                      />
+                    </div>
+                  )}
+                </div>
               </motion.div>
             </motion.div>
           ))}

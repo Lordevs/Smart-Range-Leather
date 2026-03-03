@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import { ArrowRight, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 import {
   Carousel,
   CarouselContent,
@@ -22,6 +23,37 @@ export interface CapabilityItem {
   title: string;
   icon: LucideIcon;
   image: string;
+}
+
+function CarouselImageWithSkeleton({
+  src,
+  alt,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  priority: boolean;
+}) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <>
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={cn(
+          "object-cover transition-opacity duration-700",
+          isLoaded ? "opacity-100" : "opacity-0",
+        )}
+        priority={priority}
+        suppressHydrationWarning
+        onLoad={() => setIsLoaded(true)}
+      />
+    </>
+  );
 }
 
 interface MobileCapabilitiesSectionProps {
@@ -115,13 +147,10 @@ export function MobileCapabilitiesSection({
                     <div className="p-1">
                       <div className="relative aspect-square w-full overflow-hidden rounded-xl shadow-2xl">
                         {/* Image */}
-                        <Image
+                        <CarouselImageWithSkeleton
                           src={item.image}
                           alt={item.title}
-                          fill
-                          className="object-cover"
                           priority={index === 0}
-                          suppressHydrationWarning
                         />
 
                         {/* Gradient Overlay */}

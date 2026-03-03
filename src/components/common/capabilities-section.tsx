@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 
 export interface CapabilityItem {
   id: string;
@@ -24,6 +25,29 @@ interface CapabilitiesSectionProps {
   onButtonClick?: () => void;
   buttonHref?: string;
   className?: string;
+}
+
+function AnimatedCapabilityImage({ src, alt }: { src: string; alt: string }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <>
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={cn(
+          "object-cover transition-opacity duration-700",
+          isLoaded ? "opacity-100" : "opacity-0",
+        )}
+        priority
+        suppressHydrationWarning
+        onLoad={() => setIsLoaded(true)}
+      />
+    </>
+  );
 }
 
 export function CapabilitiesSection({
@@ -162,13 +186,9 @@ export function CapabilitiesSection({
                       ease: [0.22, 1, 0.36, 1],
                     }}
                     className="absolute inset-0">
-                    <Image
+                    <AnimatedCapabilityImage
                       src={activeItem.image}
                       alt={activeItem.title}
-                      fill
-                      className="object-cover"
-                      priority
-                      suppressHydrationWarning
                     />
                     {/* Subtle overlay to soften the image and match the theme */}
                     <div className="absolute inset-0 bg-linear-to-tr from-[#121212]/30 to-transparent" />

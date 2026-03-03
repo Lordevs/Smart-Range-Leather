@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to customer
     await resend.emails.send({
-      from: "Smart Range Leather <onboarding@resend.dev>", // Replace with your verified sender email
+      from: `Smart Range Leather <${process.env.SENDER_EMAIL}>`,
       to: body.email,
       subject: "We received your message - Smart Range Leather",
       html: `
@@ -159,7 +159,7 @@ export async function POST(request: NextRequest) {
             <strong>Smart Range Leather Team</strong></p>
             <p style="color: #666; font-size: 12px;">
               Business Bay Dubai, UAE | Dagenham, UK | Texas, USA<br>
-              Email: info@smartrangeleather.com
+              Email: ${process.env.CONTACT_EMAIL}
             </p>
           </div>
         </div>

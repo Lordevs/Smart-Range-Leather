@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { ComponentType, ReactNode, useRef } from "react";
+import { ComponentType, ReactNode, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface DynamicHeroSectionProps {
   imageSrc?: string;
@@ -73,6 +74,7 @@ export function DynamicHeroSection({
   secondaryButtonClassName,
 }: DynamicHeroSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const scrollToNext = () => {
     if (sectionRef.current) {
@@ -98,13 +100,20 @@ export function DynamicHeroSection({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="relative h-full w-full">
+            {!imageLoaded && (
+              <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
+            )}
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-cover"
+              className={cn(
+                "object-cover transition-opacity duration-1000",
+                imageLoaded ? "opacity-100" : "opacity-0",
+              )}
               priority
               suppressHydrationWarning
+              onLoad={() => setImageLoaded(true)}
             />
           </motion.div>
         )}
