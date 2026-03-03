@@ -121,7 +121,11 @@ export function TextWithImageSection({
                       e.currentTarget.style.backgroundColor = "transparent";
                       e.currentTarget.style.color = accentColor;
                     }}>
-                    <span>{buttonText}</span>
+                    <span className="sr-only">
+                      {buttonText} ABOUT{" "}
+                      {typeof title === "string" ? title : tag}
+                    </span>
+                    <span aria-hidden="true">{buttonText}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 ) : (
@@ -140,7 +144,11 @@ export function TextWithImageSection({
                       e.currentTarget.style.backgroundColor = "transparent";
                       e.currentTarget.style.color = accentColor;
                     }}>
-                    <span>{buttonText}</span>
+                    <span className="sr-only">
+                      {buttonText} ABOUT{" "}
+                      {typeof title === "string" ? title : tag}
+                    </span>
+                    <span aria-hidden="true">{buttonText}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                 )}

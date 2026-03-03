@@ -70,8 +70,14 @@ export function Footer() {
                 <Link
                   key={social.name}
                   href={social.href}
+                  aria-label={`Follow us on ${social.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 flex items-center justify-center bg-primary rounded-sm transition-transform hover:scale-110">
-                  <social.icon className="w-5 h-5 text-primary-foreground" />
+                  <social.icon
+                    className="w-5 h-5 text-primary-foreground"
+                    aria-hidden="true"
+                  />
                 </Link>
               ))}
             </div>
@@ -88,9 +94,9 @@ export function Footer() {
               ease: [0.22, 1, 0.36, 1],
             }}
             className="space-y-8">
-            <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
+            <p className="text-primary font-bold uppercase tracking-wider text-sm">
               Quick Links
-            </h3>
+            </p>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -134,9 +140,9 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8">
-            <h3 className="text-primary font-bold uppercase tracking-wider text-sm">
+            <p className="text-primary font-bold uppercase tracking-wider text-sm">
               Contact
-            </h3>
+            </p>
             <ul className="space-y-6">
               <li className="flex items-center gap-4 text-secondary/80 text-sm group cursor-pointer hover:text-primary transition-colors">
                 <Mail className="w-5 h-5 text-primary shrink-0 transition-transform group-hover:scale-110" />
