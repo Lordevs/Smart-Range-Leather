@@ -25,7 +25,21 @@ interface LocationItem {
   address: string;
 }
 
-function ContactImageWithSkeleton({ src, alt, className, width, height }: any) {
+interface ContactImageWithSkeletonProps {
+  src: string;
+  alt: string;
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+function ContactImageWithSkeleton({
+  src,
+  alt,
+  className,
+  width,
+  height,
+}: ContactImageWithSkeletonProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <div className="relative w-full h-full flex items-center justify-center">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Mail } from "lucide-react";
-import { ReactNode, useState, useEffect, useRef } from "react";
+import { ReactNode, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
@@ -41,6 +41,16 @@ interface ItemGridSectionProps {
   showDownloadButton?: boolean;
 }
 
+interface GridImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+  fill?: boolean;
+  width?: number;
+  height?: number;
+}
+
 function GridImage({
   src,
   alt,
@@ -49,7 +59,7 @@ function GridImage({
   fill,
   width,
   height,
-}: any) {
+}: GridImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -133,24 +143,6 @@ export function ItemGridSection({
   footer,
   showDownloadButton,
 }: ItemGridSectionProps) {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect if device is mobile on mount
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setExpandedIndex(expandedIndex === index ? null : index);
-    }
-  };
   return (
     <section className={cn("w-full bg-white py-20 px-6", className)}>
       <div className="mx-auto max-w-7xl">
