@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Tinos } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/common/navbar";
 import { Footer } from "@/components/common/footer";
@@ -102,6 +103,19 @@ export default function RootLayout({
       <body
         className={`${tinos.variable} font-sans antialiased`}
         suppressHydrationWarning>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NYY4K41WWM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NYY4K41WWM');
+          `}
+        </Script>
         <Navbar />
         {children}
         <ScrollToTop />
