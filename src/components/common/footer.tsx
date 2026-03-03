@@ -21,13 +21,6 @@ const socialLinks = [
 
 const quickLinks = NAV_ITEMS;
 
-// const productLinks = [
-//   { name: "Leather Jackets", href: "/products/leather-jackets" },
-//   { name: "Shearling Jackets", href: "/products/shearling-jackets" },
-//   { name: "Leather Bags", href: "/products/leather-bags" },
-//   { name: "Accessories", href: "/products/accessories" },
-//   { name: "Custom Collections", href: "/products/custom-collections" },
-// ];
 
 export function Footer() {
   const [logoLoaded, setLogoLoaded] = useState(false);
