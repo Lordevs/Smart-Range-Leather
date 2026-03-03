@@ -31,6 +31,7 @@ interface ContactImageWithSkeletonProps {
   className?: string;
   width?: number;
   height?: number;
+  priority?: boolean;
 }
 
 function ContactImageWithSkeleton({
@@ -39,11 +40,12 @@ function ContactImageWithSkeleton({
   className,
   width,
   height,
+  priority = false,
 }: ContactImageWithSkeletonProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      {!isLoaded && (
+      {!isLoaded && !priority && (
         <Skeleton className="absolute inset-0 z-0 h-full w-full rounded-none" />
       )}
       <Image
@@ -53,9 +55,11 @@ function ContactImageWithSkeleton({
         height={height}
         className={cn(
           className,
-          "transition-opacity duration-700 relative z-10",
-          isLoaded ? "opacity-100" : "opacity-0",
+          !priority && "transition-opacity duration-700",
+          (!priority && isLoaded) || priority ? "opacity-100" : "opacity-0",
+          "relative z-10",
         )}
+        priority={priority}
         suppressHydrationWarning
         onLoad={() => setIsLoaded(true)}
       />
