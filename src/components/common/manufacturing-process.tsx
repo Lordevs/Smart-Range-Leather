@@ -65,7 +65,7 @@ export function ManufacturingProcess({
                   <h3 className="text-xl max-w-7xl sm:max-w-40 font-medium text-foreground leading-snug tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground max-w-7xl sm:max-w-40 text-lg sm:text-[14px] leading-relaxed font-medium opacity-80">
+                  <p className="text-muted-foreground max-w-7xl sm:max-w-40 text-lg sm:text-[15x] leading-relaxed font-base opacity-80">
                     {step.description}
                   </p>
                 </CardContent>

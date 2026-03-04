@@ -86,7 +86,7 @@ export function ClientSegmentsSection({
                 <h3 className="text-xl font-medium font-serif text-muted">
                   {segment.title}
                 </h3>
-                <p className="text-sm text-muted/60 leading-relaxed max-w-[280px]">
+                <p className="text-base text-muted/60 leading-relaxed max-w-[300px]">
                   {segment.description}
                 </p>
               </div>
