@@ -99,7 +99,7 @@ export function OurProductsSection() {
       footer={
         <DownloadCatalogueDialog
           buttonLabel="Request Catalogue"
-          className="bg-[#6C3403] text-[#fdfbf8] hover:bg-[#5a2b02]! px-12! py-7! tracking-widest!"
+          className="bg-[#6C3403] text-[#fdfbf8] hover:bg-[#5a2b02]! px-12! py-7! tracking-widest! text-base"
         />
       }
     />
