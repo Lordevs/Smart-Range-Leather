@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com";
+    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com";
 
   const routes = [
     {

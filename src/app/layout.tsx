@@ -16,8 +16,11 @@ const tinos = Tinos({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com",
+    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com",
   ),
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com",
+  },
   title: {
     default: "Smart Range Leather - Premium Leather Manufacturing & Export",
     template: "%s | Smart Range Leather",
@@ -53,7 +56,7 @@ export const metadata: Metadata = {
     title: "Smart Range Leather - Premium Leather Manufacturing & Export",
     description:
       "Specialising in high-end leather garments and accessories. Explore our vertically integrated manufacturing process, low MOQs, and global export capabilities.",
-    url: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com"}/`,
+    url: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/`,
     siteName: "Smart Range Leather",
     locale: "en_US",
     type: "website",
@@ -65,13 +68,13 @@ export const metadata: Metadata = {
     description:
       "Expertly crafted leather jackets, shearling, and accessories. Vertically integrated manufacturing for brands worldwide.",
     images: [
-      `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com"}/opengraph-image.png`,
+      `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/opengraph-image.png`,
     ],
   },
   // Additional meta tags
   other: {
     "msapplication-TileColor": "#6C3403",
-    "msapplication-TileImage": `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com"}/logo.svg`,
+    "msapplication-TileImage": `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/logo.svg`,
     "application-name": "Smart Range Leather",
     "apple-mobile-web-app-title": "Smart Range Leather",
     "apple-mobile-web-app-capable": "yes",

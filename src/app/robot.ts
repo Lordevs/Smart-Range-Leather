@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_FRONTEND_URL || "https://smartrangeleather.com";
+  process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
