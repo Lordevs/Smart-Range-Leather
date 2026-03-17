@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Discover Smart Range Leather, a leading vertically integrated manufacturer with over 20 years of expertise in premium leather garments, bags, and accessories. Learn about our heritage, craftsmanship, and commitment to quality.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/privacy-policy`,
+    canonical: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/privacy-policy/`,
   },
   openGraph: {
     title: "Privacy Policy - Smart Range Leather",
     description:
       "Learn about our vertically integrated manufacturing process and how we help global brands bring premium leather collections to market with precision and quality.",
-    url: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/privacy-policy`,
+    url: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/privacy-policy/`,
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/opengraph-image.png`,

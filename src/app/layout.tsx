@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com",
   ),
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com",
+    canonical: `${process.env.NEXT_PUBLIC_FRONTEND_URL || "https://www.smartrangeleather.com"}/`,
   },
   title: {
     default: "Smart Range Leather - Premium Leather Manufacturing & Export",
@@ -91,9 +91,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "google-site-verification-id", // Placeholder
-  },
+
 };
 
 export default function RootLayout({
